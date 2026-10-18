@@ -6,6 +6,7 @@ export function professionalServiceJsonLd() {
   const [criacao, manutencao] = landing.planos.lista;
   const telefone = whatsappNumber(site.whatsapp);
   const instagram = contactHref("instagram", site.instagram);
+  const mensal = Number(manutencao.preco.valor);
 
   return {
     "@context": "https://schema.org",
@@ -24,19 +25,19 @@ export function professionalServiceJsonLd() {
     ...(isConfirmed(site.email) ? { email: site.email } : {}),
     ...(instagram ? { sameAs: [instagram] } : {}),
     makesOffer: [
+      // A criação não leva preço: o valor é projetado para cada negócio.
       {
         "@type": "Offer",
-        name: `${criacao?.nome} de site`,
-        description: criacao?.inclui,
-        priceSpecification: { "@type": "PriceSpecification", maxPrice: 1000, priceCurrency: "BRL" },
+        name: `${criacao.nome} de site`,
+        description: criacao.inclui,
       },
       {
         "@type": "Offer",
-        name: `${manutencao?.nome} mensal`,
-        description: manutencao?.inclui,
+        name: `${manutencao.nome} mensal`,
+        description: manutencao.inclui,
         priceSpecification: {
           "@type": "UnitPriceSpecification",
-          price: 129,
+          price: mensal,
           priceCurrency: "BRL",
           unitText: "mês",
         },

@@ -1,13 +1,14 @@
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
+type Preco =
+  | { readonly tipo: "projecao"; readonly texto: string; readonly nota: string }
+  | { readonly tipo: "fixo"; readonly moeda: string; readonly valor: string; readonly periodo: string };
+
 type Plano = {
   readonly nome: string;
   readonly publico: string;
-  readonly prefixo: string;
-  readonly moeda: string;
-  readonly valor: string;
-  readonly periodo: string;
+  readonly preco: Preco;
   readonly inclui: string;
 };
 
@@ -18,6 +19,26 @@ type PlansProps = {
   foraTitulo: string;
   fora: readonly string[];
 };
+
+function Price({ preco }: { preco: Preco }) {
+  if (preco.tipo === "projecao") {
+    return (
+      <p className="m-0 grid max-w-[22ch] gap-s2">
+        <span className="font-display text-lead leading-tight font-light">{preco.texto}</span>
+        <span className="text-small">{preco.nota}</span>
+      </p>
+    );
+  }
+  return (
+    <p className="m-0 leading-none">
+      <span className="font-display text-lead font-light">{preco.moeda}</span>{" "}
+      <span className="font-display text-display leading-[0.85] font-light tracking-(--tracking-display) tabular">
+        {preco.valor}
+      </span>{" "}
+      <span className="block pt-s3">{preco.periodo}</span>
+    </p>
+  );
+}
 
 // As duas etapas são uma oferta só; o botão fica na primeira, que é por onde todo cliente começa.
 export function Plans({ titulo, lista, cta, foraTitulo, fora }: PlansProps) {
@@ -43,14 +64,7 @@ export function Plans({ titulo, lista, cta, foraTitulo, fora }: PlansProps) {
                 <p className="m-0 max-w-[42ch]">{plano.inclui}</p>
               </div>
               <div className="flex flex-wrap items-end justify-between gap-s5">
-                <p className="m-0 leading-none">
-                  {plano.prefixo ? <span className="block pb-s2">{plano.prefixo}</span> : null}
-                  <span className="font-display text-lead font-light">{plano.moeda}</span>{" "}
-                  <span className="font-display text-display leading-[0.85] font-light tracking-(--tracking-display) tabular">
-                    {plano.valor}
-                  </span>{" "}
-                  <span className="block pt-s3">{plano.periodo}</span>
-                </p>
+                <Price preco={plano.preco} />
                 {index === 0 ? (
                   <a href={cta.href} className={buttonVariants({ size: "lg" })}>
                     {cta.label}

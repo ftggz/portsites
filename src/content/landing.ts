@@ -4,7 +4,7 @@ export const site = {
   whatsapp: "[A CONFIRMAR]",
   email: "[A CONFIRMAR]",
   instagram: "[A CONFIRMAR]",
-  documento: "CNPJ ou CPF [A CONFIRMAR]",
+  documento: "CPF [A CONFIRMAR]",
   cidade: "Rio de Janeiro",
   estado: "RJ",
   ano: 2026,
@@ -26,7 +26,7 @@ export const landing = {
   meta: {
     title: `${site.marca} | Sites para negócios locais do Rio de Janeiro`,
     description:
-      "Site profissional para negócio local do Rio, rápido no celular e feito em código, que leva o cliente direto ao seu WhatsApp. Criação até R$ 1.000 e manutenção de R$ 129 por mês.",
+      "Site profissional para negócio local do Rio, rápido no celular e feito em código, que leva o cliente direto ao seu WhatsApp. Manutenção de R$ 129 por mês.",
     ogAlt: `${site.marca}: da busca ao WhatsApp. Sites para negócios locais do Rio de Janeiro.`,
   },
   pularLink: "Pular para o conteúdo",
@@ -111,7 +111,7 @@ export const landing = {
         frase: "Primeiro, faço uma demonstração do seu site.",
         pedido: "Oi! Tenho uma oficina em Madureira e queria um site.",
         resposta:
-          "Em até 5 dias úteis [A CONFIRMAR], o link de uma demonstração com o nome, os serviços e as fotos do seu negócio.",
+          "Em até 5 dias úteis, o link de uma demonstração com o nome, os serviços e as fotos do seu negócio.",
       },
       {
         frase: "Depois, você aprova e pede ajustes.",
@@ -140,19 +140,17 @@ export const landing = {
       {
         nome: "Criação",
         publico: "Para tirar o site do papel, uma vez só.",
-        prefixo: "até",
-        moeda: "R$",
-        valor: "1.000",
-        periodo: "pagamento único",
+        preco: {
+          tipo: "projecao",
+          texto: "Valor projetado para o seu negócio",
+          nota: "Você recebe a projeção antes de decidir e paga uma vez.",
+        },
         inclui: "Demonstração, ajustes até a sua aprovação e publicação no seu domínio.",
       },
       {
         nome: "Manutenção",
-        publico: "Começa quando o site é publicado, para ele seguir no ar e em dia.",
-        prefixo: "",
-        moeda: "R$",
-        valor: "129",
-        periodo: "por mês",
+        publico: "Começa quando o site é publicado e faz parte do serviço, porque é ela que mantém o site no ar.",
+        preco: { tipo: "fixo", moeda: "R$", valor: "129", periodo: "por mês" },
         inclui:
           "Hospedagem, HTTPS (o cadeado no navegador), atualizações de segurança, cópia de segurança e até 3 alterações por mês, entregues em até 48 horas úteis.",
       },
@@ -198,12 +196,21 @@ export const landing = {
       {
         pergunta: "Quanto custa?",
         resposta:
-          "A criação custa até R$ 1.000, pagos uma vez. A manutenção custa R$ 129 por mês.",
+          "A criação tem um valor projetado para cada negócio, que você recebe antes de decidir e paga uma vez. A manutenção custa R$ 129 por mês.",
+      },
+      {
+        pergunta: "Preciso contratar a manutenção?",
+        resposta:
+          "Sim. É a manutenção que paga a hospedagem e mantém o site no ar e seguro. Se um dia cancelar, você leva os arquivos.",
+      },
+      {
+        pergunta: "Como pago?",
+        resposta: "Por Pix ou cartão [A CONFIRMAR].",
       },
       {
         pergunta: "Qual é o prazo?",
         resposta:
-          "A demonstração fica pronta em até 5 dias úteis [A CONFIRMAR] depois que você me manda as informações do negócio. A publicação acontece assim que você aprova.",
+          "A demonstração fica pronta em até 5 dias úteis depois que você me manda as informações do negócio. A publicação acontece assim que você aprova.",
       },
       {
         pergunta: "O que conta como uma alteração?",
@@ -218,14 +225,15 @@ export const landing = {
       {
         pergunta: "E se eu cancelar?",
         resposta:
-          "Você avisa e a manutenção para no mês seguinte [A CONFIRMAR]. O domínio já é seu, e eu entrego os arquivos do site para você levar a outra hospedagem.",
+          "Você avisa e a manutenção para no mês seguinte. O domínio já é seu, e eu entrego os arquivos do site para você levar a outra hospedagem.",
       },
     ],
   },
 
   contato: {
     titulo: ["Me conte do", "seu negócio"],
-    frase: "O formulário só monta o texto e abre o seu WhatsApp. O texto não passa por servidor nem fica guardado.",
+    frase:
+      "O formulário só monta o texto e abre o seu WhatsApp. O texto não passa por servidor nem fica guardado. Respondo em até 4 horas úteis.",
     previa: {
       rotulo: "A mensagem vai assim",
       vazio: { nome: "(seu nome)", negocio: "(seu negócio)", bairro: "(seu bairro)" },
@@ -248,7 +256,7 @@ export const landing = {
     },
     modelo: "Olá! Meu nome é {nome} e quero um site para o meu negócio, {negocio}, em {bairro}.",
     enviar: "Abrir no WhatsApp",
-    sucesso: "Abri o WhatsApp em outra aba. Se não abriu, use este link.",
+    sucesso: "Abri o WhatsApp em outra aba. Respondo em até 4 horas úteis. Se não abriu, use este link.",
     sucessoLink: "Abrir o WhatsApp",
     semNumero: "O número de WhatsApp ainda não foi configurado [A CONFIRMAR]. A mensagem está pronta, mas não há para onde enviar.",
     direto: "Prefere não preencher?",
