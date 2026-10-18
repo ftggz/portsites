@@ -21,7 +21,8 @@ async function loadSource(photo) {
   }
   const file = join(sourceDir, `${photo.id}.jpg`);
   if (!existsSync(file)) {
-    const response = await fetch(`${photo.url}?fm=jpg&q=90&w=2400`);
+    // Fotos usadas com zoom forte pedem um original maior (sourceWidth).
+    const response = await fetch(`${photo.url}?fm=jpg&q=90&w=${photo.sourceWidth ?? 2400}`);
     if (!response.ok) throw new Error(`Falha ao baixar ${photo.id}: HTTP ${response.status}`);
     writeFileSync(file, Buffer.from(await response.arrayBuffer()));
   }
@@ -45,6 +46,22 @@ function cropBox(width, height, ratio, [focusX, focusY]) {
   };
 }
 
+// "zoom" fecha o recorte em volta do ponto de foco, para a mesma foto aparecer mais de perto.
+function zoomBox(box, width, height, output) {
+  const zoom = output.zoom ?? 1;
+  if (zoom <= 1) return box;
+  const [focusX, focusY] = output.focus ?? [0.5, 0.5];
+  const boxWidth = Math.round(box.width / zoom);
+  const boxHeight = Math.round(box.height / zoom);
+  const clamp = (value, max) => Math.min(Math.max(value, 0), max);
+  return {
+    left: clamp(Math.round(focusX * width - boxWidth / 2), width - boxWidth),
+    top: clamp(Math.round(focusY * height - boxHeight / 2), height - boxHeight),
+    width: boxWidth,
+    height: boxHeight,
+  };
+}
+
 const manifest = {};
 for (const output of config.outputs) {
   const photo = photos.get(output.photo);
@@ -52,7 +69,7 @@ for (const output of config.outputs) {
   const input = await loadSource(photo);
   const { width, height } = await sharp(input).metadata();
   const [ratioW, ratioH] = output.aspect.split(":").map(Number);
-  const box = cropBox(width, height, ratioW / ratioH, output.focus ?? [0.5, 0.5]);
+  const box = zoomBox(cropBox(width, height, ratioW / ratioH, output.focus ?? [0.5, 0.5]), width, height, output);
   const dir = join(publicDir, output.dir);
   mkdirSync(dir, { recursive: true });
 

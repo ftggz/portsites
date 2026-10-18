@@ -5,7 +5,6 @@ export const pizzaria = {
     themeColor: "#351a2b",
   },
   marca: { nome: "Forno Aceso", descritor: "Pizzaria de forno a lenha" },
-  pularLink: "Pular para o conteúdo",
   navLabel: "Seções da página",
   nav: [
     { label: "Cardápio", href: "#cardapio" },

@@ -16,6 +16,8 @@ const pairs = [
   ["muted-foreground", "surface", TEXT, "texto secundário sobre a superfície"],
   ["foreground", "surface-2", TEXT, "texto principal sobre a superfície 2"],
   ["muted-foreground", "surface-2", TEXT, "texto secundário sobre a superfície 2"],
+  ["foreground", "surface-3", TEXT, "texto principal sobre a superfície 3"],
+  ["muted-foreground", "surface-3", TEXT, "texto secundário sobre a superfície 3"],
   ["primary-foreground", "primary", TEXT, "texto do botão principal"],
   ["primary", "background", UI, "botão e anel de foco contra o fundo"],
   ["field-1-foreground", "field-1", TEXT, "texto sobre o campo 1"],
@@ -30,6 +32,11 @@ const sitePairs = {
   clinica: [
     ["muted-foreground", "field-1", TEXT, "texto secundário sobre o campo 1"],
     ["muted-foreground", "field-2", TEXT, "texto secundário sobre o campo 2"],
+  ],
+  oficina: [
+    ["field-2-foreground", "field-2-cell", TEXT, "texto nas células do orçamento"],
+    ["field-2-muted", "field-2-cell", TEXT, "exemplo dentro da célula do orçamento"],
+    ["field-2", "field-2-foreground", TEXT, "texto do botão de enviar, amarelo sobre preto"],
   ],
 };
 

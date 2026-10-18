@@ -6,7 +6,6 @@ import { ClinicaHeader } from "@/components/clinica/header";
 import { ClinicaHero } from "@/components/clinica/hero";
 import { Procedures } from "@/components/clinica/procedures";
 import { Steps } from "@/components/clinica/steps";
-import { SkipLink } from "@/components/skip-link";
 import { clinica } from "@/content/clinica";
 import { conceito } from "@/content/landing";
 import { creditsFor, type ImageKey } from "@/lib/images";
@@ -26,7 +25,6 @@ export default function ClinicaPage() {
   const { procedimentos, comoFunciona } = clinica;
   return (
     <div className="relative">
-      <SkipLink label={clinica.pularLink} />
       <ClinicaHeader brand={clinica.marca} navLabel={clinica.navLabel} nav={clinica.nav} />
       <main id="conteudo">
         <ClinicaHero

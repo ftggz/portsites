@@ -179,6 +179,156 @@
       "url": "https://unsplash.com/@katoblackmore"
     }
   },
+  "oficina-quadro": {
+    "src": "/images/oficina/oficina-quadro-2400.webp",
+    "width": 2400,
+    "height": 1600,
+    "srcSet": "/images/oficina/oficina-quadro-960.webp 960w, /images/oficina/oficina-quadro-1600.webp 1600w, /images/oficina/oficina-quadro-2400.webp 2400w",
+    "credit": {
+      "author": "Elena Mozhvilo",
+      "url": "https://unsplash.com/@miracleday"
+    }
+  },
+  "oficina-quadro-retrato": {
+    "src": "/images/oficina/oficina-quadro-retrato-800.webp",
+    "width": 800,
+    "height": 1600,
+    "srcSet": "/images/oficina/oficina-quadro-retrato-480.webp 480w, /images/oficina/oficina-quadro-retrato-800.webp 800w",
+    "credit": {
+      "author": "Elena Mozhvilo",
+      "url": "https://unsplash.com/@miracleday"
+    }
+  },
+  "oficina-passo-painel": {
+    "src": "/images/oficina/oficina-passo-painel-1200.webp",
+    "width": 1200,
+    "height": 900,
+    "srcSet": "/images/oficina/oficina-passo-painel-480.webp 480w, /images/oficina/oficina-passo-painel-800.webp 800w, /images/oficina/oficina-passo-painel-1200.webp 1200w",
+    "credit": {
+      "author": "Vlad Deep",
+      "url": "https://unsplash.com/@vladdeep"
+    }
+  },
+  "oficina-passo-perto": {
+    "src": "/images/oficina/oficina-passo-perto-1200.webp",
+    "width": 1200,
+    "height": 900,
+    "srcSet": "/images/oficina/oficina-passo-perto-480.webp 480w, /images/oficina/oficina-passo-perto-800.webp 800w, /images/oficina/oficina-passo-perto-1200.webp 1200w",
+    "credit": {
+      "author": "Eduardo Taulois",
+      "url": "https://unsplash.com/@dudutaulois"
+    }
+  },
+  "oficina-passo-ok": {
+    "src": "/images/oficina/oficina-passo-ok-1200.webp",
+    "width": 1200,
+    "height": 900,
+    "srcSet": "/images/oficina/oficina-passo-ok-480.webp 480w, /images/oficina/oficina-passo-ok-800.webp 800w, /images/oficina/oficina-passo-ok-1200.webp 1200w",
+    "credit": {
+      "author": "Media Digital",
+      "url": "https://unsplash.com/@mediadigital2022"
+    }
+  },
+  "oficina-servico-chegada": {
+    "src": "/images/oficina/oficina-servico-chegada-1200.webp",
+    "width": 1200,
+    "height": 900,
+    "srcSet": "/images/oficina/oficina-servico-chegada-480.webp 480w, /images/oficina/oficina-servico-chegada-800.webp 800w, /images/oficina/oficina-servico-chegada-1200.webp 1200w",
+    "credit": {
+      "author": "Zoshua Colah",
+      "url": "https://unsplash.com/@zoshuacolah"
+    }
+  },
+  "oficina-servico-freio": {
+    "src": "/images/oficina/oficina-servico-freio-1200.webp",
+    "width": 1200,
+    "height": 900,
+    "srcSet": "/images/oficina/oficina-servico-freio-480.webp 480w, /images/oficina/oficina-servico-freio-800.webp 800w, /images/oficina/oficina-servico-freio-1200.webp 1200w",
+    "credit": {
+      "author": "Benjamin Brunner",
+      "url": "https://unsplash.com/@ben_brunner"
+    }
+  },
+  "oficina-servico-troca": {
+    "src": "/images/oficina/oficina-servico-troca-1200.webp",
+    "width": 1200,
+    "height": 900,
+    "srcSet": "/images/oficina/oficina-servico-troca-480.webp 480w, /images/oficina/oficina-servico-troca-800.webp 800w, /images/oficina/oficina-servico-troca-1200.webp 1200w",
+    "credit": {
+      "author": "Bengkel Mobil Matic Bandung",
+      "url": "https://unsplash.com/@mobilmaticbandung"
+    }
+  },
+  "oficina-servico-peca": {
+    "src": "/images/oficina/oficina-servico-peca-1200.webp",
+    "width": 1200,
+    "height": 900,
+    "srcSet": "/images/oficina/oficina-servico-peca-480.webp 480w, /images/oficina/oficina-servico-peca-800.webp 800w, /images/oficina/oficina-servico-peca-1200.webp 1200w",
+    "credit": {
+      "author": "ILLKARAH",
+      "url": "https://unsplash.com/@illkarah"
+    }
+  },
+  "oficina-galeria-pneus": {
+    "src": "/images/oficina/oficina-galeria-pneus-1200.webp",
+    "width": 1200,
+    "height": 1600,
+    "srcSet": "/images/oficina/oficina-galeria-pneus-480.webp 480w, /images/oficina/oficina-galeria-pneus-800.webp 800w, /images/oficina/oficina-galeria-pneus-1200.webp 1200w",
+    "credit": {
+      "author": "Erik Mclean",
+      "url": "https://unsplash.com/@introspectivedsgn"
+    }
+  },
+  "oficina-galeria-maleta": {
+    "src": "/images/oficina/oficina-galeria-maleta-1200.webp",
+    "width": 1200,
+    "height": 900,
+    "srcSet": "/images/oficina/oficina-galeria-maleta-480.webp 480w, /images/oficina/oficina-galeria-maleta-800.webp 800w, /images/oficina/oficina-galeria-maleta-1200.webp 1200w",
+    "credit": {
+      "author": "LouisMoto",
+      "url": "https://unsplash.com/@louismotorrad"
+    }
+  },
+  "oficina-galeria-banda": {
+    "src": "/images/oficina/oficina-galeria-banda-1200.webp",
+    "width": 1200,
+    "height": 900,
+    "srcSet": "/images/oficina/oficina-galeria-banda-480.webp 480w, /images/oficina/oficina-galeria-banda-800.webp 800w, /images/oficina/oficina-galeria-banda-1200.webp 1200w",
+    "credit": {
+      "author": "Goh Rhy Yan",
+      "url": "https://unsplash.com/@gohrhyyan"
+    }
+  },
+  "oficina-galeria-luvas": {
+    "src": "/images/oficina/oficina-galeria-luvas-1800.webp",
+    "width": 1800,
+    "height": 1125,
+    "srcSet": "/images/oficina/oficina-galeria-luvas-800.webp 800w, /images/oficina/oficina-galeria-luvas-1280.webp 1280w, /images/oficina/oficina-galeria-luvas-1800.webp 1800w",
+    "credit": {
+      "author": "Jd Leather",
+      "url": "https://unsplash.com/@jdleather"
+    }
+  },
+  "oficina-galeria-motor": {
+    "src": "/images/oficina/oficina-galeria-motor-1200.webp",
+    "width": 1200,
+    "height": 900,
+    "srcSet": "/images/oficina/oficina-galeria-motor-480.webp 480w, /images/oficina/oficina-galeria-motor-800.webp 800w, /images/oficina/oficina-galeria-motor-1200.webp 1200w",
+    "credit": {
+      "author": "Mike Newbry",
+      "url": "https://unsplash.com/@mikenewbry"
+    }
+  },
+  "oficina-galeria-chave": {
+    "src": "/images/oficina/oficina-galeria-chave-1200.webp",
+    "width": 1200,
+    "height": 900,
+    "srcSet": "/images/oficina/oficina-galeria-chave-480.webp 480w, /images/oficina/oficina-galeria-chave-800.webp 800w, /images/oficina/oficina-galeria-chave-1200.webp 1200w",
+    "credit": {
+      "author": "Sasun Bughdaryan",
+      "url": "https://unsplash.com/@sasun1990"
+    }
+  },
   "print-clinica-desktop": {
     "src": "/images/portfolio/print-clinica-desktop-1800.webp",
     "width": 1800,

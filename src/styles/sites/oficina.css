@@ -3,6 +3,7 @@
   --background: #0a0a0a;
   --surface: #151515;
   --surface-2: #1f1f1f;
+  --surface-3: #252525;
   --foreground: #efefef;
   --muted-foreground: #8c8c8c;
   --primary: #f5c400;
@@ -11,6 +12,8 @@
   --field-1-foreground: #0a0a0a;
   --field-2: #f5c400;
   --field-2-foreground: #0a0a0a;
+  --field-2-cell: #e3b600;
+  --field-2-muted: #4a3b00;
 
   --font-display: var(--font-hanken);
   --font-text: var(--font-hanken);
@@ -20,6 +23,7 @@
   --step-small: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
   --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
   --step-lead: clamp(1.25rem, 1.05rem + 0.6vw, 1.5rem);
+  --step-title: clamp(1.625rem, 1.2rem + 1.2vw, 2.25rem);
   --step-head: clamp(2.25rem, 1rem + 5vw, 5.5rem);
   --step-display: clamp(5.25rem, 12.5vw, 12rem);
 
@@ -43,7 +47,1650 @@
   --rise: 0px;
 }
 
-/* O único movimento da página é a foto principal abrindo de baixo para cima, uma vez. */
+/* A página é um quadro: margem e vão estreitos, blocos chapados, sem contorno nem sombra. */
+.claras-page {
+  display: grid;
+  gap: var(--gutter);
+  padding: var(--margin);
+}
+
+.claras-board {
+  display: grid;
+  gap: var(--gutter);
+}
+
+.claras-plus {
+  position: relative;
+  flex: none;
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.claras-plus::before,
+.claras-plus::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+}
+
+.claras-plus::after {
+  transform: rotate(90deg);
+  transition: transform var(--t-hover) var(--ease-out);
+}
+
+[open] > summary .claras-plus::after {
+  transform: none;
+}
+
+.claras-link {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 0.07em;
+  text-underline-offset: 0.18em;
+  cursor: pointer;
+}
+
+/* Topo: sigla, links a partir da linha do meio e o botão de orçamento. */
+.claras-top {
+  position: relative;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: 3.75rem auto minmax(0, 1fr);
+  gap: var(--gutter);
+  container-type: inline-size;
+}
+
+.claras-top__mark {
+  display: grid;
+  height: 3.75rem;
+  place-items: center;
+  background-color: var(--foreground);
+  color: var(--background);
+  font-size: var(--step-lead);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.claras-top__nav {
+  display: none;
+}
+
+.claras-top__nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.claras-top__nav a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  text-decoration: none;
+}
+
+.claras-top__nav a:hover {
+  text-decoration: underline;
+}
+
+.claras-top__cta {
+  display: flex;
+  min-height: 3.75rem;
+  align-items: center;
+  padding-inline: var(--tile-pad);
+  border: 0;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  font: inherit;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background-color var(--t-hover) ease,
+    color var(--t-hover) ease,
+    transform var(--t-press) var(--ease-out);
+}
+
+.claras-top__cta:active {
+  transform: scale(0.98);
+}
+
+@media (hover: hover) {
+  .claras-top__cta:hover {
+    background-color: var(--foreground);
+    color: var(--background);
+  }
+}
+
+.claras-menu > summary {
+  display: flex;
+  min-height: 3.75rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-inline: var(--tile-pad);
+  background-color: var(--surface);
+  font-weight: 500;
+  list-style: none;
+  cursor: pointer;
+  transition:
+    background-color var(--t-hover) ease,
+    color var(--t-hover) ease;
+}
+
+.claras-menu > summary::-webkit-details-marker {
+  display: none;
+}
+
+.claras-menu[open] > summary {
+  background-color: var(--foreground);
+  color: var(--background);
+}
+
+.claras-menu__panel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  padding-block: var(--gutter);
+  background-color: var(--background);
+}
+
+.claras-menu__panel ul {
+  display: grid;
+  gap: var(--gutter);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.claras-menu__panel a {
+  display: flex;
+  min-height: 3.5rem;
+  align-items: center;
+  padding-inline: var(--tile-pad);
+  background-color: var(--surface-2);
+  font-size: var(--step-lead);
+  text-decoration: none;
+}
+
+/* Do tablet em diante o botão fica do tamanho do texto, e o bloco do menu ocupa o resto. */
+@media (min-width: 48rem) {
+  .claras-top {
+    grid-template-columns: 3.75rem minmax(0, 1fr) auto;
+  }
+}
+
+@media (min-width: 64rem) {
+  /* Os links começam na linha do meio do quadro, junto da coluna da direita. */
+  .claras-top__nav {
+    display: flex;
+    align-items: center;
+    padding-right: var(--tile-pad);
+    padding-left: calc(50cqi - var(--gutter) / 2 - 3.75rem);
+    background-color: var(--surface);
+  }
+
+  .claras-menu {
+    display: none;
+  }
+}
+
+/* Primeira tela: o nome, duas fotos em cinza e duas frases. */
+.claras-hero {
+  display: grid;
+  gap: var(--gutter);
+}
+
+.claras-hero__name {
+  display: flex;
+  min-height: 30svh;
+  align-items: flex-end;
+  padding: var(--tile-pad);
+}
+
+.claras-hero__name h1 {
+  margin: 0;
+  font-size: 22vw;
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: var(--tracking-display);
+}
+
+.claras-hero__photo {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background-color: var(--surface);
+}
+
+.claras-hero__photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.claras-hero__second {
+  order: 1;
+}
+
+.claras-hero__pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gutter);
+}
+
+/* Os dois blocos começam quadrados e crescem juntos quando o texto pede mais altura. Esticar nos
+   dois eixos impede que a proporção alargue o bloco além da coluna. */
+.claras-hero__pair > * {
+  align-self: stretch;
+  justify-self: stretch;
+  margin: 0;
+  aspect-ratio: 1;
+  padding: var(--tile-pad);
+  font-size: var(--step-lead);
+  line-height: 1.3;
+}
+
+.claras-hero__offer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.claras-hero__offer p {
+  margin: 0;
+}
+
+/* Botão preto dentro dos blocos amarelos, com as cores do campo invertidas. */
+.claras-inverse-button {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  align-self: flex-start;
+  padding-inline: var(--space-4);
+  border: 0;
+  background-color: var(--field-2-foreground);
+  color: var(--field-2);
+  font: inherit;
+  font-size: var(--step-body);
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background-color var(--t-hover) ease,
+    color var(--t-hover) ease,
+    transform var(--t-press) var(--ease-out);
+}
+
+.claras-inverse-button:active {
+  transform: scale(0.98);
+}
+
+@media (hover: hover) {
+  .claras-inverse-button:hover {
+    background-color: var(--field-1);
+    color: var(--field-1-foreground);
+  }
+}
+
+@media (min-width: 48rem) {
+  .claras-hero {
+    min-height: calc(100svh - var(--banner-height, 2.5rem) - 3.75rem - var(--margin) - 2 * var(--gutter));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .claras-hero__name {
+    min-height: 0;
+  }
+
+  .claras-hero__name h1 {
+    font-size: min(var(--step-display), 19svh);
+  }
+
+  .claras-hero__photo {
+    min-height: 14rem;
+    aspect-ratio: auto;
+  }
+
+  .claras-hero__second {
+    order: 0;
+  }
+
+  .claras-hero__pair > * {
+    aspect-ratio: auto;
+  }
+}
+
+/* Serviços: a palavra ocupa o bloco de ponta a ponta e cada categoria abre no lugar. */
+.claras-services {
+  display: grid;
+  gap: var(--gutter);
+}
+
+.claras-services__word {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-7);
+  padding: var(--tile-pad);
+  container-type: inline-size;
+}
+
+.claras-word {
+  margin: 0;
+  font-size: 25.5cqi;
+  font-weight: 500;
+  line-height: 0.8;
+  letter-spacing: var(--tracking-display);
+}
+
+.claras-services__note {
+  max-width: 34ch;
+  margin: 0;
+  font-size: var(--step-lead);
+  line-height: 1.3;
+}
+
+.claras-bars {
+  display: grid;
+  align-content: start;
+  gap: var(--gutter);
+}
+
+.claras-bar {
+  background-color: var(--surface);
+}
+
+.claras-bar > summary {
+  display: flex;
+  min-height: 3.5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-inline: var(--tile-pad);
+  font-weight: 500;
+  list-style: none;
+  cursor: pointer;
+  transition: background-color var(--t-hover) ease;
+}
+
+.claras-bar > summary::-webkit-details-marker {
+  display: none;
+}
+
+@media (hover: hover) {
+  .claras-bar > summary:hover {
+    background-color: var(--surface-3);
+  }
+}
+
+.claras-bar__items {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  padding: var(--space-2) var(--tile-pad) var(--tile-pad);
+  list-style: none;
+}
+
+.claras-bar__items li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.claras-bar__detail {
+  display: block;
+  color: var(--muted-foreground);
+  font-size: var(--step-small);
+}
+
+/* O preço é só da mão de obra; o que entra à parte vem logo embaixo dele. */
+.claras-bar__price {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.claras-bar__extra {
+  color: var(--muted-foreground);
+  font-size: var(--step-small);
+}
+
+.claras-services__help {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--tile-pad);
+}
+
+.claras-services__help p {
+  max-width: 40ch;
+  margin: 0;
+  font-size: var(--step-lead);
+  line-height: 1.3;
+}
+
+@media (min-width: 48rem) {
+  .claras-services {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .claras-services__word {
+    grid-column: 1 / 7;
+  }
+
+  .claras-bars {
+    grid-column: 7 / -1;
+  }
+}
+
+@media (min-width: 64rem) {
+  .claras-services__word {
+    grid-column: 1 / 6;
+  }
+
+  .claras-bars {
+    grid-column: 6 / -1;
+  }
+}
+
+/* Tudo à vista: uma foto só, cortada em blocos quadrados, com cinco blocos de cor no lugar de pedaços dela. */
+.claras-wall {
+  --cols: 3;
+  --rows: 6;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  gap: var(--gutter);
+}
+
+.claras-wall > [data-mx="1"] {
+  --gc: 1;
+}
+
+.claras-wall > [data-mx="2"] {
+  --gc: 2;
+}
+
+.claras-wall > [data-mx="3"] {
+  --gc: 3;
+}
+
+.claras-wall > [data-my="1"] {
+  --gr: 1;
+}
+
+.claras-wall > [data-my="2"] {
+  --gr: 2;
+}
+
+.claras-wall > [data-my="3"] {
+  --gr: 3;
+}
+
+.claras-wall > [data-my="4"] {
+  --gr: 4;
+}
+
+.claras-wall > [data-my="5"] {
+  --gr: 5;
+}
+
+.claras-wall > [data-my="6"] {
+  --gr: 6;
+}
+
+.claras-wall__tile,
+.claras-wall__piece {
+  grid-column: var(--gc) / span 1;
+  grid-row: var(--gr) / span 1;
+  aspect-ratio: 1;
+  margin: 0;
+}
+
+.claras-wall__tile {
+  padding: 0.75rem;
+}
+
+.claras-wall__title {
+  grid-column: var(--gc) / span 2;
+  aspect-ratio: auto;
+  font-size: var(--step-head);
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: var(--tracking-display);
+}
+
+.claras-wall__fact {
+  font-size: clamp(0.8125rem, 4vw, 0.9375rem);
+  line-height: 1.3;
+}
+
+.claras-wall__action {
+  padding: 0;
+}
+
+.claras-wall__button {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: flex-start;
+  padding: 0.75rem;
+  border: 0;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  font: inherit;
+  font-size: clamp(0.8125rem, 4vw, 0.9375rem);
+  font-weight: 500;
+  line-height: 1.3;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background-color var(--t-hover) ease,
+    color var(--t-hover) ease;
+}
+
+@media (hover: hover) {
+  .claras-wall__button:hover {
+    background-color: var(--foreground);
+    color: var(--background);
+  }
+}
+
+.claras-wall__piece {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--surface);
+}
+
+.claras-wall__piece:not([data-mx]) {
+  display: none;
+}
+
+.claras-wall__piece > span {
+  position: absolute;
+  inset: 0;
+}
+
+/* A foto tem o tamanho do quadro inteiro; cada bloco desloca a sua cópia para mostrar só o pedaço dele. */
+.claras-wall__img {
+  position: absolute;
+  top: calc((1 - var(--gr)) * (100% + var(--gutter)));
+  left: calc((1 - var(--gc)) * (100% + var(--gutter)));
+  width: calc(var(--cols) * 100% + (var(--cols) - 1) * var(--gutter));
+  max-width: none;
+  height: calc(var(--rows) * 100% + (var(--rows) - 1) * var(--gutter));
+  object-fit: cover;
+}
+
+@media (min-width: 48rem) {
+  .claras-wall {
+    --cols: 6;
+    --rows: 4;
+  }
+
+  .claras-wall > [data-x="1"] {
+    --gc: 1;
+  }
+
+  .claras-wall > [data-x="2"] {
+    --gc: 2;
+  }
+
+  .claras-wall > [data-x="3"] {
+    --gc: 3;
+  }
+
+  .claras-wall > [data-x="4"] {
+    --gc: 4;
+  }
+
+  .claras-wall > [data-x="5"] {
+    --gc: 5;
+  }
+
+  .claras-wall > [data-x="6"] {
+    --gc: 6;
+  }
+
+  .claras-wall > [data-y="1"] {
+    --gr: 1;
+  }
+
+  .claras-wall > [data-y="2"] {
+    --gr: 2;
+  }
+
+  .claras-wall > [data-y="3"] {
+    --gr: 3;
+  }
+
+  .claras-wall > [data-y="4"] {
+    --gr: 4;
+  }
+
+  .claras-wall__piece:not([data-mx]) {
+    display: block;
+  }
+
+  .claras-wall__title,
+  .claras-wall__fact,
+  .claras-wall__button {
+    padding: var(--tile-pad);
+  }
+
+  /* No quadro de 6 colunas o título ocupa dois blocos e cabe em duas linhas na altura de um. */
+  .claras-wall__title {
+    font-size: min(var(--step-head), 6.4vw);
+  }
+
+  .claras-wall__fact,
+  .claras-wall__button {
+    font-size: clamp(0.8125rem, 0.35rem + 1vw, var(--step-body));
+  }
+}
+
+/* Acompanhe um serviço: as mensagens de um lado e a foto escolhida em destaque. */
+.claras-follow {
+  display: grid;
+  gap: var(--gutter);
+}
+
+.claras-follow__head {
+  display: grid;
+  gap: var(--space-5);
+  padding: var(--tile-pad);
+  background-color: var(--surface);
+}
+
+.claras-follow__head h2 {
+  margin: 0;
+  font-size: var(--step-head);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: var(--tracking-display);
+}
+
+.claras-follow__head p {
+  max-width: 44ch;
+  margin: 0;
+  font-size: var(--step-lead);
+  line-height: 1.3;
+}
+
+.claras-follow__chat {
+  display: grid;
+  align-content: start;
+  gap: var(--gutter);
+}
+
+.claras-follow__contact {
+  display: grid;
+  gap: var(--space-1);
+  margin: 0;
+  padding: var(--space-4) var(--tile-pad);
+  background-color: var(--surface-2);
+  font-weight: 500;
+}
+
+.claras-follow__service {
+  font-size: var(--step-small);
+  font-weight: 400;
+}
+
+.claras-follow__thread {
+  display: grid;
+  gap: var(--gutter);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.claras-follow__thread > li[data-from="voce"] {
+  justify-self: end;
+  width: min(100%, 20rem);
+}
+
+.claras-msg {
+  display: grid;
+  width: 100%;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--tile-pad);
+  border: 0;
+  background-color: var(--surface);
+  color: var(--foreground);
+  font: inherit;
+  text-align: left;
+}
+
+[data-from="voce"] > .claras-msg {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+button.claras-msg {
+  cursor: pointer;
+  transition:
+    background-color var(--t-hover) ease,
+    color var(--t-hover) ease,
+    transform var(--t-press) var(--ease-out);
+}
+
+button.claras-msg:active {
+  transform: scale(0.99);
+}
+
+@media (hover: hover) {
+  button.claras-msg[aria-pressed="false"]:hover {
+    background-color: var(--surface-3);
+  }
+}
+
+button.claras-msg[aria-pressed="true"] {
+  background-color: var(--field-1);
+  color: var(--field-1-foreground);
+}
+
+.claras-msg__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  font-size: var(--step-small);
+  font-weight: 500;
+}
+
+.claras-msg__time,
+.claras-msg__photo {
+  display: inline-flex;
+  align-items: center;
+}
+
+.claras-msg__time {
+  gap: var(--space-3);
+}
+
+.claras-msg__photo {
+  gap: var(--space-1);
+}
+
+.claras-follow__cta {
+  display: flex;
+  min-height: 3.75rem;
+  align-items: center;
+  padding-inline: var(--tile-pad);
+  border: 0;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  font: inherit;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background-color var(--t-hover) ease,
+    color var(--t-hover) ease,
+    transform var(--t-press) var(--ease-out);
+}
+
+.claras-follow__cta:active {
+  transform: scale(0.99);
+}
+
+@media (hover: hover) {
+  .claras-follow__cta:hover {
+    background-color: var(--foreground);
+    color: var(--background);
+  }
+}
+
+.claras-msg__text {
+  line-height: 1.4;
+}
+
+.claras-follow__inline {
+  margin: var(--gutter) 0 0;
+}
+
+.claras-follow__inline img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.claras-follow__inline figcaption {
+  padding: var(--space-3) var(--tile-pad);
+  background-color: var(--surface-2);
+  font-size: var(--step-small);
+}
+
+.claras-follow__photo {
+  display: none;
+}
+
+.claras-follow__frame {
+  position: absolute;
+  inset: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity 450ms var(--ease-out),
+    visibility 0s linear 450ms;
+}
+
+.claras-follow__frame[data-active="true"] {
+  visibility: visible;
+  opacity: 1;
+  transition:
+    opacity 450ms var(--ease-out),
+    visibility 0s;
+}
+
+.claras-follow__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* O horário fica no canto de baixo à direita, como no WhatsApp. */
+.claras-follow__caption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: var(--space-3) var(--tile-pad);
+  background-color: var(--background);
+  font-size: var(--step-small);
+}
+
+@media (min-width: 48rem) {
+  .claras-follow {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .claras-follow__head {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: end;
+    column-gap: var(--gutter);
+  }
+
+  .claras-follow__head h2 {
+    grid-column: 1 / 8;
+  }
+
+  .claras-follow__head p {
+    grid-column: 8 / -1;
+  }
+
+  .claras-follow__chat {
+    grid-column: 1 / 7;
+  }
+
+  .claras-follow__inline {
+    display: none;
+  }
+
+  /* A foto acompanha a conversa enquanto ela rola, para a mensagem tocada e a foto ficarem juntas. */
+  .claras-follow__photo {
+    position: sticky;
+    top: calc(var(--banner-height, 2.5rem) + var(--gutter));
+    display: block;
+    overflow: hidden;
+    grid-column: 7 / -1;
+    align-self: start;
+    aspect-ratio: 4 / 3;
+    margin: 0;
+    background-color: var(--surface);
+  }
+}
+
+@media (min-width: 64rem) {
+  .claras-follow__chat {
+    grid-column: 1 / 6;
+  }
+
+  .claras-follow__photo {
+    grid-column: 6 / -1;
+  }
+}
+
+/* Como funciona: três blocos, cada um maior que o anterior, com a mesma peça cada vez mais de perto. */
+.claras-steps {
+  display: grid;
+  gap: var(--space-6);
+  padding-bottom: var(--space-6);
+}
+
+.claras-steps__title {
+  margin: 0;
+  padding: var(--space-6) var(--tile-pad) 0;
+  font-size: var(--step-head);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: var(--tracking-display);
+}
+
+.claras-steps__list {
+  display: grid;
+  gap: var(--space-7);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.claras-step__tile {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  height: 44vw;
+  background-color: var(--field-1);
+}
+
+.claras-step:nth-child(2) .claras-step__tile {
+  height: 60vw;
+}
+
+.claras-step:nth-child(3) .claras-step__tile {
+  height: 80vw;
+}
+
+/* Os passos do cliente ficam no amarelo; a foto em cinza se mistura à cor do bloco. */
+.claras-step:nth-child(odd) .claras-step__tile {
+  background-color: var(--field-2);
+}
+
+.claras-step__tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: multiply;
+}
+
+.claras-step__name {
+  margin: var(--space-4) 0 0;
+  padding-inline: var(--tile-pad);
+  font-family: var(--font-text);
+  font-size: var(--step-lead);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.claras-step__text {
+  max-width: 34ch;
+  margin: var(--space-2) 0 0;
+  padding-inline: var(--tile-pad);
+}
+
+@media (min-width: 48rem) {
+  .claras-steps {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--gutter);
+  }
+
+  .claras-steps__title {
+    position: relative;
+    z-index: 1;
+    grid-column: 1 / 8;
+    grid-row: 1;
+    align-self: start;
+    padding-top: 0;
+  }
+
+  .claras-steps__list {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: auto auto auto;
+    gap: 0 var(--gutter);
+  }
+
+  .claras-step {
+    display: grid;
+    grid-row: span 3;
+    grid-template-rows: subgrid;
+  }
+
+  .claras-step:nth-child(1) {
+    grid-column: 1 / 4;
+  }
+
+  .claras-step:nth-child(2) {
+    grid-column: 4 / 8;
+  }
+
+  .claras-step:nth-child(3) {
+    grid-column: 8 / -1;
+  }
+
+  .claras-step__tile {
+    align-self: end;
+  }
+
+  .claras-step:nth-child(1) .claras-step__tile {
+    height: min(30svh, 21vw);
+  }
+
+  .claras-step:nth-child(2) .claras-step__tile {
+    height: min(44svh, 31vw);
+  }
+
+  .claras-step:nth-child(3) .claras-step__tile {
+    height: min(60svh, 42vw);
+  }
+}
+
+/* Marcas: os nomes em tamanho de cartaz, como a lista pintada na fachada da oficina. */
+.claras-brands {
+  display: grid;
+  gap: var(--gutter);
+}
+
+.claras-brands__head {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-6);
+  padding: var(--tile-pad);
+  background-color: var(--surface);
+}
+
+.claras-brands__head h2 {
+  margin: 0;
+  font-size: var(--step-lead);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.claras-brands__head p {
+  max-width: 36ch;
+  margin: 0;
+}
+
+.claras-brands__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 0.05em 0.4em;
+  margin: 0;
+  padding: var(--tile-pad);
+  list-style: none;
+  font-size: var(--step-head);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+@media (min-width: 48rem) {
+  .claras-brands {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .claras-brands__head {
+    grid-column: 1 / 5;
+  }
+
+  .claras-brands__list {
+    grid-column: 5 / -1;
+  }
+}
+
+/* Na oficina: uma faixa que corre para os dois lados, com fotos altas, empilhadas e largas. */
+.claras-gallery {
+  display: grid;
+  gap: var(--gutter);
+}
+
+.claras-gallery__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--tile-pad);
+  background-color: var(--surface);
+}
+
+.claras-gallery__head h2 {
+  margin: 0;
+  font-size: var(--step-head);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: var(--tracking-display);
+}
+
+.claras-gallery__head p {
+  margin: 0;
+}
+
+.claras-gallery__row {
+  margin-inline: calc(-1 * var(--margin));
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: 1.25rem;
+  scrollbar-width: none;
+}
+
+.claras-gallery__row::-webkit-scrollbar {
+  display: none;
+}
+
+/* O anel fica do lado de fora, no vão do quadro, para não se perder sobre as fotos. */
+.claras-gallery__row:focus-visible {
+  outline-offset: 3px;
+}
+
+@media (pointer: fine) {
+  .claras-gallery__row {
+    cursor: grab;
+  }
+
+  .claras-gallery__row[data-dragging] {
+    cursor: grabbing;
+    scroll-snap-type: none;
+  }
+}
+
+.claras-gallery__track {
+  display: flex;
+  width: max-content;
+  height: 62svh;
+  gap: var(--gutter);
+  margin: 0;
+  padding: 0 1.25rem;
+  list-style: none;
+}
+
+.claras-mod {
+  flex: none;
+  height: 100%;
+  scroll-snap-align: start;
+}
+
+.claras-mod img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.claras-mod[data-kind="alto"] {
+  width: 72vw;
+}
+
+.claras-mod[data-kind="par"] {
+  display: grid;
+  width: 64vw;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: var(--gutter);
+}
+
+.claras-mod[data-kind="largo"] {
+  display: flex;
+  width: 88vw;
+  align-items: center;
+}
+
+.claras-mod[data-kind="largo"] img {
+  height: auto;
+  aspect-ratio: 16 / 10;
+}
+
+@media (min-width: 48rem) {
+  .claras-gallery__row {
+    scroll-padding-inline: 6vw;
+  }
+
+  .claras-gallery__track {
+    height: 68svh;
+    padding-inline: 6vw;
+  }
+
+  .claras-mod[data-kind] {
+    width: auto;
+  }
+
+  .claras-mod[data-kind="alto"] {
+    aspect-ratio: 3 / 4;
+  }
+
+  .claras-mod[data-kind="par"] {
+    aspect-ratio: 2 / 3;
+  }
+
+  .claras-mod[data-kind="largo"] {
+    aspect-ratio: 16 / 10;
+  }
+
+  .claras-mod[data-kind="largo"] img {
+    height: 100%;
+  }
+}
+
+/* Antes de trazer: uma faixa por pergunta, com todas as respostas abertas. */
+.claras-faq {
+  display: grid;
+  gap: var(--gutter);
+}
+
+.claras-faq__title {
+  display: flex;
+  min-height: 30svh;
+  align-items: flex-end;
+  margin: 0;
+  padding: var(--tile-pad);
+  font-size: var(--step-head);
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: var(--tracking-display);
+}
+
+.claras-faq__band {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-6) var(--tile-pad);
+  background-color: var(--surface);
+}
+
+.claras-faq__band:nth-of-type(even) {
+  background-color: var(--surface-3);
+}
+
+.claras-faq__band h3 {
+  margin: 0;
+  font-family: var(--font-text);
+  font-size: var(--step-lead);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.claras-faq__band p {
+  max-width: 60ch;
+  margin: 0;
+}
+
+@media (min-width: 64rem) {
+  .claras-faq__title {
+    min-height: 40svh;
+  }
+
+  .claras-faq__band {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--gutter);
+    padding-block: var(--space-7);
+  }
+
+  .claras-faq__band h3 {
+    grid-column: 1 / 6;
+  }
+
+  .claras-faq__band p {
+    grid-column: 7 / -1;
+    line-height: 1.5;
+  }
+}
+
+/* Contato: campo amarelo com o título e a barra de orçamento em três células. */
+.claras-contact {
+  display: grid;
+  align-content: start;
+  padding-block: var(--space-7);
+}
+
+.claras-contact__title {
+  margin: 0;
+  padding-inline: var(--tile-pad);
+  font-size: var(--step-head);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: var(--tracking-display);
+}
+
+.claras-quote {
+  display: grid;
+  gap: var(--gutter);
+  margin-top: var(--space-6);
+  padding-inline: var(--tile-pad);
+}
+
+/* A linha preta embaixo marca o campo, que sozinho quase some no amarelo. */
+.claras-quote__cell {
+  display: grid;
+  min-height: 4.5rem;
+  align-content: center;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 2px solid var(--field-2-foreground);
+  background-color: var(--field-2-cell);
+  transition: background-color var(--t-hover) ease;
+}
+
+/* O anel de foco fica na célula inteira, que também clareia. */
+.claras-quote__cell:focus-within {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+  background-color: var(--field-1);
+}
+
+.claras-quote__cell label {
+  font-size: var(--step-small);
+  font-weight: 500;
+}
+
+.claras-quote__cell input {
+  width: 100%;
+  min-height: 2rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  caret-color: currentColor;
+}
+
+.claras-quote__cell input:focus-visible {
+  outline: none;
+}
+
+.claras-quote__cell input::placeholder {
+  color: var(--field-2-muted);
+  opacity: 1;
+}
+
+.claras-quote__submit {
+  min-height: 4.5rem;
+  padding: var(--space-3) var(--space-4);
+  border: 0;
+  background-color: var(--field-2-foreground);
+  color: var(--field-2);
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background-color var(--t-hover) ease,
+    color var(--t-hover) ease,
+    transform var(--t-press) var(--ease-out);
+}
+
+.claras-quote__submit:active {
+  transform: scale(0.98);
+}
+
+@media (hover: hover) {
+  .claras-quote__submit:hover {
+    background-color: var(--field-1);
+    color: var(--field-1-foreground);
+  }
+}
+
+.claras-quote__note {
+  margin: 0;
+  font-size: var(--step-small);
+}
+
+.claras-contact__info {
+  display: grid;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+  padding-inline: var(--tile-pad);
+}
+
+.claras-contact__info p,
+.claras-contact__info h3,
+.claras-contact__info ul {
+  margin: 0;
+}
+
+.claras-contact__info h3 {
+  font-family: var(--font-text);
+  font-size: var(--step-body);
+  font-weight: 500;
+}
+
+.claras-contact__info ul {
+  padding: 0;
+  list-style: none;
+}
+
+.claras-message {
+  margin: var(--space-2) 0 0;
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--field-1);
+  color: var(--field-1-foreground);
+}
+
+@media (min-width: 48rem) {
+  .claras-quote {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  /* A nota fica embaixo do botão, que é a célula que ela explica. */
+  .claras-quote__note {
+    grid-column: 3;
+  }
+
+  .claras-contact__info {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: var(--gutter);
+  }
+}
+
+@media (min-width: 64rem) {
+  .claras-contact {
+    padding-block: 4.5rem var(--space-7);
+  }
+
+  .claras-quote {
+    margin-top: 2.5rem;
+  }
+
+  .claras-quote__cell,
+  .claras-quote__submit {
+    min-height: 6rem;
+  }
+}
+
+/* Rodapé: o nome montado em blocos de alturas crescentes, as colunas de links e a linha final. */
+.claras-footer {
+  display: grid;
+  gap: var(--gutter);
+}
+
+.claras-mark {
+  display: flex;
+  height: 22svh;
+  min-height: 8rem;
+  align-items: flex-end;
+  gap: 4px;
+  padding: var(--tile-pad);
+  background-color: var(--surface);
+  container-type: inline-size;
+}
+
+.claras-mark__block {
+  position: relative;
+  display: flex;
+  height: var(--h, 100%);
+  flex: 1 1 0;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+  background-color: var(--foreground);
+  color: var(--surface);
+  font-size: 11cqi;
+  font-weight: 500;
+  line-height: 0.75;
+}
+
+.claras-mark__block[data-word="0"] {
+  background-color: var(--primary);
+}
+
+.claras-mark__space {
+  flex: 0 0 3%;
+}
+
+.claras-mark__size {
+  position: absolute;
+  top: 1cqi;
+  left: 1cqi;
+  font-size: max(0.6875rem, 1.6cqi);
+  line-height: 1;
+}
+
+.claras-mark__block[data-step="1"] {
+  --h: 60%;
+  --i: 1;
+}
+
+.claras-mark__block[data-step="2"] {
+  --h: 66%;
+  --i: 2;
+}
+
+.claras-mark__block[data-step="3"] {
+  --h: 71%;
+  --i: 3;
+}
+
+.claras-mark__block[data-step="4"] {
+  --h: 77%;
+  --i: 4;
+}
+
+.claras-mark__block[data-step="5"] {
+  --h: 83%;
+  --i: 5;
+}
+
+.claras-mark__block[data-step="6"] {
+  --h: 89%;
+  --i: 6;
+}
+
+.claras-mark__block[data-step="7"] {
+  --h: 94%;
+  --i: 7;
+}
+
+.claras-mark__block[data-step="8"] {
+  --h: 100%;
+  --i: 8;
+}
+
+.claras-footer__cols {
+  display: grid;
+  gap: var(--gutter);
+}
+
+.claras-footer__col {
+  padding: var(--tile-pad);
+  background-color: var(--surface);
+}
+
+.claras-footer__label {
+  margin: 0 0 var(--space-3);
+  font-weight: 500;
+}
+
+.claras-footer__col ul {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.claras-footer__credits p {
+  max-width: 70ch;
+  margin: 0;
+  font-size: var(--step-small);
+}
+
+.claras-footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--tile-pad);
+  background-color: var(--surface);
+  font-size: var(--step-small);
+}
+
+.claras-footer__legal p {
+  max-width: 70ch;
+  margin: 0;
+}
+
+.claras-footer__top {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  padding-inline: var(--space-4);
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    background-color var(--t-hover) ease,
+    color var(--t-hover) ease;
+}
+
+@media (hover: hover) {
+  .claras-footer__top:hover {
+    background-color: var(--foreground);
+    color: var(--background);
+  }
+}
+
+@media (min-width: 48rem) {
+  .claras-footer__cols {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .claras-footer__credits {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 64rem) {
+  .claras-mark {
+    height: 34svh;
+  }
+
+  .claras-footer__cols {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .claras-footer__col {
+    grid-column: span 3;
+  }
+
+  .claras-footer__credits {
+    grid-column: span 6;
+  }
+}
+
+/* Movimento curto: a foto do topo abre uma vez, os pedaços da foto cortada entram em sequência,
+   os blocos de como funciona sobem e o nome do rodapé se monta. */
 @media (prefers-reduced-motion: no-preference) {
   .claras-shutter {
     animation: claras-shutter var(--t-reveal) var(--ease-in-out) both;
@@ -51,6 +1698,38 @@
 
   .claras-shutter img {
     animation: claras-settle 1500ms var(--ease-soft) both;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .claras-wall__piece {
+      animation: claras-place linear both;
+      animation-timeline: view();
+      animation-range: entry calc(var(--gc) * 7%) entry calc(45% + var(--gc) * 7%);
+    }
+
+    .claras-step__tile {
+      animation: claras-shutter linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 80%;
+    }
+
+    .claras-mark__block {
+      animation: claras-shutter linear both;
+      animation-timeline: view();
+      animation-range: entry calc(var(--i) * 5%) entry calc(40% + var(--i) * 5%);
+    }
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .claras-wall__piece > span {
+    transition: transform 700ms var(--ease-out);
+  }
+
+  .claras-wall__piece:hover > span {
+    transform: scale(1.08);
   }
 }
 
@@ -69,5 +1748,14 @@
   }
   to {
     transform: none;
+  }
+}
+
+@keyframes claras-place {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

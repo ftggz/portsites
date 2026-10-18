@@ -13,6 +13,7 @@ export const site = {
 
 export const conceito = {
   aviso: "Projeto conceito de portfólio. Negócio fictício.",
+  pular: "Pular para o conteúdo",
   voltar: "Ver o portfólio",
   voltarHref: "/#portfolio",
   demo: {

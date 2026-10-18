@@ -5,7 +5,6 @@ export const clinica = {
     themeColor: "#a6b3bc",
   },
   marca: { nome: "Vagar", descritor: "Estética" },
-  pularLink: "Pular para o conteúdo",
   navLabel: "Seções da página",
   nav: [
     { label: "Procedimentos", href: "#procedimentos" },

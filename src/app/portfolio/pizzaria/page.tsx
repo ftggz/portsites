@@ -1,11 +1,9 @@
 import { PizzariaHero } from "@/components/pizzaria/hero";
-import { SkipLink } from "@/components/skip-link";
 import { pizzaria } from "@/content/pizzaria";
 
 export default function PizzariaPage() {
   return (
     <>
-      <SkipLink label={pizzaria.pularLink} />
       <main id="conteudo">
         <PizzariaHero
           brand={pizzaria.marca}

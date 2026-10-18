@@ -21,5 +21,19 @@ Todas as fotos vêm do Unsplash e são usadas sob a [Licença Unsplash](https://
 | Capim seco contra uma parede bege | Clínica de estética, como funciona | [Annie Spratt](https://unsplash.com/@anniespratt) | <https://unsplash.com/photos/YmoKERxSpso> |
 | Vaso branco com flores brancas pequenas | Clínica de estética, como funciona | [Kasia Sikorska](https://unsplash.com/@kasiasikorska) | <https://unsplash.com/photos/PsY9OJuBrdQ> |
 | Tigela de cerâmica creme | Clínica de estética, contato | [TAN Erica](https://unsplash.com/@ericatan5566) | <https://unsplash.com/photos/zCYO9HxEAjI> |
+| Jogo de soquetes aberto, com catracas e extensões | Oficina mecânica, transparência | [Elena Mozhvilo](https://unsplash.com/@miracleday) | <https://unsplash.com/photos/RhXAO8OXyDY> |
+| Painel de carro com luzes de advertência acesas | Oficina mecânica, como funciona | [Vlad Deep](https://unsplash.com/@vladdeep) | <https://unsplash.com/photos/zkQ1eKKdyg0> |
+| Disco e pinça de freio de perto | Oficina mecânica, como funciona | [Eduardo Taulois](https://unsplash.com/@dudutaulois) | <https://unsplash.com/photos/OxMrOY4x4MI> |
+| Mãos trabalhando no disco de freio de um carro | Oficina mecânica, como funciona | [Media Digital](https://unsplash.com/@mediadigital2022) | <https://unsplash.com/photos/iKaukyZ0vjI> |
+| Mão de luva no cubo da roda, já sem o disco de freio | Oficina mecânica, acompanhe um serviço | [Bengkel Mobil Matic Bandung](https://unsplash.com/@mobilmaticbandung) | <https://unsplash.com/photos/Ls4XXuWbJp8> |
+| Carro com o capô aberto, suspenso numa oficina | Oficina mecânica, acompanhe um serviço | [Zoshua Colah](https://unsplash.com/@zoshuacolah) | <https://unsplash.com/photos/0B05SYbRoIk> |
+| Disco de freio e pinça num carro sem a roda | Oficina mecânica, acompanhe um serviço | [Benjamin Brunner](https://unsplash.com/@ben_brunner) | <https://unsplash.com/photos/al01Ad0f_KI> |
+| Disco de freio gasto e enferrujado | Oficina mecânica, acompanhe um serviço | [ILLKARAH](https://unsplash.com/@illkarah) | <https://unsplash.com/photos/nSV_3rfajjQ> |
+| Pneus empilhados com uma roda em cima | Oficina mecânica, galeria | [Erik Mclean](https://unsplash.com/@introspectivedsgn) | <https://unsplash.com/photos/Y_251QYX55Y> |
+| Maleta de ferramentas aberta sobre a mesa | Oficina mecânica, galeria | [LouisMoto](https://unsplash.com/@louismotorrad) | <https://unsplash.com/photos/m4XS2ACf85k> |
+| Pneus amontoados | Oficina mecânica, galeria | [Goh Rhy Yan](https://unsplash.com/@gohrhyyan) | <https://unsplash.com/photos/ud0twV98uvg> |
+| Mãos de luva inspecionando um motor | Oficina mecânica, galeria | [Jd Leather](https://unsplash.com/@jdleather) | <https://unsplash.com/photos/Uke2uaoipHw> |
+| Mãos consertando um motor | Oficina mecânica, galeria | [Mike Newbry](https://unsplash.com/@mikenewbry) | <https://unsplash.com/photos/7LsSwWhBRaQ> |
+| Chave apertando uma peça no motor de um carro | Oficina mecânica, galeria | [Sasun Bughdaryan](https://unsplash.com/@sasun1990) | <https://unsplash.com/photos/9gB7APNSquE> |
 
 Este arquivo é gerado por `npm run images` a partir de `assets/images.json`. Para trocar uma foto, edite a lista e rode o comando de novo.
