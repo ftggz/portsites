@@ -1,0 +1,1222 @@
+/* Tokens da clínica Vagar, em Work Sans com ardósia, sálvia, pedra e oliva. */
+[data-site="clinica"] {
+  --background: #a6b3bc;
+  --surface: #b2bdc5;
+  --foreground: #1c1c1c;
+  --muted-foreground: #38424a;
+  --primary: #2c3620;
+  --primary-foreground: #e3e2da;
+  --field-1: #b7c8be;
+  --field-1-foreground: #1c1c1c;
+  --field-2: #e3e2da;
+  --field-2-foreground: #1c1c1c;
+  --field-3: #2c3620;
+  --field-3-foreground: #e3e2da;
+  --field-3-muted: #b8bba9;
+
+  --font-display: var(--font-work-sans);
+  --font-text: var(--font-work-sans);
+  --leading-body: 1.55;
+  --tracking-display: -0.035em;
+
+  --step-small: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
+  --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  --step-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+  --step-head: clamp(2rem, 1.3rem + 3.2vw, 4rem);
+  --step-display: clamp(2.75rem, 4.2vw, 4rem);
+
+  --margin: clamp(1.25rem, 6vw, 6rem);
+  --gutter: clamp(1rem, 2vw, 2rem);
+  --section: clamp(7.5rem, 5rem + 9vw, 16.25rem);
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 6.5rem;
+  --space-7: 10.5rem;
+  --space-8: 16.25rem;
+
+  --radius: 0px;
+  --t-press: 160ms;
+  --t-hover: 220ms;
+  --t-reveal: 900ms;
+  --rise: 1rem;
+}
+
+.vagar-link {
+  border: 0;
+  padding: 0.125rem 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 0.07em;
+  text-underline-offset: 0.2em;
+  transition: text-decoration-thickness var(--t-hover) ease;
+}
+
+@media (hover: hover) {
+  .vagar-link:hover {
+    text-decoration-thickness: 2px;
+  }
+}
+
+/* Cabeçalho sobre a foto do topo */
+.vagar-header {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 20;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--margin) 0;
+  color: var(--foreground);
+  font-size: var(--step-small);
+}
+
+.vagar-header > p {
+  padding-top: 0.75rem;
+}
+
+.vagar-header__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vagar-header__nav li {
+  display: flex;
+  align-items: center;
+}
+
+.vagar-header__nav a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  padding-left: 0.25rem;
+  text-decoration: none;
+}
+
+.vagar-header__nav li > span {
+  padding-right: 0.25rem;
+}
+
+@media (hover: hover) {
+  .vagar-header__nav a:hover {
+    text-decoration: underline;
+  }
+}
+
+/* Topo */
+.vagar-hero {
+  position: relative;
+  display: grid;
+  min-height: max(34rem, calc(100svh - var(--banner-height, 2.5rem)));
+  grid-template-rows: 1fr auto;
+  overflow: hidden;
+  color: var(--foreground);
+}
+
+.vagar-hero__photo,
+.vagar-hero__photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vagar-hero__photo img {
+  object-position: 50% 60%;
+}
+
+@media (orientation: landscape) and (min-width: 48rem) {
+  .vagar-hero__photo img {
+    object-position: 50% 0%;
+  }
+}
+
+/* Em celular baixo o título cairia sobre o vaso escuro; o texto do topo ganha uma faixa de pedra. */
+@media (orientation: portrait) and (max-height: 47.99rem) {
+  .vagar-hero__bottom {
+    padding-top: var(--space-3);
+    background-color: var(--field-2);
+  }
+}
+
+.vagar-hero__light {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.vagar-hero__light--warm {
+  background-color: #d6c4b8;
+}
+
+.vagar-hero__light--cool {
+  background-color: #8f9ca6;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .vagar-hero__photo img {
+    animation: vagar-settle 2.4s var(--ease-soft) both;
+  }
+
+  .vagar-hero {
+    --rise-start: 300ms;
+  }
+
+  /* A luz passa duas vezes do quente para o frio, cada mudança em uns treze segundos, e para. */
+  .vagar-hero__light--warm {
+    animation: vagar-light-warm 26s var(--ease-in-out) 2.4s 2 both;
+  }
+
+  .vagar-hero__light--cool {
+    animation: vagar-light-cool 26s var(--ease-in-out) 15.4s 2 both;
+  }
+}
+
+@keyframes vagar-settle {
+  from {
+    transform: scale(1.04);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes vagar-light-warm {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  42%,
+  58% {
+    opacity: 0.42;
+  }
+}
+
+@keyframes vagar-light-cool {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  42%,
+  58% {
+    opacity: 0.3;
+  }
+}
+
+/* Procedimentos */
+.vagar-procs {
+  padding: var(--section) var(--margin);
+}
+
+.vagar-procs__title {
+  margin: 0;
+  font-size: var(--step-display);
+  font-weight: 300;
+  line-height: 0.98;
+  letter-spacing: var(--tracking-display);
+}
+
+.vagar-procs__indent {
+  display: block;
+}
+
+.vagar-procs__intro {
+  margin: var(--space-4) 0 0;
+  max-width: 40ch;
+}
+
+.vagar-planner {
+  display: grid;
+  gap: var(--space-5);
+  margin-top: var(--space-5);
+}
+
+.vagar-planner__list {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.vagar-planner__note {
+  margin: 0 0 var(--space-3);
+  color: var(--muted-foreground);
+  font-size: var(--step-small);
+}
+
+.vagar-group + .vagar-group {
+  margin-top: 2.75rem;
+}
+
+.vagar-group__name {
+  margin: 0;
+  font-family: var(--font-text);
+  font-size: var(--step-body);
+  font-weight: 500;
+}
+
+.vagar-group__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vagar-proc {
+  display: grid;
+  grid-template-columns: 1.375rem minmax(0, 1fr) auto;
+  column-gap: 1rem;
+  row-gap: 0.25rem;
+  padding-block: 0.8125rem;
+}
+
+.vagar-proc__label {
+  display: grid;
+  grid-column: 2 / 4;
+  grid-row: 1;
+  grid-template-columns: subgrid;
+  row-gap: 0.125rem;
+  cursor: pointer;
+}
+
+.vagar-proc__time {
+  grid-column: 1;
+  grid-row: 1;
+  color: var(--muted-foreground);
+}
+
+.vagar-proc__price {
+  grid-column: 2;
+  grid-row: 1;
+  text-align: right;
+}
+
+.vagar-proc__name {
+  grid-column: 1 / 3;
+  grid-row: 2;
+  font-weight: 500;
+}
+
+.vagar-proc__desc,
+.vagar-proc__care {
+  grid-column: 2 / 4;
+}
+
+.vagar-proc__desc {
+  margin: 0;
+}
+
+@media (min-width: 48rem) {
+  .vagar-procs__indent {
+    padding-left: 3vw;
+  }
+
+  .vagar-proc {
+    grid-template-columns: 1.375rem 5rem minmax(0, 1fr) auto;
+  }
+
+  .vagar-proc__label {
+    grid-column: 2 / 5;
+  }
+
+  .vagar-proc__name {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .vagar-proc__price {
+    grid-column: 3;
+  }
+
+  .vagar-proc__desc,
+  .vagar-proc__care {
+    grid-column: 3 / 5;
+  }
+}
+
+/* Caixa de seleção desenhada sobre o campo nativo, que continua acessível e focável. */
+.vagar-check {
+  display: grid;
+  width: 1.375rem;
+  height: 1.375rem;
+  margin: 0.15em 0 0;
+  place-content: center;
+  grid-column: 1;
+  grid-row: 1;
+  appearance: none;
+  border: 2px solid currentColor;
+  border-radius: 0;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color var(--t-hover) ease, border-color var(--t-hover) ease;
+}
+
+.vagar-check::before {
+  content: "";
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: var(--primary-foreground);
+  clip-path: polygon(12% 50%, 0 64%, 38% 100%, 100% 22%, 87% 9%, 38% 72%);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: transform var(--t-press) var(--ease-out), opacity var(--t-press) ease;
+}
+
+.vagar-check:checked {
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.vagar-check:checked::before {
+  opacity: 1;
+  transform: none;
+}
+
+.vagar-proc__care summary {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+  cursor: pointer;
+  font-size: var(--step-small);
+  font-weight: 500;
+}
+
+/* A mesma divisa das perguntas, para "Cuidados" não parecer um link que sai da página. */
+.vagar-proc__care summary::after {
+  content: "";
+  width: 0.45em;
+  height: 0.45em;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-20%) rotate(45deg);
+  transition: transform var(--t-hover) var(--ease-out);
+}
+
+.vagar-proc__care[open] summary::after {
+  transform: translateY(15%) rotate(225deg);
+}
+
+.vagar-proc__care summary::-webkit-details-marker {
+  display: none;
+}
+
+.vagar-proc__care dl {
+  display: grid;
+  margin: var(--space-1) 0 0;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.25rem 0.75rem;
+  font-size: var(--step-small);
+}
+
+.vagar-proc__care dt {
+  font-weight: 500;
+}
+
+.vagar-proc__care dd {
+  margin: 0;
+}
+
+.vagar-planner__visit {
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+  padding: var(--space-3);
+}
+
+.vagar-visit__total {
+  margin: 0;
+}
+
+.vagar-visit__time {
+  display: block;
+  font-size: var(--step-display);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: var(--tracking-display);
+}
+
+.vagar-visit__scale {
+  display: grid;
+  gap: 0.375rem;
+}
+
+.vagar-visit__bar {
+  display: block;
+  width: 100%;
+  height: 0.625rem;
+}
+
+.vagar-visit__track {
+  fill: color-mix(in oklch, var(--field-1-foreground) 14%, var(--field-1));
+}
+
+.vagar-visit__segment {
+  fill: var(--primary);
+}
+
+.vagar-visit__items {
+  margin: 0;
+}
+
+.vagar-visit__note {
+  margin: 0;
+  padding: 0.625rem 0.875rem;
+  background-color: color-mix(in oklch, var(--field-1-foreground) 8%, var(--field-1));
+  font-size: var(--step-small);
+}
+
+.vagar-visit__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-3);
+  margin-top: var(--space-1);
+}
+
+/* O rótulo do botão muda com a visita e pode quebrar; o respiro vertical vem do padding. */
+.vagar-visit__actions [aria-haspopup] {
+  height: auto;
+  padding-block: 0.75rem;
+  white-space: normal;
+  text-align: left;
+}
+
+.vagar-visit__actions .vagar-link {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  font-size: var(--step-small);
+}
+
+.vagar-planner__care {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.vagar-timeline {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vagar-timeline h4 {
+  margin: 0;
+  font-family: var(--font-text);
+  font-size: var(--step-body);
+  font-weight: 500;
+}
+
+.vagar-timeline ul {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0.5rem 0 0;
+  padding-left: 1.1em;
+  list-style: disc;
+}
+
+.vagar-timeline__origin {
+  display: block;
+  color: var(--muted-foreground);
+  font-size: var(--step-small);
+}
+
+/* No celular a soma fica numa barra presa ao pé da tela enquanto a lista está à vista. */
+.vagar-planner__bar {
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin: var(--space-3) calc(var(--margin) * -1) 0;
+  padding: 0.875rem var(--margin);
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.vagar-planner__bar span:last-child {
+  margin-left: auto;
+}
+
+@media (max-width: 24rem) {
+  .vagar-planner__bar-count {
+    display: none;
+  }
+}
+
+@media (min-width: 64rem) {
+  .vagar-planner {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: start;
+    column-gap: var(--gutter);
+    row-gap: var(--space-5);
+    margin-top: 6rem;
+  }
+
+  .vagar-planner__list {
+    grid-column: 7 / 13;
+    grid-row: 1;
+  }
+
+  .vagar-planner__care {
+    grid-column: 7 / 13;
+    grid-row: 2;
+  }
+
+  /* Só o resumo fica preso, e nunca passa da altura da tela. */
+  .vagar-planner__visit {
+    position: sticky;
+    top: calc(var(--banner-height, 2.5rem) + var(--space-3));
+    grid-column: 1 / 6;
+    grid-row: 1 / 3;
+    max-height: calc(100svh - var(--banner-height, 2.5rem) - 2 * var(--space-3));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: var(--space-4);
+  }
+
+  .vagar-planner__bar,
+  .vagar-visit__actions .vagar-visit__back {
+    display: none;
+  }
+}
+
+/* Galeria em pares desencontrados */
+.vagar-gallery {
+  display: grid;
+  gap: 3rem;
+  padding: var(--section) var(--margin);
+}
+
+.vagar-shot {
+  margin: 0;
+}
+
+.vagar-shot__frame {
+  overflow: hidden;
+}
+
+.vagar-shot__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.vagar-shot__caption {
+  margin-top: 0.625rem;
+  color: var(--muted-foreground);
+  font-size: var(--step-small);
+}
+
+.vagar-shot:nth-child(4n + 1) {
+  width: 70%;
+}
+
+.vagar-shot:nth-child(4n + 2) {
+  justify-self: end;
+  width: 84%;
+}
+
+.vagar-shot:nth-child(4n + 3) {
+  width: 56%;
+}
+
+.vagar-shot:nth-child(4n + 4) {
+  margin-inline: calc(var(--margin) * -1);
+}
+
+.vagar-shot:nth-child(4n + 4) .vagar-shot__caption {
+  padding-inline: var(--margin);
+}
+
+@media (min-width: 48rem) {
+  .vagar-gallery {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: start;
+    column-gap: var(--gutter);
+    row-gap: 14vh;
+  }
+
+  .vagar-shot:nth-child(n) {
+    justify-self: stretch;
+    width: auto;
+    margin-inline: 0;
+  }
+
+  .vagar-shot:nth-child(n) .vagar-shot__caption {
+    padding-inline: 0;
+  }
+
+  .vagar-shot:nth-child(1) {
+    grid-column: 1 / 5;
+    grid-row: 1;
+  }
+
+  .vagar-shot:nth-child(2) {
+    grid-column: 7 / 13;
+    grid-row: 1;
+    margin-top: 18vh;
+  }
+
+  .vagar-shot:nth-child(3) {
+    grid-column: 6 / 12;
+    grid-row: 2;
+  }
+
+  .vagar-shot:nth-child(4) {
+    grid-column: 2 / 5;
+    grid-row: 2;
+    margin-top: 14vh;
+  }
+
+  .vagar-shot:nth-child(5) {
+    grid-column: 9 / 13;
+    grid-row: 3;
+  }
+
+  .vagar-shot:nth-child(6) {
+    grid-column: 1 / 7;
+    grid-row: 3;
+    margin-top: 18vh;
+  }
+}
+
+/* Como funciona, numa faixa que corre para o lado */
+.vagar-steps {
+  padding-block: var(--section);
+  timeline-scope: --vagar-passos;
+}
+
+.vagar-steps__head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding-inline: var(--margin);
+}
+
+.vagar-steps__title {
+  margin: 0;
+  font-size: var(--step-display);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: var(--tracking-display);
+}
+
+.vagar-steps__controls {
+  display: none;
+  gap: 0.5rem;
+}
+
+.vagar-steps__controls button {
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  place-content: center;
+  border: 0;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  cursor: pointer;
+  transition: background-color var(--t-hover) ease, transform var(--t-press) var(--ease-out), opacity var(--t-hover) ease;
+}
+
+.vagar-steps__controls button:active {
+  transform: scale(0.96);
+}
+
+.vagar-steps__controls button[aria-disabled="true"] {
+  opacity: 0.4;
+  cursor: default;
+}
+
+@media (hover: hover) {
+  .vagar-steps__controls button:not([aria-disabled="true"]):hover {
+    background-color: color-mix(in oklch, var(--primary), black 25%);
+  }
+}
+
+.vagar-steps__progress {
+  display: none;
+  height: 6px;
+  margin: var(--space-2) var(--margin) 0;
+  overflow: hidden;
+  background-color: color-mix(in oklch, var(--field-1-foreground) 16%, var(--field-1));
+}
+
+.vagar-steps__progress > span {
+  display: block;
+  height: 100%;
+  background-color: var(--field-1-foreground);
+  transform-origin: left;
+}
+
+@supports (animation-timeline: scroll()) {
+  .vagar-steps__progress {
+    display: block;
+  }
+
+  .vagar-steps__progress > span {
+    animation: vagar-progress linear both;
+    animation-timeline: --vagar-passos;
+  }
+}
+
+@keyframes vagar-progress {
+  from {
+    transform: scaleX(0.16);
+  }
+  to {
+    transform: none;
+  }
+}
+
+.vagar-steps__scroller {
+  margin-top: var(--space-4);
+  padding-bottom: var(--space-2);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--margin);
+  scroll-timeline: --vagar-passos inline;
+  scrollbar-width: none;
+}
+
+.vagar-steps__scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.vagar-steps__scroller:focus-visible {
+  outline-offset: -3px;
+}
+
+.vagar-steps__row {
+  display: flex;
+  width: max-content;
+  gap: 1rem;
+  margin: 0;
+  padding: 0 var(--margin);
+  list-style: none;
+}
+
+.vagar-step {
+  display: flex;
+  width: 72vw;
+  flex-direction: column;
+  scroll-snap-align: start;
+}
+
+.vagar-step__title {
+  margin: 0;
+  font-family: var(--font-text);
+  font-size: var(--step-body);
+  font-weight: 500;
+}
+
+.vagar-step__text {
+  margin: 0.5rem 0 0;
+}
+
+.vagar-step__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 2rem;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+/* Os espaços variam de coluna para coluna, e as fotos sobem e descem ao longo da faixa. */
+.vagar-step:nth-child(6n + 2) .vagar-step__img {
+  margin-top: 4rem;
+}
+
+.vagar-step:nth-child(6n + 3) .vagar-step__img {
+  margin-top: 2.75rem;
+}
+
+.vagar-step:nth-child(6n + 4) .vagar-step__img {
+  margin-top: 3.5rem;
+}
+
+.vagar-step:nth-child(6n + 5) .vagar-step__img {
+  margin-top: 2.25rem;
+}
+
+.vagar-step:nth-child(6n) .vagar-step__img {
+  margin-top: 3rem;
+}
+
+@media (min-width: 48rem) {
+  .vagar-steps__controls {
+    display: flex;
+  }
+
+  .vagar-steps__row {
+    gap: 2rem;
+  }
+
+  .vagar-step {
+    width: 280px;
+  }
+
+  .vagar-step__img {
+    margin-top: 5rem;
+  }
+
+  .vagar-step:nth-child(6n + 2) .vagar-step__img {
+    margin-top: 8.75rem;
+  }
+
+  .vagar-step:nth-child(6n + 3) .vagar-step__img {
+    margin-top: 6rem;
+  }
+
+  .vagar-step:nth-child(6n + 4) .vagar-step__img {
+    margin-top: 7.5rem;
+  }
+
+  .vagar-step:nth-child(6n + 5) .vagar-step__img {
+    margin-top: 5.5rem;
+  }
+
+  .vagar-step:nth-child(6n) .vagar-step__img {
+    margin-top: 7rem;
+  }
+}
+
+/* Perguntas */
+.vagar-faq {
+  padding: var(--section) var(--margin);
+}
+
+.vagar-faq__title {
+  margin: 0;
+  font-size: var(--step-display);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: var(--tracking-display);
+}
+
+.vagar-faq__list {
+  display: grid;
+  gap: 1.75rem;
+  margin-top: 5rem;
+}
+
+.vagar-faq__item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.25rem;
+  list-style: none;
+  cursor: pointer;
+  font-size: var(--step-lead);
+  line-height: 1.3;
+}
+
+.vagar-faq__item summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Divisa de dois traços de 2px, que gira quando a pergunta abre. */
+.vagar-faq__item summary::after {
+  content: "";
+  flex: none;
+  width: 0.5em;
+  height: 0.5em;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-25%) rotate(45deg);
+  transition: transform var(--t-hover) var(--ease-out);
+}
+
+.vagar-faq__item[open] {
+  margin-inline: calc(var(--margin) * -1);
+  padding: 1.5rem var(--margin);
+  background-color: var(--surface);
+}
+
+.vagar-faq__item[open] summary::after {
+  transform: translateY(20%) rotate(225deg);
+}
+
+.vagar-faq__item p {
+  max-width: 48ch;
+  margin: 0.75rem 0 0;
+}
+
+@media (min-width: 64rem) {
+  .vagar-faq__list {
+    gap: 2.25rem;
+    margin-left: calc((100% + var(--gutter)) / 3);
+  }
+
+  .vagar-faq__item[open] {
+    margin-inline: -1.5rem;
+    padding-inline: 1.5rem;
+  }
+}
+
+/* Contato */
+.vagar-contact {
+  display: grid;
+  grid-template-columns: 6rem minmax(0, 1fr);
+  align-items: start;
+  gap: var(--space-3) var(--gutter);
+  padding: 10rem var(--margin) 7.5rem;
+}
+
+.vagar-contact__sentence {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.25rem);
+  font-weight: 300;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+.vagar-contact__photo {
+  display: block;
+  width: 6rem;
+  height: auto;
+  aspect-ratio: 1;
+}
+
+.vagar-contact__question {
+  margin: 0;
+  font-weight: 500;
+}
+
+.vagar-contact__links ul,
+.vagar-contact__hours {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vagar-contact__links ul {
+  display: grid;
+  gap: 0.25rem;
+  margin-top: var(--space-2);
+}
+
+.vagar-contact__meta {
+  grid-column: 1 / -1;
+}
+
+.vagar-contact__hours-title {
+  margin: var(--space-2) 0 0;
+  font-family: var(--font-text);
+  font-size: var(--step-body);
+  font-weight: 500;
+}
+
+@media (min-width: 64rem) {
+  .vagar-contact {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .vagar-contact__sentence {
+    grid-column: 1 / 6;
+    grid-row: 1 / 3;
+  }
+
+  .vagar-contact__photo {
+    grid-column: 8 / 10;
+    grid-row: 1;
+    width: 10rem;
+  }
+
+  .vagar-contact__links {
+    grid-column: 10 / 13;
+    grid-row: 1;
+  }
+
+  .vagar-contact__meta {
+    grid-column: 10 / 13;
+    grid-row: 2;
+  }
+}
+
+/* Rodapé: ocupa uma tela inteira, com o nome na largura toda embaixo. */
+.vagar-footer {
+  display: grid;
+  min-height: 100svh;
+  grid-template-rows: auto 1fr auto auto;
+  overflow: hidden;
+  padding-top: 2.5rem;
+}
+
+.vagar-footer__cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem var(--gutter);
+  padding-inline: var(--margin);
+}
+
+.vagar-footer__cols p,
+.vagar-footer__cols ul {
+  margin: 0;
+}
+
+.vagar-footer__cols ul {
+  padding: 0;
+  list-style: none;
+}
+
+.vagar-footer__soft {
+  color: var(--field-3-muted);
+}
+
+.vagar-footer a {
+  color: inherit;
+}
+
+.vagar-footer__wordmark {
+  grid-row: 3;
+  margin: 0;
+  padding-inline: var(--margin);
+  font-family: var(--font-display);
+  /* "Vagar" em Work Sans 300 mede cerca de 2,36em; o tamanho ocupa a largura entre as margens. */
+  font-size: calc((100vw - 2 * var(--margin)) / 2.4);
+  font-weight: 300;
+  line-height: 0.82;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+  margin-bottom: 0.2em;
+}
+
+.vagar-footer__legal {
+  display: flex;
+  grid-row: 4;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  padding: 1.25rem var(--margin) 1rem;
+  color: var(--field-3-muted);
+  font-size: var(--step-small);
+}
+
+.vagar-footer__legal p {
+  margin: 0;
+  max-width: 60ch;
+}
+
+@media (min-width: 48rem) {
+  .vagar-footer__cols {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .vagar-footer__cols > * {
+    grid-column: span 4;
+  }
+}
+
+/* Entradas por rolagem feitas só com CSS; quem não tem suporte vê tudo parado e no lugar. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    [data-site="clinica"] .reveal {
+      animation: site-rise var(--ease-out) both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 60%;
+    }
+
+    [data-site="clinica"] .vagar-proc,
+    [data-site="clinica"] .vagar-faq__item {
+      animation: site-rise var(--ease-out) both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 45%;
+    }
+
+    [data-site="clinica"] .vagar-shot__frame {
+      animation: vagar-shutter var(--ease-in-out) both;
+      animation-timeline: view();
+      animation-range: entry 5% entry 80%;
+    }
+
+    [data-site="clinica"] .vagar-shot__img {
+      animation: vagar-shutter-image var(--ease-soft) both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 55%;
+    }
+  }
+}
+
+@keyframes vagar-shutter {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0);
+  }
+}
+
+@keyframes vagar-shutter-image {
+  from {
+    transform: scale(1.12);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .vagar-faq__item[open] p {
+    animation: vagar-open 320ms var(--ease-out);
+  }
+}
+
+@keyframes vagar-open {
+  from {
+    opacity: 0;
+    transform: translateY(-0.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.vagar-message {
+  margin: 0.5rem 0 0;
+  padding: 0.75rem 1rem;
+  background-color: var(--field-2);
+  color: var(--field-2-foreground);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .vagar-visit__segment {
+    transform-box: fill-box;
+    transform-origin: left;
+    animation: vagar-grow 420ms var(--ease-out) both;
+  }
+}
+
+@keyframes vagar-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: none;
+  }
+}

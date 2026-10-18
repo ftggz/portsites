@@ -1,0 +1,568 @@
+{
+  "photos": [
+    {
+      "id": "kr81YUufBuc",
+      "url": "https://images.unsplash.com/photo-1693307090398-2a6d5cc39c77",
+      "author": "Anna Ansone",
+      "authorUrl": "https://unsplash.com/@simplyanna",
+      "pageUrl": "https://unsplash.com/photos/kr81YUufBuc",
+      "description": "Pizza saindo do forno a lenha na pá",
+      "usedIn": "Pizzaria, topo"
+    },
+    {
+      "id": "lPZZXH9sjZU",
+      "url": "https://images.unsplash.com/photo-1589271243958-d61e12b61b97",
+      "author": "Thanos Pal",
+      "authorUrl": "https://unsplash.com/@thanospal",
+      "pageUrl": "https://unsplash.com/photos/lPZZXH9sjZU",
+      "description": "Vaso com folhas secas sobre prateleira de madeira, ao lado de uma cama",
+      "usedIn": "Clínica de estética, topo"
+    },
+    {
+      "id": "nwSGKWYE9cM",
+      "url": "https://images.unsplash.com/photo-1728474751252-9c085659f6ab",
+      "author": "Martin Fennema",
+      "authorUrl": "https://unsplash.com/@theartisdutch",
+      "pageUrl": "https://unsplash.com/photos/nwSGKWYE9cM",
+      "description": "Mãos com chave inglesa embaixo de um carro",
+      "usedIn": "Oficina mecânica, topo"
+    },
+    {
+      "id": "KhF58h0hTbc",
+      "url": "https://images.unsplash.com/photo-1676018366904-c083ed678e60",
+      "author": "Kato Blackmore",
+      "authorUrl": "https://unsplash.com/@katoblackmore",
+      "pageUrl": "https://unsplash.com/photos/KhF58h0hTbc",
+      "description": "Oficina com elevador, pneus e parede de ferramentas",
+      "usedIn": "Oficina mecânica, topo"
+    },
+    {
+      "id": "mzBTIkHinRU",
+      "url": "https://images.unsplash.com/photo-1771086604156-5832dafe4854",
+      "author": "bahareh moradian",
+      "authorUrl": "https://unsplash.com/@bahar_mr",
+      "pageUrl": "https://unsplash.com/photos/mzBTIkHinRU",
+      "description": "Sombra de folhas numa parede clara",
+      "usedIn": "Clínica de estética, galeria"
+    },
+    {
+      "id": "V0UxGWPSRTc",
+      "url": "https://images.unsplash.com/photo-1577238049939-31ab42ced747",
+      "author": "Kelly Sikkema",
+      "authorUrl": "https://unsplash.com/@kellysikkema",
+      "pageUrl": "https://unsplash.com/photos/V0UxGWPSRTc",
+      "description": "Ramos de eucalipto contra um fundo cinza",
+      "usedIn": "Clínica de estética, galeria"
+    },
+    {
+      "id": "3VSa5sbvdpc",
+      "url": "https://images.unsplash.com/photo-1682421938316-4b186e25174c",
+      "author": "Saad Ahmad",
+      "authorUrl": "https://unsplash.com/@saadahmad_umn",
+      "pageUrl": "https://unsplash.com/photos/3VSa5sbvdpc",
+      "description": "Sombra de planta numa cortina iluminada",
+      "usedIn": "Clínica de estética, galeria"
+    },
+    {
+      "id": "E-9uEmQNWeY",
+      "url": "https://images.unsplash.com/photo-1572725350945-a2d24faa89b0",
+      "author": "Anne Nygård",
+      "authorUrl": "https://unsplash.com/@polarmermaid",
+      "pageUrl": "https://unsplash.com/photos/E-9uEmQNWeY",
+      "description": "Vaso de cerâmica com relevo",
+      "usedIn": "Clínica de estética, galeria"
+    },
+    {
+      "id": "2Mqz_m7c6HU",
+      "url": "https://images.unsplash.com/photo-1578413142862-c10be6467b8b",
+      "author": "360floralflaves",
+      "authorUrl": "https://unsplash.com/@360floralflaves",
+      "pageUrl": "https://unsplash.com/photos/2Mqz_m7c6HU",
+      "description": "Sete pedras de basalto escuras sobre um fundo escuro",
+      "usedIn": "Clínica de estética, galeria"
+    },
+    {
+      "id": "cTA8m7VwejE",
+      "url": "https://images.unsplash.com/photo-1578500467296-441a11d5d55a",
+      "author": "Katsia Jazwinska",
+      "authorUrl": "https://unsplash.com/@katsiajazwinska",
+      "pageUrl": "https://unsplash.com/photos/cTA8m7VwejE",
+      "description": "Cortina bege caída sobre o piso",
+      "usedIn": "Clínica de estética, galeria"
+    },
+    {
+      "id": "OjcpbRPjJaM",
+      "url": "https://images.unsplash.com/photo-1678902439188-3b9fb4b1afc4",
+      "author": "Sixteen Miles Out",
+      "authorUrl": "https://unsplash.com/@sixteenmilesout",
+      "pageUrl": "https://unsplash.com/photos/OjcpbRPjJaM",
+      "description": "Folhas de eucalipto soltas sobre uma superfície branca",
+      "usedIn": "Clínica de estética, como funciona"
+    },
+    {
+      "id": "db-7ZoBuD2s",
+      "url": "https://images.unsplash.com/photo-1689155627999-f9799dd9134f",
+      "author": "Viktoriia Kondratiuk",
+      "authorUrl": "https://unsplash.com/@viktoriia_kondratiuk",
+      "pageUrl": "https://unsplash.com/photos/db-7ZoBuD2s",
+      "description": "Planta num jarro diante de uma janela com cortina fina",
+      "usedIn": "Clínica de estética, como funciona"
+    },
+    {
+      "id": "5nMkmmxjvDg",
+      "url": "https://images.unsplash.com/photo-1791983976376-9949a62a6e67",
+      "author": "Jimmy Liu",
+      "authorUrl": "https://unsplash.com/@jimmy__liu",
+      "pageUrl": "https://unsplash.com/photos/5nMkmmxjvDg",
+      "description": "Sombras de folhas numa parede com luz quente",
+      "usedIn": "Clínica de estética, como funciona"
+    },
+    {
+      "id": "JnsuyfJrxQw",
+      "url": "https://images.unsplash.com/photo-1787651343620-8d5303006ecb",
+      "author": "Mayur Roxan",
+      "authorUrl": "https://unsplash.com/@mayurroxanphotography",
+      "pageUrl": "https://unsplash.com/photos/JnsuyfJrxQw",
+      "description": "Sala com maca, pia e janela",
+      "usedIn": "Clínica de estética, como funciona"
+    },
+    {
+      "id": "YmoKERxSpso",
+      "url": "https://images.unsplash.com/photo-1610792709724-7c2568d6180d",
+      "author": "Annie Spratt",
+      "authorUrl": "https://unsplash.com/@anniespratt",
+      "pageUrl": "https://unsplash.com/photos/YmoKERxSpso",
+      "description": "Capim seco contra uma parede bege",
+      "usedIn": "Clínica de estética, como funciona"
+    },
+    {
+      "id": "PsY9OJuBrdQ",
+      "url": "https://images.unsplash.com/photo-1633000117256-f8d7e244ca70",
+      "author": "Kasia Sikorska",
+      "authorUrl": "https://unsplash.com/@kasiasikorska",
+      "pageUrl": "https://unsplash.com/photos/PsY9OJuBrdQ",
+      "description": "Vaso branco com flores brancas pequenas",
+      "usedIn": "Clínica de estética, como funciona"
+    },
+    {
+      "id": "zCYO9HxEAjI",
+      "url": "https://images.unsplash.com/photo-1510035618584-c442b241abe7",
+      "author": "TAN Erica",
+      "authorUrl": "https://unsplash.com/@ericatan5566",
+      "pageUrl": "https://unsplash.com/photos/zCYO9HxEAjI",
+      "description": "Tigela de cerâmica creme",
+      "usedIn": "Clínica de estética, contato"
+    },
+    {
+      "id": "print-clinica-desktop",
+      "file": "assets/source/prints/clinica-desktop.png",
+      "description": "Print do site conceito Vagar Estética (computador)",
+      "usedIn": "Landing, portfólio"
+    },
+    {
+      "id": "print-clinica-mobile",
+      "file": "assets/source/prints/clinica-mobile.png",
+      "description": "Print do site conceito Vagar Estética (celular)",
+      "usedIn": "Landing, portfólio"
+    },
+    {
+      "id": "print-oficina-desktop",
+      "file": "assets/source/prints/oficina-desktop.png",
+      "description": "Print do site conceito Às Claras Mecânica (computador)",
+      "usedIn": "Landing, portfólio"
+    },
+    {
+      "id": "print-oficina-mobile",
+      "file": "assets/source/prints/oficina-mobile.png",
+      "description": "Print do site conceito Às Claras Mecânica (celular)",
+      "usedIn": "Landing, portfólio"
+    },
+    {
+      "id": "print-pizzaria-desktop",
+      "file": "assets/source/prints/pizzaria-desktop.png",
+      "description": "Print do site conceito Forno Aceso (computador)",
+      "usedIn": "Landing, portfólio"
+    },
+    {
+      "id": "print-pizzaria-mobile",
+      "file": "assets/source/prints/pizzaria-mobile.png",
+      "description": "Print do site conceito Forno Aceso (celular)",
+      "usedIn": "Landing, portfólio"
+    }
+  ],
+  "outputs": [
+    {
+      "key": "pizzaria-hero",
+      "photo": "kr81YUufBuc",
+      "dir": "pizzaria",
+      "aspect": "4:5",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "widths": [
+        640,
+        1080,
+        1600
+      ]
+    },
+    {
+      "key": "clinica-hero-paisagem",
+      "photo": "lPZZXH9sjZU",
+      "dir": "clinica",
+      "aspect": "3:2",
+      "focus": [
+        0.5,
+        0.505
+      ],
+      "widths": [
+        800,
+        1280,
+        1920
+      ],
+      "flop": true
+    },
+    {
+      "key": "clinica-hero-retrato",
+      "photo": "lPZZXH9sjZU",
+      "dir": "clinica",
+      "aspect": "9:16",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "widths": [
+        480,
+        720,
+        1080
+      ]
+    },
+    {
+      "key": "clinica-galeria-sombra",
+      "photo": "mzBTIkHinRU",
+      "dir": "clinica",
+      "aspect": "3:4",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "widths": [
+        480,
+        800,
+        1200
+      ],
+      "quality": 64,
+      "soften": 0.8
+    },
+    {
+      "key": "clinica-galeria-eucalipto",
+      "photo": "V0UxGWPSRTc",
+      "dir": "clinica",
+      "aspect": "5:4",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "widths": [
+        560,
+        960,
+        1440
+      ]
+    },
+    {
+      "key": "clinica-galeria-cortina",
+      "photo": "3VSa5sbvdpc",
+      "dir": "clinica",
+      "aspect": "3:2",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "widths": [
+        560,
+        960,
+        1440
+      ],
+      "quality": 64,
+      "soften": 0.8
+    },
+    {
+      "key": "clinica-galeria-ceramica",
+      "photo": "E-9uEmQNWeY",
+      "dir": "clinica",
+      "aspect": "4:5",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "widths": [
+        360,
+        600,
+        900
+      ]
+    },
+    {
+      "key": "clinica-galeria-pedras",
+      "photo": "2Mqz_m7c6HU",
+      "dir": "clinica",
+      "aspect": "3:4",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "widths": [
+        480,
+        800,
+        1200
+      ]
+    },
+    {
+      "key": "clinica-galeria-linho",
+      "photo": "cTA8m7VwejE",
+      "dir": "clinica",
+      "aspect": "5:4",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "widths": [
+        560,
+        960,
+        1440
+      ]
+    },
+    {
+      "key": "clinica-passo-folhas",
+      "photo": "OjcpbRPjJaM",
+      "dir": "clinica",
+      "aspect": "4:5",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "widths": [
+        320,
+        560,
+        840
+      ]
+    },
+    {
+      "key": "clinica-passo-janela",
+      "photo": "db-7ZoBuD2s",
+      "dir": "clinica",
+      "aspect": "4:5",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "widths": [
+        320,
+        560,
+        840
+      ]
+    },
+    {
+      "key": "clinica-passo-tarde",
+      "photo": "5nMkmmxjvDg",
+      "dir": "clinica",
+      "aspect": "4:5",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "widths": [
+        320,
+        560,
+        840
+      ]
+    },
+    {
+      "key": "clinica-passo-sala",
+      "photo": "JnsuyfJrxQw",
+      "dir": "clinica",
+      "aspect": "4:5",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "widths": [
+        320,
+        560,
+        840
+      ]
+    },
+    {
+      "key": "clinica-passo-capim",
+      "photo": "YmoKERxSpso",
+      "dir": "clinica",
+      "aspect": "4:5",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "widths": [
+        320,
+        560,
+        840
+      ]
+    },
+    {
+      "key": "clinica-passo-flores",
+      "photo": "PsY9OJuBrdQ",
+      "dir": "clinica",
+      "aspect": "4:5",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "widths": [
+        320,
+        560,
+        840
+      ]
+    },
+    {
+      "key": "clinica-contato-tigela",
+      "photo": "zCYO9HxEAjI",
+      "dir": "clinica",
+      "aspect": "1:1",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "widths": [
+        200,
+        340,
+        480
+      ]
+    },
+    {
+      "key": "oficina-hero-maos",
+      "photo": "nwSGKWYE9cM",
+      "dir": "oficina",
+      "aspect": "3:2",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "widths": [
+        640,
+        1080,
+        1440
+      ],
+      "grayscale": true
+    },
+    {
+      "key": "oficina-hero-elevador",
+      "photo": "KhF58h0hTbc",
+      "dir": "oficina",
+      "aspect": "3:2",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "widths": [
+        640,
+        1080,
+        1440
+      ],
+      "grayscale": true
+    },
+    {
+      "key": "print-clinica-desktop",
+      "photo": "print-clinica-desktop",
+      "dir": "portfolio",
+      "aspect": "16:10",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "widths": [
+        720,
+        1200,
+        1800
+      ],
+      "quality": 82
+    },
+    {
+      "key": "print-clinica-mobile",
+      "photo": "print-clinica-mobile",
+      "dir": "portfolio",
+      "aspect": "375:812",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "widths": [
+        300,
+        450,
+        750
+      ],
+      "quality": 82
+    },
+    {
+      "key": "print-oficina-desktop",
+      "photo": "print-oficina-desktop",
+      "dir": "portfolio",
+      "aspect": "16:10",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "widths": [
+        720,
+        1200,
+        1800
+      ],
+      "quality": 82
+    },
+    {
+      "key": "print-oficina-mobile",
+      "photo": "print-oficina-mobile",
+      "dir": "portfolio",
+      "aspect": "375:812",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "widths": [
+        300,
+        450,
+        750
+      ],
+      "quality": 82
+    },
+    {
+      "key": "print-pizzaria-desktop",
+      "photo": "print-pizzaria-desktop",
+      "dir": "portfolio",
+      "aspect": "16:10",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "widths": [
+        720,
+        1200,
+        1800
+      ],
+      "quality": 82
+    },
+    {
+      "key": "print-pizzaria-mobile",
+      "photo": "print-pizzaria-mobile",
+      "dir": "portfolio",
+      "aspect": "375:812",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "widths": [
+        300,
+        450,
+        750
+      ],
+      "quality": 82
+    }
+  ]
+}

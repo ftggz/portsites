@@ -1,0 +1,218 @@
+{
+  "pizzaria-hero": {
+    "src": "/images/pizzaria/pizzaria-hero-1600.webp",
+    "width": 1600,
+    "height": 2000,
+    "srcSet": "/images/pizzaria/pizzaria-hero-640.webp 640w, /images/pizzaria/pizzaria-hero-1080.webp 1080w, /images/pizzaria/pizzaria-hero-1600.webp 1600w",
+    "credit": {
+      "author": "Anna Ansone",
+      "url": "https://unsplash.com/@simplyanna"
+    }
+  },
+  "clinica-hero-paisagem": {
+    "src": "/images/clinica/clinica-hero-paisagem-1920.webp",
+    "width": 1920,
+    "height": 1280,
+    "srcSet": "/images/clinica/clinica-hero-paisagem-800.webp 800w, /images/clinica/clinica-hero-paisagem-1280.webp 1280w, /images/clinica/clinica-hero-paisagem-1920.webp 1920w",
+    "credit": {
+      "author": "Thanos Pal",
+      "url": "https://unsplash.com/@thanospal"
+    }
+  },
+  "clinica-hero-retrato": {
+    "src": "/images/clinica/clinica-hero-retrato-1080.webp",
+    "width": 1080,
+    "height": 1920,
+    "srcSet": "/images/clinica/clinica-hero-retrato-480.webp 480w, /images/clinica/clinica-hero-retrato-720.webp 720w, /images/clinica/clinica-hero-retrato-1080.webp 1080w",
+    "credit": {
+      "author": "Thanos Pal",
+      "url": "https://unsplash.com/@thanospal"
+    }
+  },
+  "clinica-galeria-sombra": {
+    "src": "/images/clinica/clinica-galeria-sombra-1200.webp",
+    "width": 1200,
+    "height": 1600,
+    "srcSet": "/images/clinica/clinica-galeria-sombra-480.webp 480w, /images/clinica/clinica-galeria-sombra-800.webp 800w, /images/clinica/clinica-galeria-sombra-1200.webp 1200w",
+    "credit": {
+      "author": "bahareh moradian",
+      "url": "https://unsplash.com/@bahar_mr"
+    }
+  },
+  "clinica-galeria-eucalipto": {
+    "src": "/images/clinica/clinica-galeria-eucalipto-1440.webp",
+    "width": 1440,
+    "height": 1152,
+    "srcSet": "/images/clinica/clinica-galeria-eucalipto-560.webp 560w, /images/clinica/clinica-galeria-eucalipto-960.webp 960w, /images/clinica/clinica-galeria-eucalipto-1440.webp 1440w",
+    "credit": {
+      "author": "Kelly Sikkema",
+      "url": "https://unsplash.com/@kellysikkema"
+    }
+  },
+  "clinica-galeria-cortina": {
+    "src": "/images/clinica/clinica-galeria-cortina-1440.webp",
+    "width": 1440,
+    "height": 960,
+    "srcSet": "/images/clinica/clinica-galeria-cortina-560.webp 560w, /images/clinica/clinica-galeria-cortina-960.webp 960w, /images/clinica/clinica-galeria-cortina-1440.webp 1440w",
+    "credit": {
+      "author": "Saad Ahmad",
+      "url": "https://unsplash.com/@saadahmad_umn"
+    }
+  },
+  "clinica-galeria-ceramica": {
+    "src": "/images/clinica/clinica-galeria-ceramica-900.webp",
+    "width": 900,
+    "height": 1125,
+    "srcSet": "/images/clinica/clinica-galeria-ceramica-360.webp 360w, /images/clinica/clinica-galeria-ceramica-600.webp 600w, /images/clinica/clinica-galeria-ceramica-900.webp 900w",
+    "credit": {
+      "author": "Anne Nygård",
+      "url": "https://unsplash.com/@polarmermaid"
+    }
+  },
+  "clinica-galeria-pedras": {
+    "src": "/images/clinica/clinica-galeria-pedras-1200.webp",
+    "width": 1200,
+    "height": 1600,
+    "srcSet": "/images/clinica/clinica-galeria-pedras-480.webp 480w, /images/clinica/clinica-galeria-pedras-800.webp 800w, /images/clinica/clinica-galeria-pedras-1200.webp 1200w",
+    "credit": {
+      "author": "360floralflaves",
+      "url": "https://unsplash.com/@360floralflaves"
+    }
+  },
+  "clinica-galeria-linho": {
+    "src": "/images/clinica/clinica-galeria-linho-1440.webp",
+    "width": 1440,
+    "height": 1152,
+    "srcSet": "/images/clinica/clinica-galeria-linho-560.webp 560w, /images/clinica/clinica-galeria-linho-960.webp 960w, /images/clinica/clinica-galeria-linho-1440.webp 1440w",
+    "credit": {
+      "author": "Katsia Jazwinska",
+      "url": "https://unsplash.com/@katsiajazwinska"
+    }
+  },
+  "clinica-passo-folhas": {
+    "src": "/images/clinica/clinica-passo-folhas-840.webp",
+    "width": 840,
+    "height": 1050,
+    "srcSet": "/images/clinica/clinica-passo-folhas-320.webp 320w, /images/clinica/clinica-passo-folhas-560.webp 560w, /images/clinica/clinica-passo-folhas-840.webp 840w",
+    "credit": {
+      "author": "Sixteen Miles Out",
+      "url": "https://unsplash.com/@sixteenmilesout"
+    }
+  },
+  "clinica-passo-janela": {
+    "src": "/images/clinica/clinica-passo-janela-840.webp",
+    "width": 840,
+    "height": 1050,
+    "srcSet": "/images/clinica/clinica-passo-janela-320.webp 320w, /images/clinica/clinica-passo-janela-560.webp 560w, /images/clinica/clinica-passo-janela-840.webp 840w",
+    "credit": {
+      "author": "Viktoriia Kondratiuk",
+      "url": "https://unsplash.com/@viktoriia_kondratiuk"
+    }
+  },
+  "clinica-passo-tarde": {
+    "src": "/images/clinica/clinica-passo-tarde-840.webp",
+    "width": 840,
+    "height": 1050,
+    "srcSet": "/images/clinica/clinica-passo-tarde-320.webp 320w, /images/clinica/clinica-passo-tarde-560.webp 560w, /images/clinica/clinica-passo-tarde-840.webp 840w",
+    "credit": {
+      "author": "Jimmy Liu",
+      "url": "https://unsplash.com/@jimmy__liu"
+    }
+  },
+  "clinica-passo-sala": {
+    "src": "/images/clinica/clinica-passo-sala-840.webp",
+    "width": 840,
+    "height": 1050,
+    "srcSet": "/images/clinica/clinica-passo-sala-320.webp 320w, /images/clinica/clinica-passo-sala-560.webp 560w, /images/clinica/clinica-passo-sala-840.webp 840w",
+    "credit": {
+      "author": "Mayur Roxan",
+      "url": "https://unsplash.com/@mayurroxanphotography"
+    }
+  },
+  "clinica-passo-capim": {
+    "src": "/images/clinica/clinica-passo-capim-840.webp",
+    "width": 840,
+    "height": 1050,
+    "srcSet": "/images/clinica/clinica-passo-capim-320.webp 320w, /images/clinica/clinica-passo-capim-560.webp 560w, /images/clinica/clinica-passo-capim-840.webp 840w",
+    "credit": {
+      "author": "Annie Spratt",
+      "url": "https://unsplash.com/@anniespratt"
+    }
+  },
+  "clinica-passo-flores": {
+    "src": "/images/clinica/clinica-passo-flores-840.webp",
+    "width": 840,
+    "height": 1050,
+    "srcSet": "/images/clinica/clinica-passo-flores-320.webp 320w, /images/clinica/clinica-passo-flores-560.webp 560w, /images/clinica/clinica-passo-flores-840.webp 840w",
+    "credit": {
+      "author": "Kasia Sikorska",
+      "url": "https://unsplash.com/@kasiasikorska"
+    }
+  },
+  "clinica-contato-tigela": {
+    "src": "/images/clinica/clinica-contato-tigela-480.webp",
+    "width": 480,
+    "height": 480,
+    "srcSet": "/images/clinica/clinica-contato-tigela-200.webp 200w, /images/clinica/clinica-contato-tigela-340.webp 340w, /images/clinica/clinica-contato-tigela-480.webp 480w",
+    "credit": {
+      "author": "TAN Erica",
+      "url": "https://unsplash.com/@ericatan5566"
+    }
+  },
+  "oficina-hero-maos": {
+    "src": "/images/oficina/oficina-hero-maos-1440.webp",
+    "width": 1440,
+    "height": 960,
+    "srcSet": "/images/oficina/oficina-hero-maos-640.webp 640w, /images/oficina/oficina-hero-maos-1080.webp 1080w, /images/oficina/oficina-hero-maos-1440.webp 1440w",
+    "credit": {
+      "author": "Martin Fennema",
+      "url": "https://unsplash.com/@theartisdutch"
+    }
+  },
+  "oficina-hero-elevador": {
+    "src": "/images/oficina/oficina-hero-elevador-1440.webp",
+    "width": 1440,
+    "height": 960,
+    "srcSet": "/images/oficina/oficina-hero-elevador-640.webp 640w, /images/oficina/oficina-hero-elevador-1080.webp 1080w, /images/oficina/oficina-hero-elevador-1440.webp 1440w",
+    "credit": {
+      "author": "Kato Blackmore",
+      "url": "https://unsplash.com/@katoblackmore"
+    }
+  },
+  "print-clinica-desktop": {
+    "src": "/images/portfolio/print-clinica-desktop-1800.webp",
+    "width": 1800,
+    "height": 1125,
+    "srcSet": "/images/portfolio/print-clinica-desktop-720.webp 720w, /images/portfolio/print-clinica-desktop-1200.webp 1200w, /images/portfolio/print-clinica-desktop-1800.webp 1800w"
+  },
+  "print-clinica-mobile": {
+    "src": "/images/portfolio/print-clinica-mobile-750.webp",
+    "width": 750,
+    "height": 1624,
+    "srcSet": "/images/portfolio/print-clinica-mobile-300.webp 300w, /images/portfolio/print-clinica-mobile-450.webp 450w, /images/portfolio/print-clinica-mobile-750.webp 750w"
+  },
+  "print-oficina-desktop": {
+    "src": "/images/portfolio/print-oficina-desktop-1800.webp",
+    "width": 1800,
+    "height": 1125,
+    "srcSet": "/images/portfolio/print-oficina-desktop-720.webp 720w, /images/portfolio/print-oficina-desktop-1200.webp 1200w, /images/portfolio/print-oficina-desktop-1800.webp 1800w"
+  },
+  "print-oficina-mobile": {
+    "src": "/images/portfolio/print-oficina-mobile-750.webp",
+    "width": 750,
+    "height": 1624,
+    "srcSet": "/images/portfolio/print-oficina-mobile-300.webp 300w, /images/portfolio/print-oficina-mobile-450.webp 450w, /images/portfolio/print-oficina-mobile-750.webp 750w"
+  },
+  "print-pizzaria-desktop": {
+    "src": "/images/portfolio/print-pizzaria-desktop-1800.webp",
+    "width": 1800,
+    "height": 1125,
+    "srcSet": "/images/portfolio/print-pizzaria-desktop-720.webp 720w, /images/portfolio/print-pizzaria-desktop-1200.webp 1200w, /images/portfolio/print-pizzaria-desktop-1800.webp 1800w"
+  },
+  "print-pizzaria-mobile": {
+    "src": "/images/portfolio/print-pizzaria-mobile-750.webp",
+    "width": 750,
+    "height": 1624,
+    "srcSet": "/images/portfolio/print-pizzaria-mobile-300.webp 300w, /images/portfolio/print-pizzaria-mobile-450.webp 450w, /images/portfolio/print-pizzaria-mobile-750.webp 750w"
+  }
+}

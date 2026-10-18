@@ -1,0 +1,332 @@
+/* Tokens da landing, em Newsreader com oxblood sobre cinza. */
+[data-site="landing"] {
+  --background: #e2e2e2;
+  --surface: #d6d6d6;
+  --foreground: #7d0c14;
+  --muted-foreground: #7a4a4e;
+  --primary: #7d0c14;
+  --primary-foreground: #e2e2e2;
+  --field-1: #7d0c14;
+  --field-1-foreground: #e2e2e2;
+  --field-1-muted: #c6a6a8;
+
+  --font-display: var(--font-newsreader);
+  --font-text: var(--font-newsreader);
+  --leading-body: 1.6;
+  --tracking-display: -0.04em;
+
+  --step-small: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
+  --step-body: clamp(1.125rem, 1.05rem + 0.3vw, 1.3125rem);
+  --step-lead: clamp(1.5rem, 1rem + 1.8vw, 2.75rem);
+  --step-head: clamp(2.75rem, 1.6rem + 3.6vw, 4.75rem);
+  --step-display: clamp(3.75rem, 10vw, 9rem);
+
+  --margin: clamp(1rem, 2.2vw, 1.75rem);
+  --gutter: clamp(0.75rem, 1.4vw, 1.5rem);
+  --section: clamp(4.5rem, 3rem + 7vw, 10rem);
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+
+  --radius: 0px;
+  --t-press: 140ms;
+  --t-hover: 180ms;
+  --t-reveal: 700ms;
+  --rise: 0.875rem;
+}
+
+/* O topo tem dois campos que se encontram perto da metade da tela; o título atravessa a linha
+   e cada metade das letras assume a cor do campo onde está. */
+.waterline {
+  --seam: 46%;
+  position: relative;
+  isolation: isolate;
+  min-height: max(36rem, 100svh);
+  overflow: hidden;
+  background-color: var(--background);
+}
+
+.waterline__field {
+  position: absolute;
+  inset: var(--seam) 0 0 0;
+  z-index: -1;
+  background-color: var(--field-1);
+}
+
+@media (min-width: 48rem) {
+  .waterline {
+    --seam: 50%;
+  }
+}
+
+.waterline__copy {
+  position: absolute;
+  inset: 0;
+  display: block;
+  pointer-events: none;
+}
+
+.waterline__copy--upper {
+  color: var(--foreground);
+  clip-path: inset(0 0 calc(100% - var(--seam)) 0);
+}
+
+.waterline__copy--lower {
+  color: var(--field-1-foreground);
+  clip-path: inset(var(--seam) 0 0 0);
+}
+
+.waterline__lines {
+  position: absolute;
+  left: var(--margin);
+  right: var(--margin);
+  top: calc(var(--seam) - var(--step-display) * 0.92 * 1.5);
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--step-display);
+  font-weight: 300;
+  font-optical-sizing: auto;
+  line-height: 0.92;
+  letter-spacing: var(--tracking-display);
+  text-align: center;
+}
+
+.waterline__line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+.waterline__line > span {
+  display: block;
+}
+
+.waterline__line > [data-text]::before {
+  content: attr(data-text);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .waterline__line > span {
+    animation: waterline-rise var(--t-reveal) var(--ease-out) both;
+    animation-delay: 120ms;
+  }
+
+  .waterline__line:nth-child(2) > span {
+    animation-delay: 230ms;
+  }
+
+  .waterline__after {
+    --rise-start: 520ms;
+  }
+}
+
+@keyframes waterline-rise {
+  from {
+    transform: translateY(105%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+/* Entradas por rolagem feitas só com CSS; quem não tem suporte vê tudo parado e no lugar. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    [data-site="landing"] .reveal {
+      animation: site-rise var(--ease-out) both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 55%;
+    }
+
+    [data-site="landing"] .reveal-settle {
+      animation: landing-settle var(--ease-soft) both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 45%;
+    }
+
+    [data-site="landing"] .reveal-reply {
+      animation: landing-reply var(--ease-out) both;
+      animation-timeline: view();
+      animation-range: entry 10% entry 70%;
+    }
+  }
+}
+
+@keyframes landing-settle {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes landing-reply {
+  from {
+    opacity: 0;
+    transform: translateX(-0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .portfolio-visual img {
+    transition: transform 700ms var(--ease-soft);
+  }
+
+  .portfolio-visual:hover img {
+    transform: scale(1.025);
+  }
+}
+
+@media (hover: hover) {
+  .features__name {
+    transition: color var(--t-hover) ease;
+  }
+
+  .features ul:hover .features__name {
+    color: var(--muted-foreground);
+  }
+
+  .features ul .features__row:hover .features__name {
+    color: var(--foreground);
+  }
+}
+
+/* O formulário é um cupom de destacar, com canhoto, picote e campos. As colunas não crescem
+   com o conteúdo, para um link colado não empurrar o cupom para fora da tela. */
+.coupon {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  overflow: clip;
+}
+
+.coupon__stub,
+.coupon__fields {
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr);
+  padding: var(--space-6) var(--space-5);
+}
+
+.coupon__preview {
+  overflow-wrap: anywhere;
+}
+
+.coupon__perf {
+  position: relative;
+  height: 1.75rem;
+}
+
+.coupon__perf > span {
+  position: absolute;
+  inset: 50% 1.375rem auto;
+  border-top: 5px dotted var(--background);
+  transform: translateY(-50%);
+}
+
+.coupon__perf::before,
+.coupon__perf::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background-color: var(--background);
+}
+
+.coupon__perf::before {
+  left: -0.875rem;
+}
+
+.coupon__perf::after {
+  right: -0.875rem;
+}
+
+@media (min-width: 64rem) {
+  .coupon {
+    grid-template-columns: minmax(0, 46fr) auto minmax(0, 54fr);
+  }
+
+  .coupon__stub,
+  .coupon__fields {
+    padding: var(--space-7);
+  }
+
+  .coupon__perf {
+    width: 1.75rem;
+    height: auto;
+  }
+
+  .coupon__perf > span {
+    inset: 1.375rem auto 1.375rem 50%;
+    border-top: 0;
+    border-left: 5px dotted var(--background);
+    transform: translateX(-50%);
+  }
+
+  .coupon__perf::before,
+  .coupon__perf::after {
+    left: 0;
+    right: auto;
+  }
+
+  .coupon__perf::before {
+    top: -0.875rem;
+  }
+
+  .coupon__perf::after {
+    top: auto;
+    bottom: -0.875rem;
+  }
+}
+
+/* O nome fecha a página cortado pela borda de baixo; tem de ser reconhecível pelos dois terços de cima.
+   O tamanho sai do número de letras (data-size), contando cerca de 0,62em por letra para caber na largura. */
+.footer-wordmark {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 34vw;
+  font-weight: 300;
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+  transform: translateY(28%);
+  padding-left: var(--margin);
+}
+
+@media (min-width: 48rem) {
+  .footer-wordmark {
+    font-size: 27vw;
+  }
+}
+
+.footer-wordmark[data-size="6"] {
+  font-size: 24vw;
+}
+
+.footer-wordmark[data-size="8"] {
+  font-size: 18vw;
+}
+
+.footer-wordmark[data-size="11"] {
+  font-size: 13vw;
+}
+
+.footer-wordmark[data-size="15"] {
+  font-size: 9.5vw;
+}
+
+.footer-wordmark[data-size="24"] {
+  font-size: 6vw;
+}

@@ -1,0 +1,298 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "../styles/shadcn-variants.css";
+
+/* Cada site define os próprios valores em src/styles/sites/<site>.css, escopados por [data-site].
+   Aqui ficam só os nomes que viram utilitários do Tailwind e a base comum. */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-surface: var(--surface);
+  --color-field-1: var(--field-1);
+  --color-field-1-foreground: var(--field-1-foreground);
+  --color-field-2: var(--field-2);
+  --color-field-2-foreground: var(--field-2-foreground);
+  --color-field-3: var(--field-3);
+  --color-field-3-foreground: var(--field-3-foreground);
+
+  --font-display: var(--font-display);
+  --font-sans: var(--font-text);
+
+  --text-small: var(--step-small);
+  --text-body: var(--step-body);
+  --text-lead: var(--step-lead);
+  --text-head: var(--step-head);
+  --text-display: var(--step-display);
+
+  --spacing-margin: var(--margin);
+  --spacing-gutter: var(--gutter);
+  --spacing-section: var(--section);
+  --spacing-s1: var(--space-1);
+  --spacing-s2: var(--space-2);
+  --spacing-s3: var(--space-3);
+  --spacing-s4: var(--space-4);
+  --spacing-s5: var(--space-5);
+  --spacing-s6: var(--space-6);
+  --spacing-s7: var(--space-7);
+  --spacing-s8: var(--space-8);
+
+  --radius-site: var(--radius);
+  --radius-sm: var(--radius);
+  --radius-md: var(--radius);
+  --radius-lg: var(--radius);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+@layer base {
+  /* O @theme inline não publica variáveis; as curvas também são usadas no CSS de cada site. */
+  :root {
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+    --ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
+  }
+
+  [data-site] {
+    --card: var(--surface);
+    --card-foreground: var(--foreground);
+    --popover: var(--surface);
+    --popover-foreground: var(--foreground);
+    --secondary: var(--surface);
+    --secondary-foreground: var(--foreground);
+    --muted: var(--surface);
+    --accent: var(--surface);
+    --accent-foreground: var(--foreground);
+    --border: var(--muted-foreground);
+    --input: var(--surface);
+    --ring: var(--primary);
+    --destructive: var(--foreground);
+
+    min-height: 100dvh;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-text), ui-sans-serif, system-ui, sans-serif;
+    font-size: var(--step-body);
+    line-height: var(--leading-body, 1.5);
+    font-kerning: normal;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    accent-color: var(--primary);
+    caret-color: var(--primary);
+  }
+
+  [data-site] ::selection {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+  }
+
+  [data-site] :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+  }
+
+  [data-site] :where(h1, h2, h3, h4) {
+    font-family: var(--font-display), ui-serif, Georgia, serif;
+    text-wrap: balance;
+    hyphens: none;
+  }
+
+  [data-site] :where(p, li, dd, figcaption) {
+    text-wrap: pretty;
+  }
+
+  [data-site] :where(a) {
+    color: inherit;
+    text-decoration-thickness: 0.07em;
+    text-underline-offset: 0.18em;
+  }
+
+  [data-site] :where(img) {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  [data-site] .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* O fundo da página e as barras do navegador acompanham o site visível. */
+  html:has([data-site="landing"]) {
+    background-color: #e2e2e2;
+    scrollbar-color: #7d0c14 #d6d6d6;
+    color-scheme: light;
+  }
+
+  html:has([data-site="clinica"]) {
+    background-color: #a6b3bc;
+    scrollbar-color: #2c3620 #b2bdc5;
+    color-scheme: light;
+  }
+
+  html:has([data-site="oficina"]) {
+    background-color: #0a0a0a;
+    scrollbar-color: #f5c400 #151515;
+    color-scheme: dark;
+  }
+
+  html:has([data-site="pizzaria"]) {
+    background-color: #351a2b;
+    scrollbar-color: #edccbe #4a2a3d;
+    color-scheme: light;
+  }
+
+  html:has([data-concept-banner]) {
+    --banner-height: 2.5rem;
+    scroll-padding-top: calc(var(--banner-height) + 1rem);
+  }
+
+  @media (max-width: 40rem) {
+    html:has([data-concept-banner]) {
+      --banner-height: 3.25rem;
+    }
+  }
+}
+
+@layer components {
+  /* O aviso das páginas de portfólio é neutro de propósito, para não parecer parte da marca fictícia. */
+  .concept-banner {
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    display: flex;
+    min-height: var(--banner-height);
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.5rem clamp(0.75rem, 2vw, 1.5rem);
+    background-color: #111111;
+    color: #f5f5f5;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.3;
+  }
+
+  @media (max-width: 40rem) {
+    .concept-banner {
+      font-size: 0.8125rem;
+    }
+  }
+
+  .concept-banner a {
+    color: #f5f5f5;
+    white-space: nowrap;
+  }
+
+  .concept-banner a:focus-visible {
+    outline-color: #f5f5f5;
+  }
+
+  .demo-popover {
+    margin: auto;
+    max-width: min(26rem, calc(100vw - 2rem));
+    text-align: start;
+    border: 0;
+    padding: 1.5rem;
+    background-color: var(--popover);
+    color: var(--popover-foreground);
+    box-shadow: 0 1.25rem 3rem -1rem rgb(0 0 0 / 0.45); /* taste-skill-ignore, o aviso flutua sobre a página como um diálogo */
+    border-radius: var(--radius);
+  }
+
+  .demo-popover::backdrop {
+    background-color: rgb(0 0 0 / 0.35);
+  }
+
+  /* Dentro de um campo de cor, o anel de foco passa a usar a tinta do campo. */
+  .on-field-1 {
+    --ring: var(--field-1-foreground);
+    background-color: var(--field-1);
+    color: var(--field-1-foreground);
+  }
+
+  .on-field-2 {
+    --ring: var(--field-2-foreground);
+    background-color: var(--field-2);
+    color: var(--field-2-foreground);
+  }
+
+  .on-field-3 {
+    --ring: var(--field-3-foreground);
+    background-color: var(--field-3);
+    color: var(--field-3-foreground);
+  }
+}
+
+@layer utilities {
+  .sr-only-focusable:not(:focus-visible) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .rise-in > * {
+      animation: site-rise var(--t-reveal) var(--ease-out) both;
+      animation-delay: var(--rise-start, 150ms);
+    }
+
+    .rise-in > :nth-child(2) {
+      animation-delay: calc(var(--rise-start, 150ms) + 90ms);
+    }
+
+    .rise-in > :nth-child(3) {
+      animation-delay: calc(var(--rise-start, 150ms) + 180ms);
+    }
+
+    .rise-in > :nth-child(4) {
+      animation-delay: calc(var(--rise-start, 150ms) + 270ms);
+    }
+
+    .rise-in > :nth-child(n + 5) {
+      animation-delay: calc(var(--rise-start, 150ms) + 360ms);
+    }
+  }
+}
+
+@keyframes site-rise {
+  from {
+    opacity: 0;
+    transform: translateY(var(--rise));
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

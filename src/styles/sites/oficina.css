@@ -1,0 +1,73 @@
+/* Tokens da oficina Às Claras, em Hanken Grotesk com preto, branco gelo e amarelo de segurança. */
+[data-site="oficina"] {
+  --background: #0a0a0a;
+  --surface: #151515;
+  --surface-2: #1f1f1f;
+  --foreground: #efefef;
+  --muted-foreground: #8c8c8c;
+  --primary: #f5c400;
+  --primary-foreground: #0a0a0a;
+  --field-1: #efefef;
+  --field-1-foreground: #0a0a0a;
+  --field-2: #f5c400;
+  --field-2-foreground: #0a0a0a;
+
+  --font-display: var(--font-hanken);
+  --font-text: var(--font-hanken);
+  --leading-body: 1.45;
+  --tracking-display: -0.04em;
+
+  --step-small: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
+  --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  --step-lead: clamp(1.25rem, 1.05rem + 0.6vw, 1.5rem);
+  --step-head: clamp(2.25rem, 1rem + 5vw, 5.5rem);
+  --step-display: clamp(5.25rem, 12.5vw, 12rem);
+
+  --margin: clamp(0.375rem, 0.6vw, 0.5rem);
+  --gutter: clamp(0.375rem, 0.6vw, 0.5rem);
+  --section: clamp(0.375rem, 0.6vw, 0.5rem);
+  --tile-pad: clamp(1rem, 1.6vw, 1.5rem);
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  --radius: 0px;
+  --t-press: 120ms;
+  --t-hover: 160ms;
+  --t-reveal: 1100ms;
+  --rise: 0px;
+}
+
+/* O único movimento da página é a foto principal abrindo de baixo para cima, uma vez. */
+@media (prefers-reduced-motion: no-preference) {
+  .claras-shutter {
+    animation: claras-shutter var(--t-reveal) var(--ease-in-out) both;
+  }
+
+  .claras-shutter img {
+    animation: claras-settle 1500ms var(--ease-soft) both;
+  }
+}
+
+@keyframes claras-shutter {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0);
+  }
+}
+
+@keyframes claras-settle {
+  from {
+    transform: scale(1.12);
+  }
+  to {
+    transform: none;
+  }
+}
