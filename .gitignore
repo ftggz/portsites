@@ -49,3 +49,6 @@ next-env.d.ts
 # relatórios e preferências locais do Impeccable
 /.impeccable/critique/
 /.impeccable/config.local.json
+
+# hooks locais do Claude Code (apontam para caminhos desta máquina)
+/.claude/settings.local.json
