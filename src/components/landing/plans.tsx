@@ -22,10 +22,11 @@ type PlansProps = {
 
 function Price({ preco }: { preco: Preco }) {
   if (preco.tipo === "projecao") {
+    // A frase da projeção ocupa o lugar do preço e fica em duas linhas equilibradas.
     return (
-      <p className="m-0 grid max-w-[22ch] gap-s2">
-        <span className="font-display text-lead leading-tight font-light">{preco.texto}</span>
-        <span className="text-small">{preco.nota}</span>
+      <p className="m-0 grid gap-s2">
+        <span className="max-w-[9em] font-display text-lead leading-tight font-light text-balance">{preco.texto}</span>
+        <span className="max-w-[34ch] text-small">{preco.nota}</span>
       </p>
     );
   }

@@ -13,15 +13,17 @@ const root = resolve(join(dirname(fileURLToPath(import.meta.url)), ".."));
 const outDir = join(root, "out");
 const printsDir = join(root, "assets", "source", "prints");
 
+// A pizzaria diz pelo relógio se o forno está aceso; o print dela usa uma sexta às 20h no Rio,
+// com o forno aceso, para não depender da hora em que o script roda.
 const sites = [
   { slug: "clinica", path: "/portfolio/clinica-estetica" },
   { slug: "oficina", path: "/portfolio/oficina-mecanica" },
-  { slug: "pizzaria", path: "/portfolio/pizzaria" },
+  { slug: "pizzaria", path: "/portfolio/pizzaria", relogio: "2026-10-16T20:00:00-03:00" },
 ];
 
 const devices = [
   { name: "desktop", width: 1440, height: 900, mobile: false },
-  { name: "mobile", width: 375, height: 812, mobile: true },
+  { name: "mobile", width: 390, height: 844, mobile: true },
 ];
 
 const sleep = (ms) => new Promise((done) => setTimeout(done, ms));
@@ -106,7 +108,24 @@ async function launch(browserPath) {
   return { send, once, close };
 }
 
-async function capture(cdp, url, file, device) {
+// Troca o Date da página por um que sempre começa no instante dado.
+function relogioFixo(iso) {
+  const instante = Date.parse(iso);
+  return `(() => {
+    const Original = Date;
+    class Fixo extends Original {
+      constructor(...args) {
+        super(...(args.length ? args : [${instante}]));
+      }
+      static now() {
+        return ${instante};
+      }
+    }
+    globalThis.Date = Fixo;
+  })();`;
+}
+
+async function capture(cdp, site, device, url, file) {
   await cdp.send("Emulation.setDeviceMetricsOverride", {
     width: device.width,
     height: device.height,
@@ -114,6 +133,9 @@ async function capture(cdp, url, file, device) {
     mobile: device.mobile,
   });
   await cdp.send("Emulation.setTouchEmulationEnabled", { enabled: device.mobile });
+  const relogio = site.relogio
+    ? await cdp.send("Page.addScriptToEvaluateOnNewDocument", { source: relogioFixo(site.relogio) })
+    : null;
   const loaded = cdp.once("Page.loadEventFired");
   await cdp.send("Page.navigate", { url });
   await loaded;
@@ -121,6 +143,7 @@ async function capture(cdp, url, file, device) {
   await sleep(400);
   const { data } = await cdp.send("Page.captureScreenshot", { format: "png" });
   writeFileSync(file, Buffer.from(data, "base64"));
+  if (relogio) await cdp.send("Page.removeScriptToEvaluateOnNewDocument", { identifier: relogio.identifier });
 }
 
 if (!existsSync(outDir)) {
@@ -141,7 +164,7 @@ try {
   await cdp.send("Page.enable");
   for (const site of sites) {
     for (const device of devices) {
-      await capture(cdp, `${url}${site.path}`, join(printsDir, `${site.slug}-${device.name}.png`), device);
+      await capture(cdp, site, device, `${url}${site.path}`, join(printsDir, `${site.slug}-${device.name}.png`));
       console.log(`${site.slug} ${device.name} ok`);
     }
   }

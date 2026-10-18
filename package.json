@@ -8,6 +8,7 @@
     "lint": "eslint",
     "typecheck": "next typegen && tsc --noEmit",
     "images": "node scripts/images.mjs",
+    "prints": "node scripts/prints.mjs",
     "cn:tables": "cn build --full --css src/app/globals.css --out src/lib/cn-tables.ts",
     "check": "npm run lint && npm run typecheck && npm run build",
     "preview": "node scripts/preview.mjs"

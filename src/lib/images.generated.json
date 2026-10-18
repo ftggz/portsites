@@ -538,7 +538,7 @@
   "print-clinica-mobile": {
     "src": "/images/portfolio/print-clinica-mobile-750.webp",
     "width": 750,
-    "height": 1624,
+    "height": 1623,
     "srcSet": "/images/portfolio/print-clinica-mobile-300.webp 300w, /images/portfolio/print-clinica-mobile-450.webp 450w, /images/portfolio/print-clinica-mobile-750.webp 750w"
   },
   "print-oficina-desktop": {
@@ -550,7 +550,7 @@
   "print-oficina-mobile": {
     "src": "/images/portfolio/print-oficina-mobile-750.webp",
     "width": 750,
-    "height": 1624,
+    "height": 1623,
     "srcSet": "/images/portfolio/print-oficina-mobile-300.webp 300w, /images/portfolio/print-oficina-mobile-450.webp 450w, /images/portfolio/print-oficina-mobile-750.webp 750w"
   },
   "print-pizzaria-desktop": {
@@ -562,7 +562,7 @@
   "print-pizzaria-mobile": {
     "src": "/images/portfolio/print-pizzaria-mobile-750.webp",
     "width": 750,
-    "height": 1624,
+    "height": 1623,
     "srcSet": "/images/portfolio/print-pizzaria-mobile-300.webp 300w, /images/portfolio/print-pizzaria-mobile-450.webp 450w, /images/portfolio/print-pizzaria-mobile-750.webp 750w"
   }
 }
