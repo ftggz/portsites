@@ -8,13 +8,16 @@
   --primary-foreground: #edccbe;
   --field-1: #351a2b;
   --field-1-foreground: #edccbe;
+  --field-1-alt: #43243a;
+  --paper-2: #fbefe9;
 
   --font-display: var(--font-garamond);
   --font-text: var(--font-garamond);
   --leading-body: 1.5;
   --tracking-display: -0.01em;
 
-  --step-small: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
+  /* A Garamond tem olho pequeno; o texto miúdo fica em 15 a 16px para ler como 13 a 14px de outras letras. */
+  --step-small: clamp(0.9375rem, 0.9rem + 0.15vw, 1rem);
   --step-body: clamp(1.125rem, 1.05rem + 0.3vw, 1.3125rem);
   --step-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
   --step-head: clamp(2rem, 1.6rem + 1.6vw, 2.75rem);
@@ -40,7 +43,95 @@
   --rise: 1.375rem;
 }
 
-/* A faixa listrada vem do toldo; é o único ornamento do cartão. */
+/* Com a barra da comanda presa no pé da tela, o foco e as âncoras param acima dela. */
+html:has(.forno-menu__bar-link) {
+  scroll-padding-bottom: 5rem;
+}
+
+/* A página fica sobre a berinjela; a folha rosada e a foto parada são dois cartões lado a lado.
+   As trilhas começam em zero para que nenhum conteúdo largo empurre a página para os lados. */
+.forno-page {
+  padding: var(--margin);
+  background-color: var(--field-1);
+}
+
+.forno-split,
+.forno-column {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--gutter);
+}
+
+.forno-stage {
+  display: none;
+}
+
+.forno-sheet {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--section);
+  padding: var(--space-6) var(--column-pad) var(--space-6);
+  border-radius: var(--radius);
+  background-color: var(--background);
+}
+
+.forno-heading {
+  margin: 0;
+  font-size: var(--step-head);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: var(--tracking-display);
+}
+
+.forno-link {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 0.07em;
+  text-underline-offset: 0.18em;
+  cursor: pointer;
+}
+
+@media (min-width: 64rem) {
+  .forno-split {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+
+  /* A metade parada acompanha a seção que está no meio da tela. */
+  .forno-stage {
+    position: sticky;
+    top: calc(var(--banner-height, 2.5rem) + var(--margin));
+    display: block;
+    height: calc(100svh - var(--banner-height, 2.5rem) - 2 * var(--margin));
+    overflow: hidden;
+    border-radius: var(--radius);
+    background-color: var(--surface);
+  }
+
+  .forno-stage img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 700ms var(--ease-soft);
+  }
+
+  .forno-stage img[data-active="true"] {
+    z-index: 1;
+    opacity: 1;
+  }
+}
+
+/* A faixa listrada vem do toldo, com a ponta de cada listra arredondada como a barra de um toldo de verdade. */
 .awning {
   display: flex;
   height: 3.5rem;
@@ -49,6 +140,7 @@
 
 .awning > span {
   flex: 0 0 1.75rem;
+  border-radius: 0 0 999px 999px;
   background-color: var(--foreground);
 }
 
@@ -62,17 +154,1049 @@
   }
 }
 
+/* No celular a foto do topo vem primeiro, e o cartão sobe 24px sobre ela. */
+.forno-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+/* A foto do celular deixa espaço para o estado do forno e o botão caberem na primeira tela. */
+.forno-hero__photo {
+  position: relative;
+  height: 42svh;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.forno-hero__card {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  margin-top: -1.5rem;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.forno-hero__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--column-pad) var(--space-5);
+  text-align: center;
+}
+
+.forno-hero__brand {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--step-head);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.forno-hero__title {
+  margin: 0;
+  font-size: max(8vw, 2.25rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: var(--tracking-display);
+}
+
+.forno-hero__lead {
+  max-width: 36ch;
+  margin: 0;
+}
+
+/* O estado do forno em itálico, com a chama quando aceso e o relógio quando apagado. */
+.forno-status {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  margin: 0;
+  font-style: italic;
+}
+
+/* O ícone fica no meio da primeira linha, mesmo quando a frase quebra. */
+.forno-status svg {
+  flex: none;
+  margin-top: calc((1lh - 18px) / 2);
+}
+
+.forno-hero__status {
+  max-width: 36ch;
+  justify-content: center;
+}
+
+.forno-hero__nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 var(--space-4);
+  margin: 0;
+  padding: 0 var(--space-3) var(--space-4);
+  list-style: none;
+  font-size: var(--step-small);
+}
+
+.forno-hero__nav a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  text-decoration: underline;
+  text-decoration-thickness: 0.07em;
+  text-underline-offset: 0.18em;
+}
+
+@media (min-width: 48rem) {
+  .forno-hero__body {
+    gap: var(--space-3);
+  }
+
+  .forno-hero__title {
+    font-size: var(--step-display);
+  }
+}
+
+@media (min-width: 64rem) {
+  .forno-hero__photo {
+    display: none;
+  }
+
+  .forno-hero__card {
+    min-height: calc(100svh - var(--banner-height, 2.5rem) - 2 * var(--margin));
+    margin-top: 0;
+  }
+}
+
+/* O cardápio tem nome e ingredientes à esquerda e um botão por tamanho; as categorias são capítulos em itálico. */
+.forno-menu__note {
+  max-width: 40ch;
+  margin: var(--space-2) 0 0;
+}
+
+.forno-menu__index ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--space-4);
+  margin: var(--space-2) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.forno-menu__index a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  font-style: italic;
+  text-decoration: underline;
+  text-decoration-thickness: 0.07em;
+  text-underline-offset: 0.18em;
+}
+
+.forno-menu__group {
+  margin-top: var(--space-5);
+}
+
+.forno-menu__category {
+  margin: 0 0 var(--space-3);
+  font-size: var(--step-head);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: var(--tracking-display);
+}
+
+.forno-menu__list {
+  display: grid;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* No celular a miniatura redonda fica à direita do nome e os preços descem para a linha de baixo. */
+.forno-dish {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: var(--space-2) var(--space-3);
+}
+
+.forno-dish__mini {
+  grid-column: 2;
+  grid-row: 1;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.forno-dish__text {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.forno-dish__name {
+  margin: 0;
+  font-family: var(--font-text);
+  font-size: var(--step-lead);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.forno-dish__desc {
+  max-width: 40ch;
+  margin: var(--space-1) 0 0;
+}
+
+.forno-dish__count {
+  margin: var(--space-1) 0 0;
+  font-style: italic;
+}
+
+/* Os dois tamanhos cabem lado a lado a partir de 375px; abaixo disso, um sob o outro. */
+.forno-dish__prices {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8.75rem, 1fr));
+  grid-column: 1 / -1;
+  grid-row: 2;
+  gap: var(--space-2);
+  max-width: 22rem;
+}
+
+.forno-price {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0 0.75rem;
+  border: 0;
+  border-radius: 999px;
+  background-color: var(--surface);
+  color: var(--foreground);
+  font: inherit;
+  font-size: 1.0625rem;
+  cursor: pointer;
+  transition:
+    background-color var(--t-hover) ease,
+    color var(--t-hover) ease,
+    transform var(--t-press) var(--ease-out);
+}
+
+/* O contorno faz o preço parecer o botão que ele é sobre a folha do mesmo tom. */
+[data-ui] > .forno-price {
+  border: 1px solid color-mix(in oklch, var(--foreground) 60%, transparent);
+}
+
+.forno-price:active {
+  transform: scale(0.96);
+}
+
+@media (hover: hover) {
+  .forno-price:hover {
+    background-color: var(--foreground);
+    color: var(--background);
+  }
+}
+
+.forno-price__size {
+  font-style: italic;
+}
+
+.forno-menu__bar {
+  position: sticky;
+  bottom: var(--space-2);
+  z-index: 2;
+  margin-top: var(--space-4);
+}
+
+.forno-menu__bar-link {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 3.25rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem var(--space-3);
+  padding: var(--space-1) var(--space-3);
+  border-radius: 1.625rem;
+  background-color: var(--foreground);
+  color: var(--background);
+  font-size: var(--step-small);
+  text-decoration: none;
+}
+
+.forno-menu__bar-cta {
+  text-decoration: underline;
+  text-decoration-thickness: 0.07em;
+  text-underline-offset: 0.18em;
+}
+
+@media (min-width: 48rem) {
+  .forno-menu__bar-link {
+    padding-inline: var(--space-4);
+    font-size: var(--step-body);
+  }
+}
+
+/* No tablet a lista não se espalha pela largura toda, e a miniatura fica perto do nome. */
+@media (min-width: 48rem) and (max-width: 63.99rem) {
+  .forno-menu__list {
+    max-width: 34rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .forno-dish__mini {
+    display: none;
+  }
+
+  .forno-price {
+    font-size: var(--step-body);
+  }
+
+  /* A pizza que está na foto ao lado fica em itálico. */
+  .forno-dish[data-active] .forno-dish__name {
+    font-style: italic;
+  }
+}
+
+/* Com a folha larga, os tamanhos empilham à direita e deixam os ingredientes respirarem. */
+@media (min-width: 80rem) {
+  .forno-dish__prices {
+    grid-template-columns: 11rem;
+    grid-column: 2;
+    grid-row: 1;
+    max-width: none;
+  }
+}
+
+/* A galeria tem uma moldura só, com as fotos trocando dentro dela, e os cinco fatos do forno ao lado.
+   A moldura vai para o lado dos fatos só quando a seção tem largura para os dois. */
+.forno-gallery {
+  container-type: inline-size;
+}
+
+.forno-gallery__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.forno-gallery__frame {
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.forno-gallery__next {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius);
+  background-color: var(--surface);
+  cursor: pointer;
+}
+
+.forno-gallery__shot {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 600ms var(--ease-soft);
+}
+
+.forno-gallery__shot[data-active="true"] {
+  opacity: 1;
+}
+
+.forno-gallery__shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.forno-gallery__side {
+  display: grid;
+  gap: var(--space-3);
+  align-content: center;
+}
+
+.forno-gallery__facts {
+  display: grid;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.forno-gallery__facts button {
+  display: grid;
+  grid-template-columns: 1.25rem minmax(0, 1fr);
+  align-items: baseline;
+  gap: var(--space-2);
+  width: 100%;
+  min-height: 2.75rem;
+  padding: var(--space-1) 0;
+  border: 0;
+  background: none;
+  color: var(--muted-foreground);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: color var(--t-hover) ease;
+}
+
+.forno-gallery__facts button[aria-current="true"] {
+  color: var(--foreground);
+  font-style: italic;
+}
+
+@media (hover: hover) {
+  .forno-gallery__facts button:hover {
+    color: var(--foreground);
+  }
+}
+
+.forno-gallery__pause {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-self: start;
+  gap: var(--space-1);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-size: var(--step-small);
+  text-decoration: underline;
+  text-decoration-thickness: 0.07em;
+  text-underline-offset: 0.18em;
+  cursor: pointer;
+}
+
+@container (min-width: 30rem) {
+  .forno-gallery__frame {
+    aspect-ratio: 5 / 4;
+  }
+}
+
+@container (min-width: 34rem) {
+  .forno-gallery__body {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    align-items: center;
+  }
+
+  .forno-gallery__frame {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+/* Como pedir é um painel berinjela com a comanda de papel serrilhada por cima. */
+.forno-order {
+  margin-inline: calc(-1 * var(--column-pad) + var(--space-3));
+  padding: var(--space-6) calc(var(--column-pad) - var(--space-3));
+  border-radius: var(--radius);
+  background-color: var(--field-1);
+  color: var(--field-1-foreground);
+  --ring: var(--field-1-foreground);
+}
+
+.forno-order__text {
+  max-width: 38ch;
+  margin: var(--space-2) 0 0;
+}
+
+.forno-slip {
+  container-type: inline-size;
+  max-width: 30rem;
+  margin-top: var(--space-5);
+  padding: var(--space-4) var(--space-4) var(--space-6);
+  background-color: var(--paper-2);
+  color: var(--foreground);
+  --ring: var(--foreground);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 0.75rem), 97.5% 100%, 95% calc(100% - 0.75rem), 92.5% 100%, 90% calc(100% - 0.75rem), 87.5% 100%, 85% calc(100% - 0.75rem), 82.5% 100%, 80% calc(100% - 0.75rem), 77.5% 100%, 75% calc(100% - 0.75rem), 72.5% 100%, 70% calc(100% - 0.75rem), 67.5% 100%, 65% calc(100% - 0.75rem), 62.5% 100%, 60% calc(100% - 0.75rem), 57.5% 100%, 55% calc(100% - 0.75rem), 52.5% 100%, 50% calc(100% - 0.75rem), 47.5% 100%, 45% calc(100% - 0.75rem), 42.5% 100%, 40% calc(100% - 0.75rem), 37.5% 100%, 35% calc(100% - 0.75rem), 32.5% 100%, 30% calc(100% - 0.75rem), 27.5% 100%, 25% calc(100% - 0.75rem), 22.5% 100%, 20% calc(100% - 0.75rem), 17.5% 100%, 15% calc(100% - 0.75rem), 12.5% 100%, 10% calc(100% - 0.75rem), 7.5% 100%, 5% calc(100% - 0.75rem), 2.5% 100%, 0 calc(100% - 0.75rem));
+}
+
+/* No celular o papel perde um pouco de margem para o nome da pizza caber em menos linhas. */
+@media (max-width: 29.99rem) {
+  .forno-slip {
+    padding-inline: var(--space-3);
+  }
+}
+
+.forno-slip__title {
+  margin: 0;
+  font-size: var(--step-lead);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.forno-slip__lines,
+.forno-slip__steps {
+  display: grid;
+  gap: var(--space-2);
+  margin: var(--space-3) 0 0;
+  padding: 0;
+}
+
+.forno-slip__lines {
+  list-style: none;
+}
+
+.forno-slip__steps {
+  padding-left: 1.4rem;
+  list-style: decimal;
+}
+
+/* Na comanda estreita, cada linha tem nome e preço em cima e os botões de quantidade embaixo. */
+.forno-slip__lines li {
+  display: grid;
+  grid-template-columns: auto minmax(0, auto) minmax(1rem, 1fr) auto;
+  align-items: baseline;
+  gap: 0.25rem var(--space-2);
+}
+
+.forno-slip__row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  margin: var(--space-3) 0 0;
+}
+
+.forno-slip__qty {
+  min-width: 1.25rem;
+}
+
+.forno-slip__dots {
+  flex: 1;
+  min-width: 1rem;
+  border-bottom: 3px dotted currentColor;
+  opacity: 0.45;
+}
+
+.forno-slip__steppers {
+  display: inline-flex;
+  grid-column: 1 / -1;
+  justify-self: end;
+  gap: 0.25rem;
+}
+
+@container (min-width: 25rem) {
+  .forno-slip__lines li {
+    grid-template-columns: auto minmax(0, auto) minmax(1rem, 1fr) auto auto;
+  }
+
+  .forno-slip__steppers {
+    grid-column: auto;
+    align-self: center;
+  }
+}
+
+.forno-slip__steppers button {
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background-color: var(--background);
+  color: var(--foreground);
+  cursor: pointer;
+  transition:
+    background-color var(--t-hover) ease,
+    color var(--t-hover) ease,
+    transform var(--t-press) var(--ease-out);
+}
+
+[data-ui] .forno-slip__steppers button {
+  border: 1px solid color-mix(in oklch, var(--foreground) 60%, transparent);
+}
+
+.forno-slip__steppers button:active {
+  transform: scale(0.92);
+}
+
+@media (hover: hover) {
+  .forno-slip__steppers button:hover {
+    background-color: var(--foreground);
+    color: var(--background);
+  }
+}
+
+.forno-slip__label {
+  display: block;
+  margin-top: var(--space-4);
+  font-size: var(--step-small);
+  font-weight: 500;
+}
+
+.forno-slip select,
+.forno-slip textarea {
+  display: block;
+  width: 100%;
+  margin-top: var(--space-1);
+  border: 1px solid var(--foreground);
+  background-color: var(--paper-2);
+  color: var(--foreground);
+  font: inherit;
+}
+
+.forno-slip select {
+  min-height: 3rem;
+  padding: 0 var(--space-3);
+  border-radius: 999px;
+}
+
+.forno-slip textarea {
+  min-height: 4.5rem;
+  padding: var(--space-2) var(--space-3);
+  border-radius: calc(var(--radius) * 0.75);
+  resize: vertical;
+}
+
+.forno-slip select[aria-invalid="true"] {
+  border-width: 2px;
+}
+
+.forno-slip__hint {
+  margin: var(--space-1) 0 0;
+  font-size: var(--step-small);
+  font-style: italic;
+}
+
+.forno-slip__time {
+  margin: var(--space-1) 0 0;
+  font-size: var(--step-small);
+  font-style: italic;
+}
+
+/* A soma fecha a comanda no próprio papel, com o fio duplo das contas. */
+.forno-slip__total {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  margin: var(--space-4) 0 0;
+  padding-top: var(--space-2);
+  border-top: 3px double currentColor;
+  font-size: var(--step-lead);
+  font-weight: 500;
+}
+
+.forno-slip__oven {
+  margin-top: var(--space-4);
+}
+
+.forno-slip__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-4);
+  margin-top: var(--space-3);
+}
+
+.forno-slip__error {
+  margin: var(--space-2) 0 0;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.forno-message {
+  margin: var(--space-2) 0 0;
+  padding: var(--space-2) var(--space-3);
+  background-color: var(--field-1);
+  color: var(--field-1-foreground);
+  white-space: pre-line;
+}
+
+/* A entrega é uma tabela de verdade, com taxa e tempo por bairro. */
+.forno-delivery__text {
+  max-width: 38ch;
+  margin: var(--space-2) 0 0;
+}
+
+.forno-table {
+  width: 100%;
+  max-width: 30rem;
+  margin-top: var(--space-4);
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.forno-table th,
+.forno-table td {
+  padding: 0.55rem 0;
+  border-bottom: 1px solid color-mix(in oklch, var(--foreground) 30%, transparent);
+  text-align: left;
+}
+
+.forno-table thead th {
+  font-size: var(--step-small);
+  font-weight: 500;
+}
+
+.forno-table tbody th {
+  font-weight: 400;
+}
+
+.forno-table th:not(:first-child),
+.forno-table td {
+  text-align: right;
+}
+
+.forno-delivery__pickup {
+  max-width: 38ch;
+  margin: var(--space-3) 0 0;
+  font-style: italic;
+}
+
+/* As perguntas começam pelos fatos práticos e seguem abertas uma a uma. */
+.forno-faq__photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  margin-bottom: var(--space-5);
+  border-radius: var(--radius);
+  object-fit: cover;
+}
+
+.forno-faq__facts {
+  display: grid;
+  gap: var(--space-1);
+  margin: var(--space-3) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.forno-faq__list {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.forno-faq__item > summary {
+  display: flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  font-size: var(--step-lead);
+  list-style: none;
+  cursor: pointer;
+}
+
+.forno-faq__item > summary::-webkit-details-marker {
+  display: none;
+}
+
+.forno-chevron {
+  flex: none;
+  width: 0.6rem;
+  height: 0.6rem;
+  margin-right: 0.25rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-25%) rotate(45deg);
+  transition: transform var(--t-hover) var(--ease-out);
+}
+
+.forno-faq__item[open] .forno-chevron {
+  transform: translateY(25%) rotate(-135deg);
+}
+
+.forno-faq__item > p {
+  max-width: 40ch;
+  margin: var(--space-1) 0 0;
+}
+
+.forno-faq__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-4);
+  margin-top: var(--space-5);
+}
+
+@media (min-width: 64rem) {
+  .forno-faq__photo {
+    display: none;
+  }
+}
+
+/* O horário vem em linhas do tamanho de um letreiro, em dois tons de berinjela, de borda a borda. */
+.forno-hours {
+  margin-top: var(--gutter);
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.forno-hours__row {
+  display: flex;
+  min-height: 5.25rem;
+  align-items: flex-end;
+  margin: 0;
+  padding: var(--space-2) var(--space-3);
+  font-size: 9.6vw;
+  line-height: 1.05;
+  letter-spacing: var(--tracking-display);
+  text-wrap: balance;
+}
+
+.forno-hours__row:nth-child(odd) {
+  background-color: var(--field-1-alt);
+}
+
+.forno-hours__call {
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--space-2);
+  background-color: var(--field-1-foreground);
+  color: var(--field-1);
+  --ring: var(--field-1);
+}
+
+.forno-hours__row.forno-hours__call:nth-child(odd) {
+  background-color: var(--field-1-foreground);
+}
+
+.forno-hours__button {
+  display: inline-grid;
+  width: 3.5rem;
+  height: 3.5rem;
+  flex: none;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background-color: var(--field-1);
+  color: var(--field-1-foreground);
+  cursor: pointer;
+  transition:
+    background-color var(--t-hover) ease,
+    transform var(--t-press) var(--ease-out);
+}
+
+.forno-hours__button svg {
+  width: 45%;
+  height: 45%;
+}
+
+.forno-hours__button:active {
+  transform: scale(0.94);
+}
+
+@media (min-width: 64rem) {
+  .forno-hours__row {
+    min-height: 9.5rem;
+    padding: var(--space-3) 1.25rem;
+    font-size: clamp(2.75rem, 6vw, 5.5rem);
+  }
+
+  .forno-hours__call {
+    justify-content: flex-start;
+    gap: 0.35em;
+    background-color: var(--field-1);
+    color: var(--field-1-foreground);
+    --ring: var(--field-1-foreground);
+  }
+
+  .forno-hours__row.forno-hours__call:nth-child(odd) {
+    background-color: var(--field-1);
+  }
+
+  .forno-hours__button {
+    width: 0.9em;
+    height: 0.9em;
+    background-color: var(--field-1-foreground);
+    color: var(--field-1);
+  }
+}
+
+/* O rodapé tem metade foto e metade menu em letra grande. */
+.forno-footer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--gutter);
+  margin-top: var(--gutter);
+}
+
+.forno-footer__stripe {
+  display: flex;
+  height: 0.5rem;
+  overflow: hidden;
+}
+
+.forno-footer__stripe > span {
+  flex: 0 0 1.75rem;
+  background-color: var(--background);
+}
+
+.forno-footer__stripe > span:nth-child(even) {
+  background-color: transparent;
+}
+
+.forno-footer__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--gutter);
+}
+
+.forno-footer__photo {
+  width: 100%;
+  height: 50svh;
+  border-radius: var(--radius);
+  object-fit: cover;
+}
+
+.forno-footer__menu {
+  display: grid;
+  align-content: start;
+  gap: var(--space-5);
+  padding: var(--space-5) var(--column-pad);
+  border-radius: var(--radius);
+}
+
+.forno-footer__brand {
+  margin: 0;
+  font-size: var(--step-lead);
+  font-style: italic;
+}
+
+.forno-footer__links {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.forno-footer__links a {
+  display: inline-block;
+  font-size: 8vw;
+  line-height: 1.1;
+  text-decoration: none;
+  transition: transform var(--t-hover) var(--ease-out);
+}
+
+@media (hover: hover) {
+  .forno-footer__links a:hover {
+    transform: translateX(0.75rem);
+  }
+}
+
+.forno-footer__info {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.forno-footer__label {
+  margin: 0 0 var(--space-1);
+  font-weight: 500;
+}
+
+.forno-footer__info ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.forno-footer__credits {
+  max-width: 60ch;
+  margin: 0;
+  font-size: var(--step-small);
+}
+
+.forno-footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-4);
+  font-size: var(--step-small);
+}
+
+.forno-footer__legal p {
+  max-width: 60ch;
+  margin: 0;
+}
+
+.forno-footer__legal a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+}
+
+@media (min-width: 64rem) {
+  .forno-footer__body {
+    min-height: calc(100svh - var(--banner-height, 2.5rem) - 2 * var(--margin));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .forno-footer__photo {
+    height: 100%;
+  }
+
+  .forno-footer__links a {
+    font-size: var(--step-display);
+  }
+
+  .forno-footer__info {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* A foto parada assenta quando troca, as seções sobem ao entrar e a comanda ganha cada linha. */
 @media (prefers-reduced-motion: no-preference) {
-  .forno-hero__photo img {
+  .forno-hero__photo img,
+  .forno-stage img[data-active="true"] {
     animation: forno-settle 1.6s var(--ease-soft) both;
+  }
+
+  .forno-slip__lines li {
+    animation: forno-line 380ms var(--ease-out) both;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .forno-sheet .forno-heading,
+    .forno-menu__category,
+    .forno-dish,
+    .forno-faq__item,
+    .forno-table tbody tr,
+    .forno-gallery__frame,
+    .forno-gallery__facts li {
+      animation: site-rise var(--ease-out) both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 55%;
+    }
   }
 }
 
 @keyframes forno-settle {
   from {
-    transform: scale(1.06);
+    transform: scale(1.05);
   }
   to {
+    transform: none;
+  }
+}
+
+@keyframes forno-line {
+  from {
+    opacity: 0;
+    transform: translateY(-0.4rem);
+  }
+  to {
+    opacity: 1;
     transform: none;
   }
 }

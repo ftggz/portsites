@@ -22,7 +22,7 @@ export function RowControls({ targetId, previousLabel, nextLabel }: RowControlsP
         start: row.scrollLeft <= 4,
         end: row.scrollLeft + row.clientWidth >= row.scrollWidth - 4,
       });
-    // Mede as pontas já ao montar: numa tela muito larga a faixa inteira cabe e não há o que rolar.
+    // Mede as pontas já ao montar, porque numa tela muito larga a faixa inteira cabe e não há o que rolar.
     const frame = requestAnimationFrame(update);
     row.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);

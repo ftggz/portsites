@@ -9,6 +9,206 @@
       "url": "https://unsplash.com/@simplyanna"
     }
   },
+  "pizzaria-margherita": {
+    "src": "/images/pizzaria/pizzaria-margherita-1440.webp",
+    "width": 1440,
+    "height": 1800,
+    "srcSet": "/images/pizzaria/pizzaria-margherita-640.webp 640w, /images/pizzaria/pizzaria-margherita-1080.webp 1080w, /images/pizzaria/pizzaria-margherita-1440.webp 1440w",
+    "credit": {
+      "author": "amirali mirhashemian",
+      "url": "https://unsplash.com/@amir_v_ali"
+    }
+  },
+  "pizzaria-calabresa": {
+    "src": "/images/pizzaria/pizzaria-calabresa-1440.webp",
+    "width": 1440,
+    "height": 1800,
+    "srcSet": "/images/pizzaria/pizzaria-calabresa-640.webp 640w, /images/pizzaria/pizzaria-calabresa-1080.webp 1080w, /images/pizzaria/pizzaria-calabresa-1440.webp 1440w",
+    "credit": {
+      "author": "amirali mirhashemian",
+      "url": "https://unsplash.com/@amir_v_ali"
+    }
+  },
+  "pizzaria-queijos": {
+    "src": "/images/pizzaria/pizzaria-queijos-1440.webp",
+    "width": 1440,
+    "height": 1800,
+    "srcSet": "/images/pizzaria/pizzaria-queijos-640.webp 640w, /images/pizzaria/pizzaria-queijos-1080.webp 1080w, /images/pizzaria/pizzaria-queijos-1440.webp 1440w",
+    "credit": {
+      "author": "Christine Isakzhanova",
+      "url": "https://unsplash.com/@bulochka"
+    }
+  },
+  "pizzaria-parma": {
+    "src": "/images/pizzaria/pizzaria-parma-1440.webp",
+    "width": 1440,
+    "height": 1800,
+    "srcSet": "/images/pizzaria/pizzaria-parma-640.webp 640w, /images/pizzaria/pizzaria-parma-1080.webp 1080w, /images/pizzaria/pizzaria-parma-1440.webp 1440w",
+    "credit": {
+      "author": "Louis Hansel",
+      "url": "https://unsplash.com/@louishansel"
+    }
+  },
+  "pizzaria-chocolate": {
+    "src": "/images/pizzaria/pizzaria-chocolate-1440.webp",
+    "width": 1440,
+    "height": 1800,
+    "srcSet": "/images/pizzaria/pizzaria-chocolate-640.webp 640w, /images/pizzaria/pizzaria-chocolate-1080.webp 1080w, /images/pizzaria/pizzaria-chocolate-1440.webp 1440w",
+    "credit": {
+      "author": "Oscar Ramirez",
+      "url": "https://unsplash.com/@oscareduardohr"
+    }
+  },
+  "pizzaria-margherita-mini": {
+    "src": "/images/pizzaria/pizzaria-margherita-mini-240.webp",
+    "width": 240,
+    "height": 240,
+    "srcSet": "/images/pizzaria/pizzaria-margherita-mini-160.webp 160w, /images/pizzaria/pizzaria-margherita-mini-240.webp 240w",
+    "credit": {
+      "author": "amirali mirhashemian",
+      "url": "https://unsplash.com/@amir_v_ali"
+    }
+  },
+  "pizzaria-calabresa-mini": {
+    "src": "/images/pizzaria/pizzaria-calabresa-mini-240.webp",
+    "width": 240,
+    "height": 240,
+    "srcSet": "/images/pizzaria/pizzaria-calabresa-mini-160.webp 160w, /images/pizzaria/pizzaria-calabresa-mini-240.webp 240w",
+    "credit": {
+      "author": "amirali mirhashemian",
+      "url": "https://unsplash.com/@amir_v_ali"
+    }
+  },
+  "pizzaria-queijos-mini": {
+    "src": "/images/pizzaria/pizzaria-queijos-mini-240.webp",
+    "width": 240,
+    "height": 240,
+    "srcSet": "/images/pizzaria/pizzaria-queijos-mini-160.webp 160w, /images/pizzaria/pizzaria-queijos-mini-240.webp 240w",
+    "credit": {
+      "author": "Christine Isakzhanova",
+      "url": "https://unsplash.com/@bulochka"
+    }
+  },
+  "pizzaria-parma-mini": {
+    "src": "/images/pizzaria/pizzaria-parma-mini-240.webp",
+    "width": 240,
+    "height": 240,
+    "srcSet": "/images/pizzaria/pizzaria-parma-mini-160.webp 160w, /images/pizzaria/pizzaria-parma-mini-240.webp 240w",
+    "credit": {
+      "author": "Louis Hansel",
+      "url": "https://unsplash.com/@louishansel"
+    }
+  },
+  "pizzaria-chocolate-mini": {
+    "src": "/images/pizzaria/pizzaria-chocolate-mini-240.webp",
+    "width": 240,
+    "height": 240,
+    "srcSet": "/images/pizzaria/pizzaria-chocolate-mini-160.webp 160w, /images/pizzaria/pizzaria-chocolate-mini-240.webp 240w",
+    "credit": {
+      "author": "Oscar Ramirez",
+      "url": "https://unsplash.com/@oscareduardohr"
+    }
+  },
+  "pizzaria-fogo": {
+    "src": "/images/pizzaria/pizzaria-fogo-1440.webp",
+    "width": 1440,
+    "height": 1800,
+    "srcSet": "/images/pizzaria/pizzaria-fogo-640.webp 640w, /images/pizzaria/pizzaria-fogo-1080.webp 1080w, /images/pizzaria/pizzaria-fogo-1440.webp 1440w",
+    "credit": {
+      "author": "Michael Starkie",
+      "url": "https://unsplash.com/@starkie_pics"
+    }
+  },
+  "pizzaria-caixa": {
+    "src": "/images/pizzaria/pizzaria-caixa-1440.webp",
+    "width": 1440,
+    "height": 1800,
+    "srcSet": "/images/pizzaria/pizzaria-caixa-640.webp 640w, /images/pizzaria/pizzaria-caixa-1080.webp 1080w, /images/pizzaria/pizzaria-caixa-1440.webp 1440w",
+    "credit": {
+      "author": "Jordon Kaplan",
+      "url": "https://unsplash.com/@jordon_kaplan"
+    }
+  },
+  "pizzaria-caixas": {
+    "src": "/images/pizzaria/pizzaria-caixas-1440.webp",
+    "width": 1440,
+    "height": 1800,
+    "srcSet": "/images/pizzaria/pizzaria-caixas-640.webp 640w, /images/pizzaria/pizzaria-caixas-1080.webp 1080w, /images/pizzaria/pizzaria-caixas-1440.webp 1440w",
+    "credit": {
+      "author": "Kristina Bratko",
+      "url": "https://unsplash.com/@kristinabratko"
+    }
+  },
+  "pizzaria-forno": {
+    "src": "/images/pizzaria/pizzaria-forno-1440.webp",
+    "width": 1440,
+    "height": 1800,
+    "srcSet": "/images/pizzaria/pizzaria-forno-640.webp 640w, /images/pizzaria/pizzaria-forno-1080.webp 1080w, /images/pizzaria/pizzaria-forno-1440.webp 1440w",
+    "credit": {
+      "author": "Louis Hansel",
+      "url": "https://unsplash.com/@louishansel"
+    }
+  },
+  "pizzaria-galeria-massa": {
+    "src": "/images/pizzaria/pizzaria-galeria-massa-1200.webp",
+    "width": 1200,
+    "height": 1200,
+    "srcSet": "/images/pizzaria/pizzaria-galeria-massa-480.webp 480w, /images/pizzaria/pizzaria-galeria-massa-800.webp 800w, /images/pizzaria/pizzaria-galeria-massa-1200.webp 1200w",
+    "credit": {
+      "author": "Arturrro",
+      "url": "https://unsplash.com/@artek123"
+    }
+  },
+  "pizzaria-galeria-farinha": {
+    "src": "/images/pizzaria/pizzaria-galeria-farinha-1200.webp",
+    "width": 1200,
+    "height": 1200,
+    "srcSet": "/images/pizzaria/pizzaria-galeria-farinha-480.webp 480w, /images/pizzaria/pizzaria-galeria-farinha-800.webp 800w, /images/pizzaria/pizzaria-galeria-farinha-1200.webp 1200w",
+    "credit": {
+      "author": "Tamara Gak",
+      "url": "https://unsplash.com/@tamara_photography"
+    }
+  },
+  "pizzaria-galeria-molho": {
+    "src": "/images/pizzaria/pizzaria-galeria-molho-1200.webp",
+    "width": 1200,
+    "height": 1200,
+    "srcSet": "/images/pizzaria/pizzaria-galeria-molho-480.webp 480w, /images/pizzaria/pizzaria-galeria-molho-800.webp 800w, /images/pizzaria/pizzaria-galeria-molho-1200.webp 1200w",
+    "credit": {
+      "author": "Vaishnav Chogale",
+      "url": "https://unsplash.com/@vshnv_c"
+    }
+  },
+  "pizzaria-galeria-assando": {
+    "src": "/images/pizzaria/pizzaria-galeria-assando-1200.webp",
+    "width": 1200,
+    "height": 1200,
+    "srcSet": "/images/pizzaria/pizzaria-galeria-assando-480.webp 480w, /images/pizzaria/pizzaria-galeria-assando-800.webp 800w, /images/pizzaria/pizzaria-galeria-assando-1200.webp 1200w",
+    "credit": {
+      "author": "Christopher Chung",
+      "url": "https://unsplash.com/@christopher_chung_photography"
+    }
+  },
+  "pizzaria-galeria-borda": {
+    "src": "/images/pizzaria/pizzaria-galeria-borda-1200.webp",
+    "width": 1200,
+    "height": 1200,
+    "srcSet": "/images/pizzaria/pizzaria-galeria-borda-480.webp 480w, /images/pizzaria/pizzaria-galeria-borda-800.webp 800w, /images/pizzaria/pizzaria-galeria-borda-1200.webp 1200w",
+    "credit": {
+      "author": "Anna Ansone",
+      "url": "https://unsplash.com/@simplyanna"
+    }
+  },
+  "pizzaria-rodape": {
+    "src": "/images/pizzaria/pizzaria-rodape-1440.webp",
+    "width": 1440,
+    "height": 1800,
+    "srcSet": "/images/pizzaria/pizzaria-rodape-640.webp 640w, /images/pizzaria/pizzaria-rodape-1080.webp 1080w, /images/pizzaria/pizzaria-rodape-1440.webp 1440w",
+    "credit": {
+      "author": "Anna Ansone",
+      "url": "https://unsplash.com/@simplyanna"
+    }
+  },
   "clinica-hero-paisagem": {
     "src": "/images/clinica/clinica-hero-paisagem-1920.webp",
     "width": 1920,

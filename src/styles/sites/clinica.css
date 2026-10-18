@@ -1058,7 +1058,7 @@
   }
 }
 
-/* Rodapé: ocupa uma tela inteira, com o nome na largura toda embaixo. */
+/* O rodapé ocupa uma tela inteira, com o nome na largura toda embaixo. */
 .vagar-footer {
   display: grid;
   min-height: 100svh;

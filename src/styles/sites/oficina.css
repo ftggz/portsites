@@ -47,7 +47,7 @@
   --rise: 0px;
 }
 
-/* A página é um quadro: margem e vão estreitos, blocos chapados, sem contorno nem sombra. */
+/* A página é um quadro, com margem e vão estreitos e blocos chapados, sem contorno nem sombra. */
 .claras-page {
   display: grid;
   gap: var(--gutter);
@@ -98,7 +98,7 @@
   cursor: pointer;
 }
 
-/* Topo: sigla, links a partir da linha do meio e o botão de orçamento. */
+/* O topo tem a sigla, os links a partir da linha do meio e o botão de orçamento. */
 .claras-top {
   position: relative;
   z-index: 20;
@@ -247,7 +247,7 @@
   }
 }
 
-/* Primeira tela: o nome, duas fotos em cinza e duas frases. */
+/* A primeira tela tem o nome, duas fotos em cinza e duas frases. */
 .claras-hero {
   display: grid;
   gap: var(--gutter);
@@ -378,7 +378,7 @@
   }
 }
 
-/* Serviços: a palavra ocupa o bloco de ponta a ponta e cada categoria abre no lugar. */
+/* Nos serviços, a palavra ocupa o bloco de ponta a ponta e cada categoria abre no lugar. */
 .claras-services {
   display: grid;
   gap: var(--gutter);
@@ -513,7 +513,7 @@
   }
 }
 
-/* Tudo à vista: uma foto só, cortada em blocos quadrados, com cinco blocos de cor no lugar de pedaços dela. */
+/* Em Tudo à vista, uma foto só é cortada em blocos quadrados, com cinco blocos de cor no lugar de pedaços dela. */
 .claras-wall {
   --cols: 3;
   --rows: 6;
@@ -708,7 +708,7 @@
   }
 }
 
-/* Acompanhe um serviço: as mensagens de um lado e a foto escolhida em destaque. */
+/* Em Acompanhe um serviço, as mensagens ficam de um lado e a foto escolhida, em destaque. */
 .claras-follow {
   display: grid;
   gap: var(--gutter);
@@ -970,7 +970,7 @@ button.claras-msg[aria-pressed="true"] {
   }
 }
 
-/* Como funciona: três blocos, cada um maior que o anterior, com a mesma peça cada vez mais de perto. */
+/* Como funciona tem três blocos, cada um maior que o anterior, com a mesma peça cada vez mais de perto. */
 .claras-steps {
   display: grid;
   gap: var(--space-6);
@@ -1095,7 +1095,7 @@ button.claras-msg[aria-pressed="true"] {
   }
 }
 
-/* Marcas: os nomes em tamanho de cartaz, como a lista pintada na fachada da oficina. */
+/* As marcas aparecem em tamanho de cartaz, como a lista pintada na fachada da oficina. */
 .claras-brands {
   display: grid;
   gap: var(--gutter);
@@ -1150,7 +1150,7 @@ button.claras-msg[aria-pressed="true"] {
   }
 }
 
-/* Na oficina: uma faixa que corre para os dois lados, com fotos altas, empilhadas e largas. */
+/* A galeria é uma faixa que corre para os dois lados, com fotos altas, empilhadas e largas. */
 .claras-gallery {
   display: grid;
   gap: var(--gutter);
@@ -1283,7 +1283,7 @@ button.claras-msg[aria-pressed="true"] {
   }
 }
 
-/* Antes de trazer: uma faixa por pergunta, com todas as respostas abertas. */
+/* As perguntas têm uma faixa cada, com todas as respostas abertas. */
 .claras-faq {
   display: grid;
   gap: var(--gutter);
@@ -1346,7 +1346,7 @@ button.claras-msg[aria-pressed="true"] {
   }
 }
 
-/* Contato: campo amarelo com o título e a barra de orçamento em três células. */
+/* O contato é um campo amarelo com o título e a barra de orçamento em três células. */
 .claras-contact {
   display: grid;
   align-content: start;
@@ -1506,7 +1506,7 @@ button.claras-msg[aria-pressed="true"] {
   }
 }
 
-/* Rodapé: o nome montado em blocos de alturas crescentes, as colunas de links e a linha final. */
+/* O rodapé tem o nome montado em blocos de alturas crescentes, as colunas de links e a linha final. */
 .claras-footer {
   display: grid;
   gap: var(--gutter);
@@ -1689,7 +1689,7 @@ button.claras-msg[aria-pressed="true"] {
   }
 }
 
-/* Movimento curto: a foto do topo abre uma vez, os pedaços da foto cortada entram em sequência,
+/* O movimento é curto. A foto do topo abre uma vez, os pedaços da foto cortada entram em sequência,
    os blocos de como funciona sobem e o nome do rodapé se monta. */
 @media (prefers-reduced-motion: no-preference) {
   .claras-shutter {

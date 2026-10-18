@@ -274,7 +274,8 @@
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    .rise-in > * {
+    /* Um aviso (popover) dentro do bloco não entra na subida; senão a animação recomeça a cada abertura. */
+    .rise-in > :not([popover]) {
       animation: site-rise var(--t-reveal) var(--ease-out) both;
       animation-delay: var(--rise-start, 150ms);
     }

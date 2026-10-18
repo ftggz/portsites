@@ -4,7 +4,7 @@ Todas as fotos vêm do Unsplash e são usadas sob a [Licença Unsplash](https://
 
 | Foto | Onde aparece | Autor | Página da foto |
 | --- | --- | --- | --- |
-| Pizza saindo do forno a lenha na pá | Pizzaria, topo | [Anna Ansone](https://unsplash.com/@simplyanna) | <https://unsplash.com/photos/kr81YUufBuc> |
+| Pizza saindo do forno a lenha na pá | Pizzaria, topo e rodapé | [Anna Ansone](https://unsplash.com/@simplyanna) | <https://unsplash.com/photos/kr81YUufBuc> |
 | Vaso com folhas secas sobre prateleira de madeira, ao lado de uma cama | Clínica de estética, topo | [Thanos Pal](https://unsplash.com/@thanospal) | <https://unsplash.com/photos/lPZZXH9sjZU> |
 | Mãos com chave inglesa embaixo de um carro | Oficina mecânica, topo | [Martin Fennema](https://unsplash.com/@theartisdutch) | <https://unsplash.com/photos/nwSGKWYE9cM> |
 | Oficina com elevador, pneus e parede de ferramentas | Oficina mecânica, topo | [Kato Blackmore](https://unsplash.com/@katoblackmore) | <https://unsplash.com/photos/KhF58h0hTbc> |
@@ -35,5 +35,19 @@ Todas as fotos vêm do Unsplash e são usadas sob a [Licença Unsplash](https://
 | Mãos de luva inspecionando um motor | Oficina mecânica, galeria | [Jd Leather](https://unsplash.com/@jdleather) | <https://unsplash.com/photos/Uke2uaoipHw> |
 | Mãos consertando um motor | Oficina mecânica, galeria | [Mike Newbry](https://unsplash.com/@mikenewbry) | <https://unsplash.com/photos/7LsSwWhBRaQ> |
 | Chave apertando uma peça no motor de um carro | Oficina mecânica, galeria | [Sasun Bughdaryan](https://unsplash.com/@sasun1990) | <https://unsplash.com/photos/9gB7APNSquE> |
+| Pizza margherita com manjericão sobre tábua | Pizzaria, cardápio | [amirali mirhashemian](https://unsplash.com/@amir_v_ali) | <https://unsplash.com/photos/zTxiTnTag78> |
+| Pizza de calabresa em bandeja de madeira | Pizzaria, cardápio | [amirali mirhashemian](https://unsplash.com/@amir_v_ali) | <https://unsplash.com/photos/w1iMfs6yxuo> |
+| Pizza de queijos sobre toalha xadrez | Pizzaria, cardápio | [Christine Isakzhanova](https://unsplash.com/@bulochka) | <https://unsplash.com/photos/-NMaICLT7Lc> |
+| Pizza coberta de rúcula sobre tábua | Pizzaria, cardápio | [Louis Hansel](https://unsplash.com/@louishansel) | <https://unsplash.com/photos/QsKO_VoYoZU> |
+| Pizza doce com chocolate | Pizzaria, cardápio | [Oscar Ramirez](https://unsplash.com/@oscareduardohr) | <https://unsplash.com/photos/ZeTEeN8Z_bI> |
+| Fogo de lenha dentro de forno de tijolos | Pizzaria, galeria | [Michael Starkie](https://unsplash.com/@starkie_pics) | <https://unsplash.com/photos/VAR7eup1bNA> |
+| Pizza em caixa de papelão aberta | Pizzaria, como pedir | [Jordon Kaplan](https://unsplash.com/@jordon_kaplan) | <https://unsplash.com/photos/tVQwwfyE5Lc> |
+| Duas pizzas em caixas abertas | Pizzaria, entrega | [Kristina Bratko](https://unsplash.com/@kristinabratko) | <https://unsplash.com/photos/nP11TkjxJ7s> |
+| Forno a lenha com pizza dentro e pratos empilhados | Pizzaria, perguntas | [Louis Hansel](https://unsplash.com/@louishansel) | <https://unsplash.com/photos/W75bFvPPrK8> |
+| Mãos segurando uma bola de massa | Pizzaria, galeria | [Arturrro](https://unsplash.com/@artek123) | <https://unsplash.com/photos/4yzEtTQLdL4> |
+| Massa sobre tecido escuro com farinha | Pizzaria, galeria | [Tamara Gak](https://unsplash.com/@tamara_photography) | <https://unsplash.com/photos/SQLOsc0HGDI> |
+| Molho espalhado sobre a massa no balcão | Pizzaria, galeria | [Vaishnav Chogale](https://unsplash.com/@vshnv_c) | <https://unsplash.com/photos/cvfxrmFYkZ8> |
+| Pizzas assando em forno a lenha | Pizzaria, galeria | [Christopher Chung](https://unsplash.com/@christopher_chung_photography) | <https://unsplash.com/photos/uzWpbXFNU6c> |
+| Pizza dentro do forno, de perto | Pizzaria, galeria | [Anna Ansone](https://unsplash.com/@simplyanna) | <https://unsplash.com/photos/EvLu07WWwwY> |
 
 Este arquivo é gerado por `npm run images` a partir de `assets/images.json`. Para trocar uma foto, edite a lista e rode o comando de novo.

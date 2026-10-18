@@ -1,4 +1,7 @@
-import { DemoWhatsApp } from "@/components/demo-whatsapp";
+import type { ComponentProps } from "react";
+
+import { ComandaWhatsApp } from "@/components/pizzaria/comanda-whatsapp";
+import { OvenStatus } from "@/components/pizzaria/oven-status";
 import { SiteImage } from "@/components/site-image";
 import { buttonVariants } from "@/components/ui/button";
 import type { ImageKey } from "@/lib/images";
@@ -12,52 +15,69 @@ type PizzariaHeroProps = {
   titleLines: readonly [string, string];
   lead: string;
   cta: string;
-  status: string;
+  mandar: ComponentProps<typeof ComandaWhatsApp>["mandar"];
+  horario: ComponentProps<typeof OvenStatus>["horario"];
+  status: ComponentProps<typeof OvenStatus>["mensagens"];
   image: { readonly key: ImageKey; readonly alt: string };
+  avisoId: string;
 };
 
 const AWNING_STRIPES = 32;
 
-export function PizzariaHero({ brand, navLabel, nav, titleLines, lead, cta, status, image }: PizzariaHeroProps) {
+export function PizzariaHero({
+  brand,
+  navLabel,
+  nav,
+  titleLines,
+  lead,
+  cta,
+  mandar,
+  horario,
+  status,
+  image,
+  avisoId,
+}: PizzariaHeroProps) {
   return (
-    <section
-      aria-labelledby="pizzaria-title"
-      className="on-field-1 grid gap-gutter p-margin md:min-h-[calc(100svh-var(--banner-height,2.5rem))] md:grid-cols-2"
-    >
-      <div className="forno-hero__photo relative h-[34svh] overflow-hidden rounded-site md:order-2 md:h-auto">
+    <section aria-labelledby="pizzaria-title" data-palco="topo" className="forno-hero">
+      {/* No celular e no tablet a foto do forno abre a página; no desktop ela é a metade parada da tela. */}
+      <div className="forno-hero__photo">
         <SiteImage
           image={image.key}
           alt={image.alt}
-          sizes="(min-width: 48rem) 50vw, 100vw"
+          sizes="(min-width: 64rem) 50vw, 100vw"
           priority
           className="absolute inset-0 h-full w-full object-cover"
         />
       </div>
 
-      <div className="relative z-10 -mt-6 flex flex-col overflow-hidden rounded-site bg-background text-foreground [--ring:var(--primary)] md:mt-0">
+      <div className="forno-hero__card">
         <div className="awning" aria-hidden="true">
           {Array.from({ length: AWNING_STRIPES }, (_, index) => (
             <span key={index} />
           ))}
         </div>
-        <div className="rise-in flex flex-1 flex-col items-center justify-center gap-s3 px-(--column-pad) py-s5 text-center md:gap-s4 md:py-s6">
-          <p className="m-0 font-display text-head leading-none font-medium italic">{brand.nome}</p>
-          <h1 id="pizzaria-title" className="m-0 text-display leading-[1.08] font-normal tracking-(--tracking-display)">
+        <div className="forno-hero__body rise-in">
+          <p className="forno-hero__brand">{brand.nome}</p>
+          <h1 id="pizzaria-title" className="forno-hero__title">
             {titleLines[0]}
             <br />
             {titleLines[1]}
           </h1>
-          <p className="m-0 max-w-[36ch]">{lead}</p>
-          <DemoWhatsApp id="aviso-pizzaria" label={cta} className={buttonVariants({ shape: "pill", size: "lg" })} />
-          <p className="m-0 text-small text-muted-foreground">{status}</p>
+          <p className="forno-hero__lead">{lead}</p>
+          {/* O estado do forno vem antes do botão, porque decide se o pedido sai agora. */}
+          <OvenStatus horario={horario} mensagens={status} className="forno-hero__status" />
+          <ComandaWhatsApp
+            avisoId={avisoId}
+            label={cta}
+            mandar={mandar}
+            className={buttonVariants({ shape: "pill", size: "lg" })}
+          />
         </div>
-        <nav aria-label={navLabel} className="pb-s5">
-          <ul className="m-0 flex list-none justify-center gap-s5 p-0 text-small">
+        <nav aria-label={navLabel} className="forno-hero__nav">
+          <ul>
             {nav.map((item) => (
               <li key={item.href}>
-                <a href={item.href} className="underline decoration-[0.07em] underline-offset-[0.18em]">
-                  {item.label}
-                </a>
+                <a href={item.href}>{item.label}</a>
               </li>
             ))}
           </ul>

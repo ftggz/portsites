@@ -38,6 +38,10 @@ const sitePairs = {
     ["field-2-muted", "field-2-cell", TEXT, "exemplo dentro da célula do orçamento"],
     ["field-2", "field-2-foreground", TEXT, "texto do botão de enviar, amarelo sobre preto"],
   ],
+  pizzaria: [
+    ["field-1-foreground", "field-1-alt", TEXT, "texto nas faixas alternadas dos horários"],
+    ["foreground", "paper-2", TEXT, "texto da comanda de papel e da linha do total"],
+  ],
 };
 
 function luminance(hex) {

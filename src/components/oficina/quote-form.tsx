@@ -22,7 +22,7 @@ const NOTA_ID = "orcamento-nota";
 const LIMITE_CARRO = 60;
 const LIMITE_PROBLEMA = 140;
 
-// O defeito entra como frase própria: primeira letra maiúscula e ponto final se faltar.
+// O defeito entra como frase própria, com a primeira letra maiúscula e ponto final se faltar.
 function asSentence(text: string): string {
   const clean = text.trim().replace(/\s+/g, " ");
   if (!clean) return "";

@@ -12,7 +12,7 @@ type GalleryProps = {
 
 type Modulo = "alto" | "par" | "largo";
 
-// A faixa alterna três formatos: foto alta, duas fotos empilhadas e foto larga.
+// A faixa alterna foto alta, duas fotos empilhadas e foto larga.
 const SEQUENCIA: readonly Modulo[] = ["alto", "par", "largo", "par"];
 // A faixa tem 68vh de altura a partir do tablet; a largura de cada formato sai dela.
 const SIZES: Record<Modulo, string> = {

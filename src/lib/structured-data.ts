@@ -25,7 +25,7 @@ export function professionalServiceJsonLd() {
     ...(isConfirmed(site.email) ? { email: site.email } : {}),
     ...(instagram ? { sameAs: [instagram] } : {}),
     makesOffer: [
-      // A criação não leva preço: o valor é projetado para cada negócio.
+      // A criação não leva preço, porque o valor é projetado para cada negócio.
       {
         "@type": "Offer",
         name: `${criacao.nome} de site`,

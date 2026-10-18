@@ -7,7 +7,7 @@
       "authorUrl": "https://unsplash.com/@simplyanna",
       "pageUrl": "https://unsplash.com/photos/kr81YUufBuc",
       "description": "Pizza saindo do forno a lenha na pá",
-      "usedIn": "Pizzaria, topo"
+      "usedIn": "Pizzaria, topo e rodapé"
     },
     {
       "id": "lPZZXH9sjZU",
@@ -315,6 +315,134 @@
       "file": "assets/source/prints/pizzaria-mobile.png",
       "description": "Print do site conceito Forno Aceso (celular)",
       "usedIn": "Landing, portfólio"
+    },
+    {
+      "id": "zTxiTnTag78",
+      "url": "https://images.unsplash.com/photo-1604068549290-dea0e4a305ca",
+      "author": "amirali mirhashemian",
+      "authorUrl": "https://unsplash.com/@amir_v_ali",
+      "pageUrl": "https://unsplash.com/photos/zTxiTnTag78",
+      "description": "Pizza margherita com manjericão sobre tábua",
+      "usedIn": "Pizzaria, cardápio"
+    },
+    {
+      "id": "w1iMfs6yxuo",
+      "url": "https://images.unsplash.com/photo-1564128442383-9201fcc740eb",
+      "author": "amirali mirhashemian",
+      "authorUrl": "https://unsplash.com/@amir_v_ali",
+      "pageUrl": "https://unsplash.com/photos/w1iMfs6yxuo",
+      "description": "Pizza de calabresa em bandeja de madeira",
+      "usedIn": "Pizzaria, cardápio",
+      "sourceWidth": 3600
+    },
+    {
+      "id": "-NMaICLT7Lc",
+      "url": "https://images.unsplash.com/photo-1612948928338-53dd61a5ad5d",
+      "author": "Christine Isakzhanova",
+      "authorUrl": "https://unsplash.com/@bulochka",
+      "pageUrl": "https://unsplash.com/photos/-NMaICLT7Lc",
+      "description": "Pizza de queijos sobre toalha xadrez",
+      "usedIn": "Pizzaria, cardápio",
+      "sourceWidth": 3600
+    },
+    {
+      "id": "QsKO_VoYoZU",
+      "url": "https://images.unsplash.com/photo-1584782930656-e2bc1e803fc7",
+      "author": "Louis Hansel",
+      "authorUrl": "https://unsplash.com/@louishansel",
+      "pageUrl": "https://unsplash.com/photos/QsKO_VoYoZU",
+      "description": "Pizza coberta de rúcula sobre tábua",
+      "usedIn": "Pizzaria, cardápio"
+    },
+    {
+      "id": "ZeTEeN8Z_bI",
+      "url": "https://images.unsplash.com/photo-1708649783218-b2b9a8781724",
+      "author": "Oscar Ramirez",
+      "authorUrl": "https://unsplash.com/@oscareduardohr",
+      "pageUrl": "https://unsplash.com/photos/ZeTEeN8Z_bI",
+      "description": "Pizza doce com chocolate",
+      "usedIn": "Pizzaria, cardápio"
+    },
+    {
+      "id": "VAR7eup1bNA",
+      "url": "https://images.unsplash.com/photo-1636581563748-dcb80f710950",
+      "author": "Michael Starkie",
+      "authorUrl": "https://unsplash.com/@starkie_pics",
+      "pageUrl": "https://unsplash.com/photos/VAR7eup1bNA",
+      "description": "Fogo de lenha dentro de forno de tijolos",
+      "usedIn": "Pizzaria, galeria"
+    },
+    {
+      "id": "tVQwwfyE5Lc",
+      "url": "https://images.unsplash.com/photo-1609795829951-325b91a41471",
+      "author": "Jordon Kaplan",
+      "authorUrl": "https://unsplash.com/@jordon_kaplan",
+      "pageUrl": "https://unsplash.com/photos/tVQwwfyE5Lc",
+      "description": "Pizza em caixa de papelão aberta",
+      "usedIn": "Pizzaria, como pedir"
+    },
+    {
+      "id": "nP11TkjxJ7s",
+      "url": "https://images.unsplash.com/photo-1516697073-419b2bd079db",
+      "author": "Kristina Bratko",
+      "authorUrl": "https://unsplash.com/@kristinabratko",
+      "pageUrl": "https://unsplash.com/photos/nP11TkjxJ7s",
+      "description": "Duas pizzas em caixas abertas",
+      "usedIn": "Pizzaria, entrega"
+    },
+    {
+      "id": "W75bFvPPrK8",
+      "url": "https://images.unsplash.com/photo-1564936281403-f92f66f89ee0",
+      "author": "Louis Hansel",
+      "authorUrl": "https://unsplash.com/@louishansel",
+      "pageUrl": "https://unsplash.com/photos/W75bFvPPrK8",
+      "description": "Forno a lenha com pizza dentro e pratos empilhados",
+      "usedIn": "Pizzaria, perguntas"
+    },
+    {
+      "id": "4yzEtTQLdL4",
+      "url": "https://images.unsplash.com/photo-1537734796389-e1fc293cf856",
+      "author": "Arturrro",
+      "authorUrl": "https://unsplash.com/@artek123",
+      "pageUrl": "https://unsplash.com/photos/4yzEtTQLdL4",
+      "description": "Mãos segurando uma bola de massa",
+      "usedIn": "Pizzaria, galeria"
+    },
+    {
+      "id": "SQLOsc0HGDI",
+      "url": "https://images.unsplash.com/photo-1598634549802-dcc558705f19",
+      "author": "Tamara Gak",
+      "authorUrl": "https://unsplash.com/@tamara_photography",
+      "pageUrl": "https://unsplash.com/photos/SQLOsc0HGDI",
+      "description": "Massa sobre tecido escuro com farinha",
+      "usedIn": "Pizzaria, galeria"
+    },
+    {
+      "id": "cvfxrmFYkZ8",
+      "url": "https://images.unsplash.com/photo-1550401728-539ebf40d9e9",
+      "author": "Vaishnav Chogale",
+      "authorUrl": "https://unsplash.com/@vshnv_c",
+      "pageUrl": "https://unsplash.com/photos/cvfxrmFYkZ8",
+      "description": "Molho espalhado sobre a massa no balcão",
+      "usedIn": "Pizzaria, galeria"
+    },
+    {
+      "id": "uzWpbXFNU6c",
+      "url": "https://images.unsplash.com/photo-1763647836753-e06fe1f8707b",
+      "author": "Christopher Chung",
+      "authorUrl": "https://unsplash.com/@christopher_chung_photography",
+      "pageUrl": "https://unsplash.com/photos/uzWpbXFNU6c",
+      "description": "Pizzas assando em forno a lenha",
+      "usedIn": "Pizzaria, galeria"
+    },
+    {
+      "id": "EvLu07WWwwY",
+      "url": "https://images.unsplash.com/photo-1693307089848-990642f46867",
+      "author": "Anna Ansone",
+      "authorUrl": "https://unsplash.com/@simplyanna",
+      "pageUrl": "https://unsplash.com/photos/EvLu07WWwwY",
+      "description": "Pizza dentro do forno, de perto",
+      "usedIn": "Pizzaria, galeria"
     }
   ],
   "outputs": [
@@ -332,6 +460,314 @@
         1080,
         1600
       ]
+    },
+    {
+      "key": "pizzaria-margherita",
+      "photo": "zTxiTnTag78",
+      "dir": "pizzaria",
+      "aspect": "4:5",
+      "widths": [
+        640,
+        1080,
+        1440
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "key": "pizzaria-calabresa",
+      "photo": "w1iMfs6yxuo",
+      "dir": "pizzaria",
+      "aspect": "4:5",
+      "widths": [
+        640,
+        1080,
+        1440
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "key": "pizzaria-queijos",
+      "photo": "-NMaICLT7Lc",
+      "dir": "pizzaria",
+      "aspect": "4:5",
+      "widths": [
+        640,
+        1080,
+        1440
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "key": "pizzaria-parma",
+      "photo": "QsKO_VoYoZU",
+      "dir": "pizzaria",
+      "aspect": "4:5",
+      "widths": [
+        640,
+        1080,
+        1440
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "quality": 58,
+      "soften": 0.7
+    },
+    {
+      "key": "pizzaria-chocolate",
+      "photo": "ZeTEeN8Z_bI",
+      "dir": "pizzaria",
+      "aspect": "4:5",
+      "widths": [
+        640,
+        1080,
+        1440
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "quality": 58,
+      "soften": 0.7
+    },
+    {
+      "key": "pizzaria-margherita-mini",
+      "photo": "zTxiTnTag78",
+      "dir": "pizzaria",
+      "aspect": "1:1",
+      "widths": [
+        160,
+        240
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "key": "pizzaria-calabresa-mini",
+      "photo": "w1iMfs6yxuo",
+      "dir": "pizzaria",
+      "aspect": "1:1",
+      "widths": [
+        160,
+        240
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "key": "pizzaria-queijos-mini",
+      "photo": "-NMaICLT7Lc",
+      "dir": "pizzaria",
+      "aspect": "1:1",
+      "widths": [
+        160,
+        240
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "key": "pizzaria-parma-mini",
+      "photo": "QsKO_VoYoZU",
+      "dir": "pizzaria",
+      "aspect": "1:1",
+      "widths": [
+        160,
+        240
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "key": "pizzaria-chocolate-mini",
+      "photo": "ZeTEeN8Z_bI",
+      "dir": "pizzaria",
+      "aspect": "1:1",
+      "widths": [
+        160,
+        240
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "key": "pizzaria-fogo",
+      "photo": "VAR7eup1bNA",
+      "dir": "pizzaria",
+      "aspect": "4:5",
+      "widths": [
+        640,
+        1080,
+        1440
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "quality": 64,
+      "soften": 0.45
+    },
+    {
+      "key": "pizzaria-caixa",
+      "photo": "tVQwwfyE5Lc",
+      "dir": "pizzaria",
+      "aspect": "4:5",
+      "widths": [
+        640,
+        1080,
+        1440
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "quality": 64,
+      "soften": 0.45
+    },
+    {
+      "key": "pizzaria-caixas",
+      "photo": "nP11TkjxJ7s",
+      "dir": "pizzaria",
+      "aspect": "4:5",
+      "widths": [
+        640,
+        1080,
+        1440
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "quality": 64,
+      "soften": 0.45
+    },
+    {
+      "key": "pizzaria-forno",
+      "photo": "W75bFvPPrK8",
+      "dir": "pizzaria",
+      "aspect": "4:5",
+      "widths": [
+        640,
+        1080,
+        1440
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "key": "pizzaria-galeria-massa",
+      "photo": "4yzEtTQLdL4",
+      "dir": "pizzaria",
+      "aspect": "1:1",
+      "widths": [
+        480,
+        800,
+        1200
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "key": "pizzaria-galeria-farinha",
+      "photo": "SQLOsc0HGDI",
+      "dir": "pizzaria",
+      "aspect": "1:1",
+      "widths": [
+        480,
+        800,
+        1200
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "quality": 64,
+      "soften": 0.45
+    },
+    {
+      "key": "pizzaria-galeria-molho",
+      "photo": "cvfxrmFYkZ8",
+      "dir": "pizzaria",
+      "aspect": "1:1",
+      "widths": [
+        480,
+        800,
+        1200
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "key": "pizzaria-galeria-assando",
+      "photo": "uzWpbXFNU6c",
+      "dir": "pizzaria",
+      "aspect": "1:1",
+      "widths": [
+        480,
+        800,
+        1200
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "key": "pizzaria-galeria-borda",
+      "photo": "EvLu07WWwwY",
+      "dir": "pizzaria",
+      "aspect": "1:1",
+      "widths": [
+        480,
+        800,
+        1200
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "key": "pizzaria-rodape",
+      "photo": "kr81YUufBuc",
+      "dir": "pizzaria",
+      "aspect": "4:5",
+      "widths": [
+        640,
+        1080,
+        1440
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "zoom": 1.6
     },
     {
       "key": "clinica-hero-paisagem",
