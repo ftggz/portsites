@@ -319,6 +319,10 @@
   font-size: 18vw;
 }
 
+.footer-wordmark[data-size="9"] {
+  font-size: 22.5vw;
+}
+
 .footer-wordmark[data-size="11"] {
   font-size: 13vw;
 }

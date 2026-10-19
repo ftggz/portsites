@@ -4,7 +4,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { landing, site } from "@/content/landing";
 import { contactHref, type ContactKind } from "@/lib/contato";
 
-const WORDMARK_STEPS = [4, 6, 8, 11, 15, 24] as const;
+const WORDMARK_STEPS = [4, 6, 8, 9, 11, 15, 24] as const;
 
 export function SiteFooter() {
   const { rodape } = landing;
