@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 @import "../styles/shadcn-variants.css";
 
 /* Cada site define os próprios valores em src/styles/sites/<site>.css, escopados por [data-site].
