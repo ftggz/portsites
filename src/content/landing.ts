@@ -1,9 +1,15 @@
 export const site = {
-  marca: "[MARCA]",
+  marca: "FTG Sites",
   url: "https://portsites.pages.dev",
-  whatsapp: "[A CONFIRMAR]",
+  whatsapp: "21 99128-7308",
   email: "[A CONFIRMAR]",
-  instagram: "[A CONFIRMAR]",
+  // Atendimento no fuso do Rio; os dias seguem o schema.org.
+  atendimento: {
+    texto: "Segunda a sexta, das 9h às 18h",
+    dias: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    abre: "09:00",
+    fecha: "18:00",
+  },
   documento: "CPF 205.831.427-10",
   cidade: "Rio de Janeiro",
   estado: "RJ",
@@ -234,7 +240,7 @@ export const landing = {
   contato: {
     titulo: ["Me conte do", "seu negócio"],
     frase:
-      "O formulário só monta o texto e abre o seu WhatsApp. O texto não passa por servidor nem fica guardado. Respondo em até 4 horas úteis.",
+      "O formulário só monta o texto e abre o seu WhatsApp. O texto não passa por servidor nem fica guardado. Atendo de segunda a sexta, das 9h às 18h, e respondo em até 4 horas úteis.",
     previa: {
       rotulo: "A mensagem vai assim",
       vazio: { nome: "(seu nome)", negocio: "(seu negócio)", bairro: "(seu bairro)" },
@@ -272,8 +278,8 @@ export const landing = {
     contatos: [
       { kind: "whatsapp", label: "WhatsApp", valor: site.whatsapp },
       { kind: "email", label: "E-mail", valor: site.email },
-      { kind: "instagram", label: "Instagram", valor: site.instagram },
     ],
+    atendimento: site.atendimento.texto,
     politica: { label: "Política de privacidade", href: "/politica-de-privacidade" },
     copyright: `© ${site.ano} ${site.marca}`,
   },

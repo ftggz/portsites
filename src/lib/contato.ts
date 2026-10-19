@@ -20,7 +20,7 @@ export function fillTemplate(template: string, values: Record<string, string>): 
   return template.replace(/\{(\w+)\}/g, (_, key: string) => values[key] ?? "");
 }
 
-export type ContactKind = "whatsapp" | "email" | "instagram";
+export type ContactKind = "whatsapp" | "email";
 
 export function contactHref(kind: ContactKind, value: string): string | null {
   if (!isConfirmed(value)) return null;
@@ -28,7 +28,5 @@ export function contactHref(kind: ContactKind, value: string): string | null {
     const number = whatsappNumber(value);
     return number ? `https://wa.me/${number}` : null;
   }
-  if (kind === "email") return `mailto:${value.trim()}`;
-  const handle = value.trim().replace(/^@/, "").replace(/^https?:\/\/(www\.)?instagram\.com\//, "");
-  return `https://www.instagram.com/${handle}`;
+  return `mailto:${value.trim()}`;
 }

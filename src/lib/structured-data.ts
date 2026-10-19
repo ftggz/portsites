@@ -1,11 +1,10 @@
 import { landing, site } from "@/content/landing";
-import { contactHref, isConfirmed, whatsappNumber } from "@/lib/contato";
+import { isConfirmed, whatsappNumber } from "@/lib/contato";
 
 // Dados estruturados de serviço profissional. Campos ainda não confirmados ficam de fora.
 export function professionalServiceJsonLd() {
   const [criacao, manutencao] = landing.planos.lista;
   const telefone = whatsappNumber(site.whatsapp);
-  const instagram = contactHref("instagram", site.instagram);
   const mensal = Number(manutencao.preco.valor);
 
   return {
@@ -23,7 +22,12 @@ export function professionalServiceJsonLd() {
     },
     ...(telefone ? { telephone: `+${telefone}` } : {}),
     ...(isConfirmed(site.email) ? { email: site.email } : {}),
-    ...(instagram ? { sameAs: [instagram] } : {}),
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: site.atendimento.dias,
+      opens: site.atendimento.abre,
+      closes: site.atendimento.fecha,
+    },
     makesOffer: [
       // A criação não leva preço, porque o valor é projetado para cada negócio.
       {

@@ -43,6 +43,7 @@ export function SiteFooter() {
               );
             })}
           </ul>
+          <p className="m-0 mt-s3">{rodape.atendimento}</p>
         </div>
       </div>
 
