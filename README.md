@@ -73,7 +73,7 @@ O print da pizzaria fixa o relógio numa sexta às 20h, para o forno aparecer ac
 ## Publicação no Cloudflare Pages
 
 - No painel do Cloudflare, em **Workers & Pages → Create → Pages → Connect to Git**, escolha o repositório.
-- Use **Framework preset: None**, **Build command: `npm run build`** e **Build output directory: `out`**. O Node 22 vem do arquivo `.node-version`. Não há variável de ambiente.
+- Use **Framework preset: None**, **Build command: `npm run build`** e **Build output directory: `out`**. O Node 24 vem do arquivo `.node-version`. Não há variável de ambiente.
 - Os cabeçalhos de segurança estão em `public/_headers`, que o build copia para `out/`.
 - O site fica em `<projeto>.pages.dev`. Ponha esse endereço em `site.url` até existir um domínio próprio.
 - Depois do primeiro deploy, siga a lista do fim de `docs/seguranca.md`: cabeçalhos com `curl -I`, redirecionamento para HTTPS, console sem violação de CSP e PageSpeed Insights.

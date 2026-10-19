@@ -59,7 +59,7 @@ Por que a CSP de scripts fica numa `<meta>`:
 
 ## Outras decisões
 
-- O Cloudflare Pages publica a pasta `out/` como site estático, com build `npm run build` e Node 22 (`.node-version`). O `_headers` vai de `public/` para `out/` no build.
+- O Cloudflare Pages publica a pasta `out/` como site estático, com build `npm run build` e Node 24 (`.node-version`). O `_headers` vai de `public/` para `out/` no build.
 - A hospedagem trocou da Vercel para o Cloudflare Pages em 19/10/2026: o plano gratuito da Vercel não permite uso comercial, e a landing divulga um serviço.
 - No Windows, o export do Next 16.4.2 grava os arquivos de prefetch em pastas (`__next.a/b.txt`) onde o navegador pede `__next.a.b.txt`, e o console mostra 404. O mesmo código gera o nome certo no Linux, onde o Cloudflare compila. O `postbuild.mjs` corrige os nomes quando o build é feito no Windows.
 - A Newsreader, fonte da landing, carrega sem preload: o Turbopack anexava o preload dela a todas as rotas, e os sites conceito baixavam 129 KB de uma fonte que não usam.
