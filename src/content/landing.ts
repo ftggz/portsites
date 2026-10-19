@@ -1,6 +1,6 @@
 export const site = {
   marca: "FTG Sites",
-  url: "https://portsites.pages.dev",
+  url: "https://ftgsites.com.br",
   whatsapp: "21 99128-7308",
   email: "contato@ftgsites.com.br",
   // Atendimento no fuso do Rio; os dias seguem o schema.org.
