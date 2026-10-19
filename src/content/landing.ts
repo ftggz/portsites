@@ -2,7 +2,7 @@ export const site = {
   marca: "FTG Sites",
   url: "https://portsites.pages.dev",
   whatsapp: "21 99128-7308",
-  email: "[A CONFIRMAR]",
+  email: "contato@ftgsites.com.br",
   // Atendimento no fuso do Rio; os dias seguem o schema.org.
   atendimento: {
     texto: "Segunda a sexta, das 9h às 18h",
@@ -212,7 +212,7 @@ export const landing = {
       },
       {
         pergunta: "Como pago?",
-        resposta: "Por Pix ou cartão [A CONFIRMAR].",
+        resposta: "A criação, por Pix ou no cartão de crédito em até 6x, com os juros do parcelamento por sua conta. A manutenção é cobrada todo mês no cartão.",
       },
       {
         pergunta: "Qual é o prazo?",

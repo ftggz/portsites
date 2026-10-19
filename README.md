@@ -14,15 +14,16 @@ Landing page do serviço de criação de sites para pequenos negócios do Rio de
 
 Os sites conceito têm uma faixa fixa avisando que o negócio é fictício e ficam fora dos buscadores (`noindex`). Os botões de WhatsApp deles abrem um aviso de demonstração em vez de mandar mensagem.
 
-## Antes de publicar
+## Dados do negócio
 
-O que ainda não foi definido aparece na tela como `[MARCA]` ou `[A CONFIRMAR]`. Tudo fica em `src/content/landing.ts`:
+Ficam em `src/content/landing.ts`. Um valor marcado `[A CONFIRMAR]` aparece assim na tela e não vira link:
 
 - `site.marca`: nome do negócio.
-- `site.whatsapp`: número com DDD, com ou sem o 55, com qualquer pontuação. Enquanto estiver `[A CONFIRMAR]`, o formulário de contato monta a mensagem e avisa que ainda não há número.
-- `site.email` e `site.instagram`. O e-mail também aparece na política de privacidade.
+- `site.whatsapp`: número com DDD, com ou sem o 55, com qualquer pontuação. Sem número, o formulário de contato monta a mensagem e avisa que ainda não há para onde enviar.
+- `site.email`. O e-mail também aparece na política de privacidade.
 - `site.url`: o domínio definitivo. Entra no sitemap, no `robots.txt` e no link da imagem de compartilhamento.
-- A resposta "Como pago?" das perguntas, que ainda diz "Por Pix ou cartão [A CONFIRMAR]".
+- `site.atendimento`: o horário, mostrado no rodapé e repetido nos dados estruturados.
+- A resposta "Como pago?" das perguntas, com as formas de pagamento e o parcelamento.
 
 ## Requisitos
 
