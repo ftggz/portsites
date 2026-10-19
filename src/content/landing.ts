@@ -8,7 +8,7 @@ export const site = {
   cidade: "Rio de Janeiro",
   estado: "RJ",
   ano: 2026,
-  atualizadoEm: "2026-10-18",
+  atualizadoEm: "2026-10-19",
 } as const;
 
 export const conceito = {
@@ -316,7 +316,7 @@ export const landing = {
       {
         titulo: "Hospedagem",
         paragrafos: [
-          "O site fica hospedado na Vercel, empresa dos Estados Unidos, que pode registrar dados técnicos de acesso, como endereço IP e tipo de navegador, para segurança e funcionamento do serviço.",
+          "O site fica hospedado na Cloudflare, empresa dos Estados Unidos, que pode registrar dados técnicos de acesso, como endereço IP e tipo de navegador, para segurança e funcionamento do serviço.",
         ],
       },
       {

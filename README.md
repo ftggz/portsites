@@ -37,7 +37,7 @@ O que ainda não foi definido aparece na tela como `[MARCA]` ou `[A CONFIRMAR]`.
 | `npm ci` | Instala as dependências na versão exata do `package-lock.json` |
 | `npm run dev` | Servidor de desenvolvimento em <http://localhost:3000> |
 | `npm run build` | Gera o site em `out/` e roda `scripts/postbuild.mjs`, que grava a CSP de cada página |
-| `npm run preview` | Serve `out/` em <http://127.0.0.1:4321> com os cabeçalhos do `vercel.json` e gzip, como a Vercel faria |
+| `npm run preview` | Serve `out/` em <http://127.0.0.1:4321> com os cabeçalhos do `public/_headers` e gzip, como o Cloudflare Pages faria |
 | `npm run check` | Lint, checagem de tipos e build, nessa ordem |
 | `npm run lint` | Só o ESLint |
 | `npm run typecheck` | Só a checagem de tipos |
@@ -70,17 +70,19 @@ O servidor de desenvolvimento não aplica a CSP. Para testar o site como ele vai
 
 O print da pizzaria fixa o relógio numa sexta às 20h, para o forno aparecer aceso.
 
-## Publicação na Vercel
+## Publicação no Cloudflare Pages
 
-- Importe o repositório na Vercel. O `vercel.json` já define a instalação (`npm ci`), o build (`npm run build`), a pasta publicada (`out`), as URLs sem `.html` e os cabeçalhos de segurança. Não há variável de ambiente.
-- Escolha Node 22 ou mais novo nas configurações do projeto.
+- No painel do Cloudflare, em **Workers & Pages → Create → Pages → Connect to Git**, escolha o repositório.
+- Use **Framework preset: None**, **Build command: `npm run build`** e **Build output directory: `out`**. O Node 22 vem do arquivo `.node-version`. Não há variável de ambiente.
+- Os cabeçalhos de segurança estão em `public/_headers`, que o build copia para `out/`.
+- O site fica em `<projeto>.pages.dev`. Ponha esse endereço em `site.url` até existir um domínio próprio.
 - Depois do primeiro deploy, siga a lista do fim de `docs/seguranca.md`: cabeçalhos com `curl -I`, redirecionamento para HTTPS, console sem violação de CSP e PageSpeed Insights.
 
 ## Segurança
 
 O relatório completo, com os 20 controles verificados, está em `docs/seguranca.md`.
 
-- A CSP de scripts usa um hash por script inline e não tem `'unsafe-inline'`. Ela é gravada em cada página pelo `scripts/postbuild.mjs`, porque os scripts do Next mudam a cada build. Os outros cabeçalhos ficam no `vercel.json`.
+- A CSP de scripts usa um hash por script inline e não tem `'unsafe-inline'`. Ela é gravada em cada página pelo `scripts/postbuild.mjs`, porque os scripts do Next mudam a cada build. Os outros cabeçalhos ficam no `public/_headers`.
 - O build falha se aparecer no HTML um atributo `style`, um bloco `<style>`, um evento inline (`onclick` e afins) ou uma URL `javascript:`. Por isso o código não usa `style` no JSX; variações e atrasos de animação vão por classes e atributos `data-`.
 - Nenhum segredo vai para o repositório, e o `.env*` está no `.gitignore`.
 - Links externos usam `rel="noopener noreferrer"`.

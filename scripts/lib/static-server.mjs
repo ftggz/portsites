@@ -21,30 +21,34 @@ const types = {
 
 const compressible = /^(text\/|application\/(json|xml)|image\/svg)/;
 
-// Lê as regras de cabeçalho do vercel.json. As origens usam só trechos fixos e (.*), então a
-// conversão para expressão regular é direta; outra sintaxe para o servidor, em vez de ser ignorada.
-function loadHeaderRules(configFile) {
-  if (!configFile || !existsSync(configFile)) return [];
-  const config = JSON.parse(readFileSync(configFile, "utf8"));
-  return (config.headers ?? []).map((rule) => {
-    const parts = rule.source.split("(.*)");
-    if (parts.some((part) => /[()[\]:*?+]/.test(part))) {
-      throw new Error(`Origem não suportada pela prévia local: ${rule.source}`);
+// Lê o arquivo _headers no formato do Cloudflare Pages: uma linha com o caminho, que aceita *,
+// seguida das linhas recuadas "Nome: valor". Placeholders (:nome) não são usados e param a prévia.
+function loadHeaderRules(headersFile) {
+  if (!headersFile || !existsSync(headersFile)) return [];
+  const rules = [];
+  for (const line of readFileSync(headersFile, "utf8").split(/\r?\n/)) {
+    if (!line.trim() || line.trim().startsWith("#")) continue;
+    if (!/^\s/.test(line)) {
+      if (/:[a-z]/i.test(line)) throw new Error(`Caminho não suportado pela prévia local: ${line}`);
+      const pattern = new RegExp(`^${line.trim().split("*").map((part) => part.replace(/[.\\^$|{}()[\]+?]/g, "\\$&")).join(".*")}$`);
+      rules.push({ pattern, headers: [] });
+      continue;
     }
-    const pattern = new RegExp(`^${parts.map((part) => part.replace(/[.\\^$|{}]/g, "\\$&")).join(".*")}$`);
-    return { pattern, headers: rule.headers };
-  });
+    const separator = line.indexOf(":");
+    rules.at(-1)?.headers.push({ key: line.slice(0, separator).trim(), value: line.slice(separator + 1).trim() });
+  }
+  return rules;
 }
 
-// Resolve /rota para rota.html ou rota/index.html, como a Vercel faz com cleanUrls.
+// Resolve /rota para rota.html ou rota/index.html, como o Cloudflare Pages faz.
 function resolveFile(root, pathname) {
   const base = normalize(join(root, decodeURIComponent(pathname)));
   if (base !== root && !base.startsWith(root + sep)) return null;
   return [base, `${base}.html`, join(base, "index.html")].find((file) => existsSync(file) && statSync(file).isFile()) ?? null;
 }
 
-export function startStaticServer(root, port = 0, { configFile } = {}) {
-  const rules = loadHeaderRules(configFile);
+export function startStaticServer(root, port = 0, { headersFile } = {}) {
+  const rules = loadHeaderRules(headersFile);
   const server = createServer((request, response) => {
     const { pathname } = new URL(request.url ?? "/", "http://localhost");
     const resolved = resolveFile(root, pathname);

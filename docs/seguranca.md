@@ -1,6 +1,6 @@
 # Relatório de segurança pré-deploy
 
-**Stack identificada:** Next.js 16.4.2 (App Router, export estático em `out/`), TypeScript, Tailwind CSS 4. Sem banco de dados, sem login e sem API. Hospedagem estática na Vercel.
+**Stack identificada:** Next.js 16.4.2 (App Router, export estático em `out/`), TypeScript, Tailwind CSS 4. Sem banco de dados, sem login e sem API. Hospedagem estática no Cloudflare Pages, no endereço gratuito `.pages.dev`.
 **Veredito:** LIBERADO (0 críticos em aberto). Três itens dependem do ambiente publicado e ficam para conferir depois do primeiro deploy (lista no fim).
 
 | #  | Controle                         | Status          | Severidade | Onde |
@@ -22,13 +22,13 @@
 | 15 | Escapar conteúdo do usuário      | OK              | —          | O React escapa o texto; o único `dangerouslySetInnerHTML` é o JSON-LD com dados fixos e `<` escapado (`src/lib/structured-data.ts:51`) |
 | 16 | Restringir upload                | Não se aplica   | —          | Sem upload |
 | 17 | Enxugar a resposta da API        | Não se aplica   | —          | Sem API |
-| 18 | Headers de segurança             | OK              | —          | `vercel.json` e CSP por página gravada no build (`scripts/postbuild.mjs`) |
-| 19 | Forçar HTTPS                     | OK em parte     | —          | HSTS no `vercel.json` e nenhum recurso por `http://`; o redirecionamento 301 é da Vercel e fica para conferir no deploy |
+| 18 | Headers de segurança             | OK              | —          | `public/_headers` e CSP por página gravada no build (`scripts/postbuild.mjs`) |
+| 19 | Forçar HTTPS                     | OK em parte     | —          | HSTS no `public/_headers` e nenhum recurso por `http://`; o redirecionamento para HTTPS é do Cloudflare e fica para conferir no deploy |
 | 20 | Escanear dependências            | OK              | —          | `npm audit` sem vulnerabilidades; `package-lock.json` versionado; `radix-ui` e `tw-animate-css` removidas por não serem usadas |
 
 ## Cabeçalhos e CSP
 
-Cabeçalhos de todas as respostas, no `vercel.json`:
+Cabeçalhos de todas as respostas, no `public/_headers` (formato do Cloudflare Pages):
 
 ```
 Content-Security-Policy: frame-ancestors 'none'; base-uri 'self'; object-src 'none'; form-action 'self'; upgrade-insecure-requests
@@ -51,7 +51,7 @@ form-action 'self'; upgrade-insecure-requests
 Por que a CSP de scripts fica numa `<meta>`:
 
 - O Next põe scripts inline em cada página, e eles levam o id do build, que muda a cada build. Nonce exige servidor, e o export é estático (confirmado em `node_modules/next/dist/docs/01-app/02-guides/content-security-policy.md`).
-- O `vercel.json` é lido antes do build, então não pode carregar hashes que só existem depois dele. Calculados no próprio build, os hashes sempre batem com o HTML publicado.
+- Um arquivo de cabeçalhos fixo no repositório não acompanharia hashes que mudam a cada build. Calculados no próprio build, eles sempre batem com o HTML publicado.
 - O que uma `<meta>` não aceita (`frame-ancestors`) fica no cabeçalho. O navegador aplica as duas políticas juntas.
 - Nenhuma diretiva usa `'unsafe-inline'` nem `'unsafe-eval'`. O build falha se aparecer atributo `style`, bloco `<style>`, evento inline ou URL `javascript:` no HTML.
 
@@ -59,13 +59,14 @@ Por que a CSP de scripts fica numa `<meta>`:
 
 ## Outras decisões
 
-- A Vercel publica a pasta `out/` como site estático (`framework: null`, `outputDirectory: "out"`, `cleanUrls: true`), para que o build rode `scripts/postbuild.mjs` e os cabeçalhos venham só do `vercel.json`.
-- No Windows, o export do Next 16.4.2 grava os arquivos de prefetch em pastas (`__next.a/b.txt`) onde o navegador pede `__next.a.b.txt`, e o console mostra 404. O mesmo código gera o nome certo no Linux, onde a Vercel compila. O `postbuild.mjs` corrige os nomes quando o build é feito no Windows.
+- O Cloudflare Pages publica a pasta `out/` como site estático, com build `npm run build` e Node 22 (`.node-version`). O `_headers` vai de `public/` para `out/` no build.
+- A hospedagem trocou da Vercel para o Cloudflare Pages em 19/10/2026: o plano gratuito da Vercel não permite uso comercial, e a landing divulga um serviço.
+- No Windows, o export do Next 16.4.2 grava os arquivos de prefetch em pastas (`__next.a/b.txt`) onde o navegador pede `__next.a.b.txt`, e o console mostra 404. O mesmo código gera o nome certo no Linux, onde o Cloudflare compila. O `postbuild.mjs` corrige os nomes quando o build é feito no Windows.
 - A Newsreader, fonte da landing, carrega sem preload: o Turbopack anexava o preload dela a todas as rotas, e os sites conceito baixavam 129 KB de uma fonte que não usam.
 
 ## Lighthouse
 
-Lighthouse 13.5.0 com o Edge, sobre a prévia local (`npm run preview`), que aplica os cabeçalhos do `vercel.json` e gzip. Notas de desempenho, acessibilidade, boas práticas e SEO.
+Lighthouse 13.5.0 com o Edge, sobre a prévia local (`npm run preview`), que aplica os cabeçalhos do `_headers` e gzip. Notas de desempenho, acessibilidade, boas práticas e SEO.
 
 | Página | Celular | Desktop |
 |---|---|---|

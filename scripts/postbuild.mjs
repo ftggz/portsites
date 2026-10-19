@@ -1,10 +1,10 @@
 // Roda depois do next build, sobre a pasta out/. Corrige os nomes dos arquivos de prefetch quando o
 // build é feito no Windows e grava em cada página a CSP com os hashes dos seus scripts inline.
 //
-// A CSP de scripts fica numa <meta> e não no vercel.json porque o Next põe scripts inline que mudam
-// a cada build (levam o id do build), e o vercel.json é lido antes do build. Calculando aqui, os
-// hashes sempre batem com o HTML publicado. O que uma <meta> não aceita (frame-ancestors) fica no
-// cabeçalho do vercel.json; o navegador aplica as duas políticas juntas.
+// A CSP de scripts fica numa <meta> e não no public/_headers porque o Next põe scripts inline que
+// mudam a cada build (levam o id do build). Calculando aqui, os hashes sempre batem com o HTML
+// publicado. O que uma <meta> não aceita (frame-ancestors) fica no _headers; o navegador aplica as
+// duas políticas juntas.
 import { createHash } from "node:crypto";
 import { existsSync, readdirSync, readFileSync, renameSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { dirname, join, relative, sep } from "node:path";

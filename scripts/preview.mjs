@@ -1,4 +1,4 @@
-// Serve a pasta out/ como a Vercel faria, com os cabeçalhos do vercel.json e compressão,
+// Serve a pasta out/ como o Cloudflare Pages faria, com os cabeçalhos do _headers e compressão,
 // para conferir o build localmente.
 import { existsSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
@@ -15,6 +15,6 @@ if (!existsSync(root)) {
 }
 
 const { url } = await startStaticServer(root, Number(process.env.PORT ?? 4321), {
-  configFile: join(projectRoot, "vercel.json"),
+  headersFile: join(root, "_headers"),
 });
 console.log(`Prévia do build em ${url}`);
